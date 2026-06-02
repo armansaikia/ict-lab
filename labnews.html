@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,30 +6,421 @@
   <title>Lab News | Integrated Cancer Theranostic Laboratory</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    :root {
+      --nd:    #0d4a58;
+      --nm:    #165e6e;
+      --nl:    #1f7e8e;
+      --acc:   #c9a020;
+      --accl:  #e4c04a;
+      --leaf:  #2a8428;
+      --cream: #f7f8f5;
+      --white: #ffffff;
+      --text:  #131e1c;
+      --muted: #516068;
+      --border:#d6ddd8;
+      --shadow: 0 14px 34px rgba(13,74,88,.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: linear-gradient(180deg, #f9faf8 0%, #f7f8f5 50%, #edf0eb 100%);
+      color: var(--text); font-size: 16px; line-height: 1.6;
+    }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 36px; height: 72px;
+      box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(13,74,88,.10);
+      border-bottom: 2px solid var(--acc);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-img { height: 56px; width: 56px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px; box-shadow: 0 0 0 1.5px var(--border), 0 2px 8px rgba(13,74,88,.12); flex-shrink: 0; }
+    .nav-logo { width: 46px; height: 46px; border-radius: 50%; background: var(--acc); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0; }
+    .nav-title { color: var(--nd); font-family: 'Playfair Display', serif; font-size: 14px; line-height: 1.3; max-width: 260px; }
+    .nav-links { display: flex; gap: 3px; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 12.5px; padding: 8px 11px; border-radius: 4px; transition: background .18s, color .18s; white-space: nowrap; }
+    .nav-links a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
+    .nav-links a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; z-index: 999; flex-direction: column; padding: 12px 20px 20px; border-top: 2px solid var(--acc); box-shadow: 0 8px 20px rgba(13,74,88,.15); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 11px 12px; border-radius: 4px; }
+    .mobile-menu a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
+    .mobile-menu a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+
+    main { padding-top: 72px; }
+
+    /* ── HERO ── */
+    .section-hero {
+      background: linear-gradient(135deg, var(--nd), var(--nm));
+      text-align: center; position: relative; overflow: hidden;
+      padding: 62px 32px 58px;
+    }
+    .section-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 38px,
+        rgba(201,160,32,.038) 38px, rgba(201,160,32,.038) 39px);
+      opacity: .55;
+    }
+    .hero-deco { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
+    .hero-deco2 { position: absolute; bottom: -60px; left: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(42,132,40,.04); pointer-events: none; }
+    .section-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,44px); color: #e8f4f6; position: relative; animation: fadeUp .7s ease both; }
+    .section-hero p { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; }
+    .hero-badge { display: inline-block; margin-top: 20px; border: 1px solid rgba(201,160,32,.55); background: rgba(201,160,32,.1); color: var(--accl); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 7px 22px; border-radius: 2px; position: relative; animation: fadeUp .7s .28s ease both; }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 32px; }
+
+    /* ── YEAR BLOCK ── */
+    .year-block { margin-bottom: 60px; }
+
+    .year-label {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 32px;
+    }
+    .year-label h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; color: var(--nd);
+      white-space: nowrap;
+    }
+    .year-label::after {
+      content: '';
+      display: block; flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--acc), transparent);
+      border-radius: 2px;
+    }
+
+    /* ── NEWS ITEM ── */
+    .news-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(13,74,88,.07);
+      margin-bottom: 22px;
+      transition: transform .22s, box-shadow .22s;
+      opacity: 0; transform: translateY(20px);
+    }
+    .news-item.visible { animation: fadeUp .55s ease forwards; }
+    .news-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+    /* month sidebar */
+    .news-month {
+      background: linear-gradient(160deg, var(--nd), var(--nm));
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 28px 16px;
+      position: relative;
+      min-width: 160px;
+    }
+    .news-month::after {
+      content: '';
+      position: absolute; right: 0; top: 20%; bottom: 20%;
+      width: 1px; background: rgba(201,160,32,.3);
+    }
+    .month-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; color: var(--accl);
+      letter-spacing: 1px; text-align: center;
+    }
+    .month-year {
+      font-size: 12px; color: rgba(255,255,255,.45);
+      margin-top: 4px; letter-spacing: 1.5px;
+    }
+    .month-icon {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(201,160,32,.15);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accl); font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    /* right content area */
+    .news-content {
+      display: flex;
+      gap: 0;
+    }
+
+    /* photo */
+    .news-photo {
+      width: 220px; min-width: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8eee9, #d4ddd5);
+    }
+    .news-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .news-item:hover .news-photo img { transform: scale(1.05); }
+
+    /* text */
+    .news-text {
+      padding: 26px 28px;
+      display: flex; flex-direction: column; justify-content: center;
+      flex: 1;
+    }
+    .news-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(13,74,88,.07); color: var(--nd);
+      font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 3px;
+      margin-bottom: 12px; width: fit-content;
+    }
+    .news-tag i { font-size: 10px; color: var(--acc); }
+    .news-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; color: var(--nd);
+      line-height: 1.35; margin-bottom: 10px;
+    }
+    .news-desc {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.75;
+    }
+    .news-desc a {
+      color: var(--nl); text-decoration: none;
+      border-bottom: 1px dotted var(--nl);
+      transition: color .18s, border-color .18s;
+    }
+    .news-desc a:hover { color: var(--acc); border-color: var(--acc); }
+
+    .congrats-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px;
+      background: linear-gradient(90deg, rgba(201,160,32,.12), rgba(201,160,32,.05));
+      border: 1px solid rgba(201,160,32,.35);
+      color: #8a6a00; font-size: 12px; font-weight: 600;
+      padding: 5px 14px; border-radius: 20px; width: fit-content;
+    }
+    .congrats-badge i { color: var(--acc); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(8,46,56,.94); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner { max-width: 800px; width: 100%; position: relative; animation: fadeUp .3s ease; }
+    .lightbox-inner img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: 8px; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+    .lightbox-caption { text-align: center; margin-top: 16px; font-family: 'Playfair Display', serif; font-size: 18px; color: #e8f4f6; }
+    .lightbox-close { position: absolute; top: -16px; right: -16px; width: 38px; height: 38px; border-radius: 50%; background: var(--acc); color: var(--nd); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+
+    /* ── FOOTER ── */
+    footer { background: #082e38; padding: 34px 44px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid rgba(201,160,32,.2); }
+    .footer-brand { font-family: 'Playfair Display', serif; color: var(--acc); font-size: 14px; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { color: #5a8892; font-size: 12px; text-decoration: none; }
+    .footer-links a:hover { color: var(--accl); }
+    .footer-copy { color: #5a8892; font-size: 12px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .news-item { grid-template-columns: 1fr; }
+      .news-month { flex-direction: row; gap: 12px; padding: 18px 22px; border-radius: 0; min-width: unset; }
+      .news-month::after { display: none; }
+      .month-icon { margin-bottom: 0; }
+      .news-photo { width: 100%; min-width: unset; height: 220px; }
+      .news-content { flex-direction: column; }
+    }
+    @media (max-width: 780px) {
+      .nav-links { display: none; } .hamburger { display: flex; }
+      #navbar { height: 66px; } main { padding-top: 66px; }
+      .mobile-menu { top: 66px; }
+      .container { padding: 40px 20px; }
+      footer { padding: 26px 20px; }
+    }
+    @media (max-width: 500px) {
+      .news-text { padding: 18px 18px; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ══ NAVBAR ══ -->
   <nav id="navbar">
-    <a class="nav-brand" href="index.html"><div class="nav-logo">ICT</div><div class="nav-title">Integrated Cancer Theranostic Laboratory</div></a>
-    <div class="nav-links"><a href="index.html">Home</a><a href="research.html">Research Interest</a><a href="group.html">Research Group</a><a href="publications.html">Publications</a><a href="alumni.html">Alumni</a><a href="activities.html">Lab Activities</a><a class="active" href="news.html">Lab News</a><a href="contact.html">Contact Us</a></div>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <a class="nav-brand" href="index.html">
+      <img class="nav-logo-img" src="images/logo.png" alt="ICT Lab Logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="nav-logo" style="display:none;">ICT</div>
+      <div class="nav-title">Integrated Cancer Theranostic Laboratory</div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="researchinterest.html">Research Interest</a>
+      <a href="researchgroup.html">Research Group</a>
+      <a href="publications.html">Publications</a>
+      <a href="alumni.html">Alumni</a>
+      <a href="labactivities.html">Lab Activities</a>
+      <a class="active" href="labnews.html">Lab News</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
-  <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="research.html">Research Interest</a><a href="group.html">Research Group</a><a href="publications.html">Publications</a><a href="alumni.html">Alumni</a><a href="activities.html">Lab Activities</a><a class="active" href="news.html">Lab News</a><a href="contact.html">Contact Us</a></div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="researchinterest.html">Research Interest</a>
+    <a href="researchgroup.html">Research Group</a>
+    <a href="publications.html">Publications</a>
+    <a href="alumni.html">Alumni</a>
+    <a href="labactivities.html">Lab Activities</a>
+    <a class="active" href="labnews.html">Lab News</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
   <main>
-    <section class="section-hero"><h1>Lab News</h1><p>Latest updates from the Integrated Cancer Theranostic Laboratory</p></section>
-    <section class="container">
-      <div class="news-list">
-        <article class="news-item"><div class="news-date">MAY<span>25</span></div><div><div class="news-tag tag-pub">Publication</div><div class="news-title">Paper accepted in Journal of Controlled Release</div><div class="news-desc">Ananya Pathak's work on theranostic nanoparticles has been accepted for publication. Congratulations, Ananya!</div></div></article>
-        <article class="news-item"><div class="news-date">APR<span>25</span></div><div><div class="news-tag tag-event">Event</div><div class="news-title">Dr. Konwar delivers keynote at NCCS Symposium</div><div class="news-desc">The PI presented an invited keynote lecture on cancer theranostics at the National Centre for Cell Science annual symposium in Pune.</div></div></article>
-        <article class="news-item"><div class="news-date">MAR<span>25</span></div><div><div class="news-tag tag-grant">Grant</div><div class="news-title">New DST-SERB Core Research Grant sanctioned</div><div class="news-desc">The lab has been awarded a 3-year DST-SERB CRG for the project on EGFR-targeted therapy in non-small cell lung cancer.</div></div></article>
-        <article class="news-item"><div class="news-date">FEB<span>25</span></div><div><div class="news-tag tag-award">Award</div><div class="news-title">Sourav Mitra wins Best Poster Award</div><div class="news-desc">Sourav won the Best Poster Award at the Indo-German Conference on Cancer Biology held in Bengaluru. Proud of you!</div></div></article>
-        <article class="news-item"><div class="news-date">JAN<span>25</span></div><div><div class="news-tag tag-welcome">Welcome</div><div class="news-title">Two new Ph.D. scholars join the lab</div><div class="news-desc">We warmly welcome Sneha Baruah and Dhruv Prasad to the ICT Lab family. Wishing them a highly productive research journey!</div></div></article>
-        <article class="news-item"><div class="news-date">NOV<span>24</span></div><div><div class="news-tag tag-infra">Infrastructure</div><div class="news-title">Lab inaugurates upgraded confocal microscopy facility</div><div class="news-desc">The new LSM 980 confocal microscope is now operational, enabling high-resolution live-cell and super-resolution imaging.</div></div></article>
-        <article class="news-item"><div class="news-date">SEP<span>24</span></div><div><div class="news-tag tag-pub">Publication</div><div class="news-title">Review article published in Frontiers in Oncology</div><div class="news-desc">Our comprehensive review on epigenetic reprogramming by natural compounds in breast cancer is now published and open access.</div></div></article>
-      </div>
+
+    <!-- ══ HERO ══ -->
+    <section class="section-hero">
+      <div class="hero-deco"></div>
+      <div class="hero-deco2"></div>
+      <h1>Lab News</h1>
+      <p>Achievements, awards & milestones from our research family</p>
+      <div class="hero-badge">CSIR-NEIST · Jorhat, Assam</div>
     </section>
+
+    <div class="container">
+
+      <!-- ══ 2023 ══ -->
+      <div class="year-block">
+        <div class="year-label">
+          <h2>2023</h2>
+        </div>
+
+        <!-- September — Esha Poster Award -->
+        <div class="news-item" style="animation-delay:0s;"
+             onclick="openLightbox('images/news1.jpg','Esha receiving Best Poster Presentation Award at NSARA')">
+          <div class="news-month">
+            <div class="month-icon"><i class="fa-solid fa-trophy"></i></div>
+            <div class="month-name">September</div>
+            <div class="month-year">2023</div>
+          </div>
+          <div class="news-content">
+            <div class="news-photo">
+              <img src="images/news1.jpg" alt="Esha receiving Best Poster Award at NSARA" />
+            </div>
+            <div class="news-text">
+              <div class="news-tag"><i class="fa-solid fa-award"></i> Award</div>
+              <div class="news-title">Esha Receives Best Poster Presentation Award at NSARA</div>
+              <div class="news-desc">
+                Esha has been awarded the <strong>Best Poster Presentation</strong> at the
+                <em>National Symposium and Workshop on Crosstalk between Animal Research &amp;
+                Alternatives (NSARA)</em>, organised by CSIR-NEIST. Her outstanding contribution
+                to the symposium reflects the high calibre of research carried out at the
+                Integrated Cancer Theranostic Laboratory.
+              </div>
+              <div class="congrats-badge">
+                <i class="fa-solid fa-star"></i> Congratulations, Esha!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- August — Lydia DST-INSPIRE -->
+        <div class="news-item" style="animation-delay:.1s;"
+             onclick="openLightbox('images/news2.jpg','Lydia receiving her DST-INSPIRE Fellow Award Letter')">
+          <div class="news-month">
+            <div class="month-icon"><i class="fa-solid fa-medal"></i></div>
+            <div class="month-name">August</div>
+            <div class="month-year">2023</div>
+          </div>
+          <div class="news-content">
+            <div class="news-photo">
+              <img src="images/news2.jpg" alt="Lydia with DST-INSPIRE Award Letter" />
+            </div>
+            <div class="news-text">
+              <div class="news-tag"><i class="fa-solid fa-certificate"></i> Fellowship</div>
+              <div class="news-title">Lydia Receives DST-INSPIRE Fellow Award &amp; Joins University of Delhi as JRF</div>
+              <div class="news-desc">
+                Lydia received her <strong>DST-INSPIRE Fellow Award Letter</strong> and has
+                joined as a <strong>Junior Research Fellow (JRF)</strong> at the
+                <strong>University of Delhi, India</strong>, under the supervision of
+                <a href="https://biochem.du.ac.in/Academic/FacultyProfiles/Professor-Alo-Nag"
+                   target="_blank" rel="noopener">Dr. Alo Nag</a>,
+                Department of Biochemistry. We are immensely proud of her achievement and
+                wish her a wonderful and fulfilling journey ahead.
+              </div>
+              <div class="congrats-badge">
+                <i class="fa-solid fa-star"></i> Best wishes, Lydia!
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /year-block 2023 -->
+
+    </div><!-- /container -->
   </main>
-  <footer><div class="footer-brand">Integrated Cancer Theranostic Laboratory</div><div class="footer-copy">&copy; 2025 Rituraj Konwar Lab · All rights reserved</div></footer>
-  <script src="assets/script.js"></script>
+
+  <!-- ══ LIGHTBOX ══ -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-brand">Integrated Cancer Theranostic Laboratory</div>
+    <div class="footer-links">
+      <a href="contact.html">Contact</a>
+      <a href="publications.html">Publications</a>
+      <a href="labactivities.html">Lab Activities</a>
+    </div>
+    <div class="footer-copy">&copy; 2025 Rituraj Konwar Lab · All rights reserved</div>
+  </footer>
+
+  <script>
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.news-item').forEach(c => observer.observe(c));
+
+    // Lightbox
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e) {
+      if (!e || e.target === document.getElementById('lightbox') || e.target.closest('.lightbox-close')) {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>
