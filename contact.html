@@ -6,15 +6,330 @@
   <title>Contact Us | Integrated Cancer Theranostic Laboratory</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    :root {
+      --nd:    #0d4a58;
+      --nm:    #165e6e;
+      --nl:    #1f7e8e;
+      --acc:   #c9a020;
+      --accl:  #e4c04a;
+      --leaf:  #2a8428;
+      --cream: #f7f8f5;
+      --white: #ffffff;
+      --text:  #131e1c;
+      --muted: #516068;
+      --border:#d6ddd8;
+      --shadow: 0 14px 34px rgba(13,74,88,.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: linear-gradient(180deg, #f9faf8 0%, #f7f8f5 50%, #edf0eb 100%);
+      color: var(--text); font-size: 16px; line-height: 1.6;
+    }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 36px; height: 72px;
+      box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(13,74,88,.10);
+      border-bottom: 2px solid var(--acc);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-img { height: 56px; width: 56px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px; box-shadow: 0 0 0 1.5px var(--border), 0 2px 8px rgba(13,74,88,.12); flex-shrink: 0; }
+    .nav-logo { width: 46px; height: 46px; border-radius: 50%; background: var(--acc); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0; }
+    .nav-title { color: var(--nd); font-family: 'Playfair Display', serif; font-size: 14px; line-height: 1.3; max-width: 260px; }
+    .nav-links { display: flex; gap: 3px; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 12.5px; padding: 8px 11px; border-radius: 4px; transition: background .18s, color .18s; white-space: nowrap; }
+    .nav-links a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
+    .nav-links a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; z-index: 999; flex-direction: column; padding: 12px 20px 20px; border-top: 2px solid var(--acc); box-shadow: 0 8px 20px rgba(13,74,88,.15); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 11px 12px; border-radius: 4px; }
+    .mobile-menu a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
+    .mobile-menu a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+
+    main { padding-top: 72px; }
+
+    /* ── HERO ── */
+    .section-hero {
+      background: linear-gradient(135deg, var(--nd), var(--nm));
+      text-align: center; position: relative; overflow: hidden;
+      padding: 62px 32px 58px;
+    }
+    .section-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 38px,
+        rgba(201,160,32,.038) 38px, rgba(201,160,32,.038) 39px);
+      opacity: .55;
+    }
+    .hero-deco  { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
+    .hero-deco2 { position: absolute; bottom: -60px; left: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(42,132,40,.04); pointer-events: none; }
+    .section-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,44px); color: #e8f4f6; position: relative; animation: fadeUp .7s ease both; }
+    .section-hero p  { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; max-width: 560px; margin-inline: auto; }
+    .hero-badge { display: inline-block; margin-top: 20px; border: 1px solid rgba(201,160,32,.55); background: rgba(201,160,32,.1); color: var(--accl); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 7px 22px; border-radius: 2px; position: relative; animation: fadeUp .7s .28s ease both; }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 60px 32px 80px; }
+
+    /* ── CONTACT GRID ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ── INFO PANEL ── */
+    .contact-info {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: fadeUp .6s ease both;
+    }
+
+    .info-header {
+      background: linear-gradient(135deg, var(--nd), var(--nm));
+      padding: 28px 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .info-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 24px,
+        rgba(201,160,32,.04) 24px, rgba(201,160,32,.04) 25px);
+    }
+    .info-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; color: #e8f4f6;
+      position: relative;
+    }
+    .info-header p {
+      color: #7ab4be; font-size: 13px; margin-top: 4px;
+      position: relative;
+    }
+
+    .contact-rows { padding: 8px 0; }
+
+    .contact-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--border);
+      transition: background .18s;
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row:hover { background: rgba(13,74,88,.03); }
+
+    .contact-icon {
+      width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(13,74,88,.1), rgba(13,74,88,.05));
+      border: 1px solid rgba(13,74,88,.12);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--nd); font-size: 15px;
+      margin-top: 2px;
+    }
+    .contact-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--acc);
+      margin-bottom: 4px;
+    }
+    .contact-val {
+      font-size: 14px; color: var(--text); line-height: 1.65;
+    }
+    .contact-val a {
+      color: var(--nl); text-decoration: none;
+      border-bottom: 1px dotted var(--nl);
+      transition: color .18s, border-color .18s;
+    }
+    .contact-val a:hover { color: var(--acc); border-color: var(--acc); }
+
+    /* ── FORM PANEL ── */
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: fadeUp .6s .1s ease both;
+    }
+
+    .form-header {
+      background: linear-gradient(135deg, var(--nd), var(--nm));
+      padding: 28px 32px 24px;
+      position: relative; overflow: hidden;
+    }
+    .form-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 24px,
+        rgba(201,160,32,.04) 24px, rgba(201,160,32,.04) 25px);
+    }
+    .form-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; color: #e8f4f6; position: relative;
+    }
+    .form-header p {
+      color: #7ab4be; font-size: 13px; margin-top: 4px; position: relative;
+    }
+
+    .form-body { padding: 28px 32px 32px; }
+
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-size: 12.5px; font-weight: 600;
+      color: var(--nd); margin-bottom: 6px; letter-spacing: .3px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px; color: var(--text);
+      background: #fafbfa;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--nl);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(31,126,142,.1);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #aab8bc; }
+    .form-group textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+
+    /* custom select arrow */
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      color: var(--muted); pointer-events: none; font-size: 13px;
+    }
+    .select-wrap select { padding-right: 36px; cursor: pointer; }
+
+    .submit-btn {
+      width: 100%; padding: 13px 24px;
+      background: linear-gradient(135deg, var(--nd), var(--nm));
+      color: var(--accl); font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px; font-weight: 600; letter-spacing: .5px;
+      border: none; border-radius: 9px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: transform .18s, box-shadow .18s, filter .18s;
+      box-shadow: 0 4px 14px rgba(13,74,88,.25);
+      margin-top: 4px;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(13,74,88,.3); filter: brightness(1.08); }
+    .submit-btn:active { transform: translateY(0); }
+
+    .form-success {
+      display: none;
+      text-align: center; padding: 40px 32px;
+      font-size: 15px; color: var(--nd); line-height: 1.8;
+    }
+    .form-success i {
+      font-size: 44px; color: var(--leaf);
+      display: block; margin-bottom: 16px;
+      animation: popIn .4s ease;
+    }
+    .form-success strong { font-family: 'Playfair Display', serif; font-size: 18px; display: block; margin-bottom: 6px; }
+
+    /* ── MAP BOX ── */
+    .map-box {
+      margin-top: 36px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: fadeUp .6s .2s ease both;
+    }
+    .map-label {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px 28px;
+      background: linear-gradient(135deg, var(--nd), var(--nm));
+      position: relative; overflow: hidden;
+    }
+    .map-label::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 24px,
+        rgba(201,160,32,.04) 24px, rgba(201,160,32,.04) 25px);
+    }
+    .map-label i { color: var(--accl); font-size: 20px; position: relative; }
+    .map-label div { position: relative; }
+    .map-label strong { color: #e8f4f6; font-size: 15px; display: block; font-family: 'Playfair Display', serif; }
+    .map-label span { color: #7ab4be; font-size: 13px; }
+
+    .map-embed {
+      width: 100%; height: 360px; border: none; display: block;
+      filter: saturate(.85);
+    }
+
+    /* ── FOOTER ── */
+    footer { background: #082e38; padding: 34px 44px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid rgba(201,160,32,.2); }
+    .footer-brand { font-family: 'Playfair Display', serif; color: var(--acc); font-size: 14px; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { color: #5a8892; font-size: 12px; text-decoration: none; }
+    .footer-links a:hover { color: var(--accl); }
+    .footer-copy { color: #5a8892; font-size: 12px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+      from { transform: scale(.5); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 780px) {
+      .nav-links { display: none; } .hamburger { display: flex; }
+      #navbar { height: 66px; } main { padding-top: 66px; }
+      .mobile-menu { top: 66px; }
+      .container { padding: 40px 20px 60px; }
+      footer { padding: 26px 20px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-body { padding: 22px 20px 26px; }
+      .contact-row { padding: 16px 20px; }
+      .info-header, .form-header { padding: 22px 20px 18px; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ══ NAVBAR ══ -->
   <nav id="navbar">
     <a class="nav-brand" href="index.html">
-      <div class="nav-logo">ICT</div>
+      <img class="nav-logo-img" src="images/logo.png" alt="ICT Lab Logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="nav-logo" style="display:none;">ICT</div>
       <div class="nav-title">Integrated Cancer Theranostic Laboratory</div>
     </a>
-
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="researchinterest.html">Research Interest</a>
@@ -25,11 +340,8 @@
       <a href="labnews.html">Lab News</a>
       <a class="active" href="contact.html">Contact Us</a>
     </div>
-
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
@@ -45,140 +357,145 @@
   </div>
 
   <main>
+
+    <!-- ══ HERO ══ -->
     <section class="section-hero">
+      <div class="hero-deco"></div>
+      <div class="hero-deco2"></div>
       <h1>Contact Us</h1>
       <p>Reach out for research collaborations, academic queries, or lab-related communication</p>
+      <div class="hero-badge">CSIR-NEIST · Jorhat, Assam</div>
     </section>
 
-    <section class="container">
+    <div class="container">
+
       <div class="contact-grid">
+
+        <!-- ══ INFO PANEL ══ -->
         <div class="contact-info">
-          <div class="contact-row">
-            <div class="contact-icon">
-              <i class="fa-solid fa-user-tie"></i>
-            </div>
-            <div>
-              <div class="contact-label"> Contact</div>
-              <div class="contact-val">
-                <strong>Dr Rituraj Konwar</strong><br>
-                Senior Principal Scientist &amp; Activity Incharge
-              </div>
-            </div>
+          <div class="info-header">
+            <h2>Get in Touch</h2>
+            <p>Direct contact details for the ICT Laboratory</p>
           </div>
+          <div class="contact-rows">
 
-          <div class="contact-row">
-            <div class="contact-icon">
-              <i class="fa-solid fa-building-columns"></i>
-            </div>
-            <div>
-              <div class="contact-label">Institution</div>
-              <div class="contact-val">
-                Centre For Preclinical Studies,<br>
-                Biological Sciences and Technology Division<br>
+            <div class="contact-row">
+              <div class="contact-icon"><i class="fa-solid fa-user-tie"></i></div>
+              <div>
+                <div class="contact-label">Principal Investigator</div>
+                <div class="contact-val">
+                  <strong>Dr. Rituraj Konwar</strong><br>
+                  Senior Principal Scientist &amp; Activity Incharge
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="contact-row">
-            <div class="contact-icon">
-              <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-            <div>
-              <div class="contact-label">Academic Affiliation</div>
-              <div class="contact-val">
-                Professor, Academy of Scientific and Innovative Research
+            <div class="contact-row">
+              <div class="contact-icon"><i class="fa-solid fa-building-columns"></i></div>
+              <div>
+                <div class="contact-label">Institution</div>
+                <div class="contact-val">
+                  Centre for Preclinical Studies,<br>
+                  Biological Sciences and Technology Division
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="contact-row">
-            <div class="contact-icon">
-              <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <div>
-              <div class="contact-label">Address</div>
-              <div class="contact-val">
-               CSIR-North East Institute of Science and Technology, <br>
-               Jorhat, Assam - 785006<br>
-               India
+            <div class="contact-row">
+              <div class="contact-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div>
+                <div class="contact-label">Academic Affiliation</div>
+                <div class="contact-val">
+                  Professor, Academy of Scientific and Innovative Research (AcSIR)
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="contact-row">
-            <div class="contact-icon">
-              <i class="fa-solid fa-envelope"></i>
-            </div>
-            <div>
-              <div class="contact-label">Email</div>
-              <div class="contact-val">
-                <a href="mailto:rituraj.konwer.neist@csir.res.in">rituraj.konwer.neist@csir.res.in</a><br>
-                <a href="mailto:breastcancerbiology@gmail.com">breastcancerbiology@gmail.com</a>
+            <div class="contact-row">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="contact-label">Address</div>
+                <div class="contact-val">
+                  CSIR-North East Institute of Science and Technology,<br>
+                  Jorhat, Assam – 785006, India
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="contact-row">
-            <div class="contact-icon">
-              <i class="fa-solid fa-phone"></i>
-            </div>
-            <div>
-              <div class="contact-label">Contact Number</div>
-              <div class="contact-val">
-                <a href="tel:+919451408487">+91-9451408487</a> (Mobile)
+            <div class="contact-row">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-val">
+                  <a href="mailto:rituraj.konwer.neist@csir.res.in">rituraj.konwer.neist@csir.res.in</a><br>
+                  <a href="mailto:breastcancerbiology@gmail.com">breastcancerbiology@gmail.com</a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="contact-row">
-            <div class="contact-icon">
-              <i class="fa-solid fa-fax"></i>
-            </div>
-            <div>
-              <div class="contact-label">Fax</div>
-              <div class="contact-val">
-                +91(0)376 2370011
+            <div class="contact-row">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <div class="contact-label">Mobile</div>
+                <div class="contact-val">
+                  <a href="tel:+919451408487">+91-9451408487</a>
+                </div>
               </div>
             </div>
+
+            <div class="contact-row">
+              <div class="contact-icon"><i class="fa-solid fa-fax"></i></div>
+              <div>
+                <div class="contact-label">Fax</div>
+                <div class="contact-val">+91 (0)376 2370011</div>
+              </div>
+            </div>
+
           </div>
         </div>
 
+        <!-- ══ FORM PANEL ══ -->
         <div class="contact-form">
-          <h2>Send a Message</h2>
+          <div class="form-header">
+            <h2>Send a Message</h2>
+            <p>We'll respond within 2–3 business days</p>
+          </div>
 
-          <div id="contactFormWrap">
+          <div class="form-body" id="contactFormWrap">
+
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
-                <input id="firstName" type="text" placeholder="Your first name">
+                <input id="firstName" type="text" placeholder="Your first name" />
               </div>
-
               <div class="form-group">
                 <label for="lastName">Last Name</label>
-                <input id="lastName" type="text" placeholder="Your last name">
+                <input id="lastName" type="text" placeholder="Your last name" />
               </div>
             </div>
 
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input id="email" type="email" placeholder="you@email.com">
+              <input id="email" type="email" placeholder="you@email.com" />
             </div>
 
             <div class="form-group">
               <label for="affiliation">Affiliation / Institution</label>
-              <input id="affiliation" type="text" placeholder="Your university or organization">
+              <input id="affiliation" type="text" placeholder="Your university or organization" />
             </div>
 
             <div class="form-group">
               <label for="purpose">Purpose of Contact</label>
-              <select id="purpose">
-                <option value="">Select a reason...</option>
-                <option>Research Collaboration</option>
-                <option>Ph.D. / Postdoc Inquiry</option>
-                <option>Project Fellowship</option>
-                <option>General Inquiry</option>
-                <option>Media / Press</option>
-              </select>
+              <div class="select-wrap">
+                <select id="purpose">
+                  <option value="">Select a reason...</option>
+                  <option>Research Collaboration</option>
+                  <option>Ph.D. / Postdoc Inquiry</option>
+                  <option>Project Fellowship</option>
+                  <option>General Inquiry</option>
+                  <option>Media / Press</option>
+                </select>
+              </div>
             </div>
 
             <div class="form-group">
@@ -187,33 +504,71 @@
             </div>
 
             <button class="submit-btn" id="contactSubmit" type="button">
-              <i class="fa-solid fa-paper-plane"></i>&nbsp; Send Message
+              <i class="fa-solid fa-paper-plane"></i> Send Message
             </button>
+
           </div>
 
           <div class="form-success" id="formSuccess">
             <i class="fa-solid fa-circle-check"></i>
-            Thank you! Your message has been sent.<br>
-            We'll get back to you within 2-3 business days.
+            <strong>Message Sent!</strong>
+            Thank you for reaching out.<br>
+            We'll get back to you within 2–3 business days.
           </div>
         </div>
+
+      </div><!-- /contact-grid -->
+
+      <!-- ══ MAP ══ -->
+      <div class="map-box">
+        <div class="map-label">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <div>
+            <strong>CSIR-North East Institute of Science and Technology</strong>
+            <span>Jorhat – 785006, Assam, India</span>
+          </div>
+        </div>
+        <iframe
+          class="map-embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.1791786292274!2d94.15336360937364!3d26.738657676654285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746e9fd7cb004d5%3A0x303a7036b3a0d356!2sCSIR%20%E2%80%93%20North%20East%20Institute%20Of%20Science%20And%20Technology%20(NEIST)!5e0!3m2!1sen!2sin!4v1780413134284!5m2!1sen!2sin"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="CSIR-NEIST Jorhat Location">
+        </iframe>
       </div>
 
-      <div class="map-box">
-        <i class="fa-solid fa-map-location-dot"></i>
-        <p>
-          <strong>CSIR-North East Institute of Science and Technology, Jorhat</strong><br>
-          Jorhat - 785006, Assam, INDIA
-        </p>
-      </div>
-    </section>
+    </div><!-- /container -->
   </main>
 
+  <!-- ══ FOOTER ══ -->
   <footer>
     <div class="footer-brand">Integrated Cancer Theranostic Laboratory</div>
+    <div class="footer-links">
+      <a href="labactivities.html">Lab Activities</a>
+      <a href="publications.html">Publications</a>
+      <a href="labnews.html">News</a>
+    </div>
     <div class="footer-copy">&copy; 2025 Rituraj Konwar Lab · All rights reserved</div>
   </footer>
 
-  <script src="assets/script.js"></script>
+  <script>
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
+
+    // Form submit (demo)
+    document.getElementById('contactSubmit').addEventListener('click', () => {
+      const first = document.getElementById('firstName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg   = document.getElementById('message').value.trim();
+      if (!first || !email || !msg) {
+        alert('Please fill in at least your name, email, and message.');
+        return;
+      }
+      document.getElementById('contactFormWrap').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+  </script>
 </body>
 </html>

@@ -6,9 +6,7 @@
   <title>Integrated Cancer Theranostic Laboratory</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/style.css" />
   <style>
-    /* ── Logo-matched palette ── */
     :root {
       --nd:    #0d4a58;
       --nm:    #165e6e;
@@ -26,15 +24,14 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Source Sans 3', sans-serif;
       background: var(--cream);
       color: var(--text);
       min-height: 100vh;
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 17px;
+      line-height: 1.7;
       background: linear-gradient(180deg, #f9faf8 0%, #f7f8f5 42%, #edf0eb 100%);
     }
 
@@ -50,41 +47,22 @@
     }
     .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo-img {
-      height: 56px; width: 56px;
-      border-radius: 50%;
-      object-fit: contain;
-      background: #fff;
-      padding: 2px;
-      box-shadow: 0 0 0 1.5px var(--border), 0 2px 8px rgba(13,74,88,.12);
+      height: 56px; width: 56px; border-radius: 50%;
+      object-fit: contain; background: transparent; padding: 0;
       flex-shrink: 0;
     }
-    .nav-title {
-      color: var(--nd);
-      font-family: 'Playfair Display', serif;
-      font-size: 14px; line-height: 1.3;
-      max-width: 260px;
-    }
+    .nav-logo { width: 46px; height: 46px; border-radius: 50%; background: var(--acc); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0; }
+    .nav-title { color: var(--nd); font-family: 'Playfair Display', serif; font-size: 14px; line-height: 1.3; max-width: 260px; }
     .nav-links { display: flex; gap: 3px; align-items: center; }
     .nav-links a {
       color: var(--muted); text-decoration: none;
-      font-size: 12.5px; padding: 8px 11px; border-radius: 4px;
+      font-size: 13px; padding: 8px 11px; border-radius: 4px;
       transition: background .18s, color .18s; white-space: nowrap;
     }
-    .nav-links a:hover {
-      background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600;
-    }
-    .nav-links a.active {
-      background: var(--nd); color: var(--accl); font-weight: 600;
-    }
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer; padding: 4px;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--nd); border-radius: 2px;
-      transition: transform .3s, opacity .3s;
-    }
+    .nav-links a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
+    .nav-links a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -97,16 +75,9 @@
       box-shadow: 0 8px 20px rgba(13,74,88,.15);
     }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      color: var(--muted); text-decoration: none;
-      font-size: 14px; padding: 11px 12px; border-radius: 4px;
-    }
-    .mobile-menu a:hover {
-      background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600;
-    }
-    .mobile-menu a.active {
-      background: var(--nd); color: var(--accl); font-weight: 600;
-    }
+    .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 15px; padding: 11px 12px; border-radius: 4px; }
+    .mobile-menu a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
+    .mobile-menu a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
 
     main { padding-top: 72px; min-height: 100vh; }
 
@@ -114,7 +85,7 @@
     .hero {
       background: var(--nd);
       text-align: center; position: relative; overflow: hidden;
-      padding: 72px 48px 60px;
+      padding: 80px 48px 68px;
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
@@ -128,268 +99,324 @@
       background: radial-gradient(circle, rgba(42,132,40,.1) 0%, transparent 65%);
       pointer-events: none;
     }
-    .hero-deco {
-      position: absolute; top: -40px; right: -40px;
-      width: 260px; height: 260px; border-radius: 50%;
-      background: rgba(201,160,32,.05); pointer-events: none;
-    }
-    .hero-deco2 {
-      position: absolute; bottom: -60px; left: -30px;
-      width: 180px; height: 180px; border-radius: 50%;
-      background: rgba(42,132,40,.04); pointer-events: none;
-    }
-    /* hero watermark removed */
+    .hero-deco  { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
+    .hero-deco2 { position: absolute; bottom: -60px; left: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(42,132,40,.04); pointer-events: none; }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 4.5vw, 54px);
+      font-size: clamp(32px, 4.5vw, 56px);
       color: #e8f4f6; line-height: 1.18;
       position: relative; max-width: 900px; margin: 0 auto 18px;
       animation: fadeUp .7s ease both; letter-spacing: -.3px;
     }
-    .hero p {
-      max-width: 680px; margin: 0 auto;
-      color: #8ab8c2; font-size: 17px; font-weight: 300;
-      position: relative; animation: fadeUp .7s .15s ease both;
-    }
+    .hero p { max-width: 680px; margin: 0 auto; color: #8ab8c2; font-size: 18px; font-weight: 300; position: relative; animation: fadeUp .7s .15s ease both; }
     .hero-badge {
       display: inline-block; margin-top: 26px;
       border: 1px solid rgba(201,160,32,.55);
       background: rgba(201,160,32,.1); color: var(--accl);
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      padding: 8px 26px; border-radius: 2px;
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 9px 28px; border-radius: 2px;
       position: relative; animation: fadeUp .7s .28s ease both;
     }
 
     /* ─── LAYOUT ─────────────────────────────────────────── */
-    .container { max-width: 1140px; margin: 0 auto; padding: 60px 32px; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 64px 32px; }
     .container + .container { padding-top: 0; }
-    .sec-label {
-      font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase;
-      color: var(--leaf); font-weight: 600; margin-bottom: 6px;
-    }
-    .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3vw, 34px); color: var(--nd); margin-bottom: 20px;
-    }
+    .sec-label { font-size: 12px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 8px; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 36px); color: var(--nd); margin-bottom: 22px; }
     .divider { border: none; border-top: 1px solid var(--border); margin: 0 32px; }
-    .lead { font-size: 16.5px; color: #3e5258; line-height: 1.9; max-width: 900px; }
+    .lead { font-size: 17px; color: #3e5258; line-height: 1.95; max-width: 900px; }
 
-    /* ─── PI CARD (redesigned) ───────────────────────────── */
+    /* ─── PI CARD ────────────────────────────────────────── */
     .pi-card {
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      gap: 0;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
+      display: grid; grid-template-columns: 300px 1fr;
+      gap: 0; background: var(--white);
+      border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; box-shadow: var(--shadow);
     }
-    /* Left accent strip with photo */
     .pi-photo-col {
       background: linear-gradient(175deg, var(--nd) 0%, var(--nm) 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: flex-start;
-      padding: 32px 20px 28px;
-      gap: 16px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: flex-start; padding: 28px 22px 22px; gap: 14px;
     }
     .pi-photo {
-      width: 180px; height: 220px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 3px solid var(--acc);
-      box-shadow: 0 6px 20px rgba(0,0,0,.3);
+      width: 230px; height: 250px; border-radius: 8px; overflow: hidden;
+      border: 3px solid var(--acc); box-shadow: 0 6px 20px rgba(0,0,0,.3);
       display: flex; align-items: center; justify-content: center;
     }
-    .pi-photo img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .pi-photo .pi-fallback {
-      font-size: 52px; color: rgba(255,255,255,.3);
-    }
-    /* Social / quick links under photo */
+    .pi-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .pi-photo .pi-fallback { font-size: 52px; color: rgba(255,255,255,.3); }
     .pi-socials { display: flex; gap: 10px; }
     .pi-socials a {
-      width: 32px; height: 32px; border-radius: 50%;
+      width: 34px; height: 34px; border-radius: 50%;
       background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
       display: flex; align-items: center; justify-content: center;
-      color: #aad4da; font-size: 13px; text-decoration: none;
+      color: #aad4da; font-size: 14px; text-decoration: none;
       transition: background .18s, color .18s;
     }
     .pi-socials a:hover { background: var(--acc); color: var(--nd); }
-
-    /* Right info section */
-    .pi-info {
-      padding: 32px 36px;
-      display: flex; flex-direction: column; gap: 0;
-    }
-    .pi-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px; color: var(--nd); margin-bottom: 6px;
-    }
+    .pi-info { padding: 34px 38px; display: flex; flex-direction: column; gap: 0; }
+    .pi-info h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--nd); margin-bottom: 8px; }
     .pi-badge {
-      display: inline-block;
-      background: var(--nd); color: var(--accl);
-      font-size: 10.5px; font-weight: 600;
-      padding: 4px 16px; border-radius: 20px;
-      margin-bottom: 20px; letter-spacing: .8px; text-transform: uppercase;
+      display: inline-block; background: var(--nd); color: var(--accl);
+      font-size: 11px; font-weight: 600; padding: 5px 18px; border-radius: 20px;
+      margin-bottom: 22px; letter-spacing: .8px; text-transform: uppercase;
       border: 1px solid rgba(13,74,88,.2);
     }
-    .pi-details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; margin-bottom: 24px; }
-    .pi-row {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 13.5px; color: #3e5258;
-    }
-    .pi-row i { color: var(--nl); width: 16px; flex-shrink: 0; margin-top: 3px; font-size: 13px; }
+    .pi-details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; margin-bottom: 26px; }
+    .pi-row { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: #3e5258; }
+    .pi-row i { color: var(--nl); width: 16px; flex-shrink: 0; margin-top: 4px; font-size: 14px; }
 
-    /* Stats row */
+    /* ─── ANIMATED STATS ─────────────────────────────────── */
     .stat-bar { display: flex; gap: 12px; flex-wrap: wrap; }
     .stat {
       flex: 1 1 100px; min-width: 90px;
       background: linear-gradient(135deg, #f0f7f8, #e8f4f5);
-      border: 1px solid #c8dfe2;
-      border-top: 3px solid var(--acc);
-      border-radius: 6px; padding: 12px 14px; text-align: center;
+      border: 1px solid #c8dfe2; border-top: 3px solid var(--acc);
+      border-radius: 6px; padding: 14px 16px; text-align: center; position: relative;
     }
     .stat-num {
       font-family: 'Playfair Display', serif;
-      font-size: 26px; color: var(--nd); font-weight: 700; line-height: 1;
+      font-size: 28px; color: var(--nd); font-weight: 700; line-height: 1;
     }
-    .stat-lbl { font-size: 10px; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; margin-top: 4px; }
+    .stat-lbl { font-size: 11px; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; margin-top: 5px; }
+    .stat.stat-featured { border-top-color: var(--gem); background: linear-gradient(135deg, #fdf2f2, #fae8e8); border-color: #e8c5c5; }
+    .stat.stat-featured .stat-num { color: var(--gem); }
 
-    /* ─── VISION / ABOUT CARD ───────────────────────────── */
-    .about-card {
+    /* ─── CITATION CHART ─────────────────────────────────── */
+    .citation-section {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px 32px 24px;
+      box-shadow: var(--shadow); margin-top: 32px;
+    }
+    .citation-section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+    .citation-section-title { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--nd); }
+    .citation-meta-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .citation-pill { background: linear-gradient(135deg, #f0f7f8, #e8f4f5); border: 1px solid #c8dfe2; border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 600; color: var(--nd); }
+    .citation-pill span { color: var(--muted); font-weight: 400; }
+    .chart-wrap { display: flex; align-items: flex-end; gap: 10px; height: 120px; padding-bottom: 28px; position: relative; }
+    .chart-wrap::after { content: ''; position: absolute; bottom: 28px; left: 0; right: 0; height: 1px; background: var(--border); }
+    .chart-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; }
+    .chart-bar { width: 100%; border-radius: 4px 4px 0 0; background: linear-gradient(to top, var(--nd), var(--nl)); transition: opacity .18s; position: relative; cursor: default; min-height: 4px; }
+    .chart-bar:hover { opacity: .8; }
+    .chart-bar-val { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 600; color: var(--nd); white-space: nowrap; opacity: 0; transition: opacity .18s; }
+    .chart-bar:hover .chart-bar-val { opacity: 1; }
+    .chart-year { font-size: 11px; color: var(--muted); white-space: nowrap; margin-top: 6px; position: absolute; bottom: 6px; }
+    .chart-bar.current { background: linear-gradient(to top, var(--acc), var(--accl)); }
+
+    /* PI Tabs */
+    .pi-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 26px; border-bottom: 2px solid var(--border); padding-bottom: 0; }
+    .pi-tab { padding: 9px 18px; font-size: 14px; font-weight: 600; border: none; background: none; cursor: pointer; color: var(--muted); border-radius: 4px 4px 0 0; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color .18s, border-color .18s; font-family: 'Source Sans 3', sans-serif; }
+    .pi-tab:hover { color: var(--nd); }
+    .pi-tab.active { color: var(--nd); border-bottom: 3px solid var(--acc); background: rgba(13,74,88,.05); }
+    .pi-tab-content { display: none; padding-top: 20px; }
+    .pi-tab-content.active { display: block; }
+    .pi-tab-text { font-size: 15px; color: #3e5258; line-height: 1.9; }
+    .pi-expertise-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+    .pi-expertise-item { display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #f0f7f8, #e8f4f5); border: 1px solid #c8dfe2; border-left: 3px solid var(--acc); border-radius: 6px; padding: 11px 14px; font-size: 14px; font-weight: 600; color: var(--nd); }
+    .pi-expertise-item i { color: var(--nl); font-size: 14px; flex-shrink: 0; }
+    .pi-edu-row { display: flex; gap: 14px; align-items: flex-start; background: #f2f7f8; border: 1px solid #c8dfe2; border-left: 4px solid var(--acc); border-radius: 6px; padding: 18px; }
+    .pi-edu-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--nd); color: var(--accl); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .pi-edu-deg { font-size: 15px; font-weight: 600; color: var(--nd); margin-bottom: 4px; }
+    .pi-edu-inst { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .pi-role-item { display: flex; gap: 14px; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid var(--border); }
+    .pi-role-item:last-child { border-bottom: none; }
+    .pi-role-item > i { width: 38px; height: 38px; border-radius: 6px; background: rgba(13,74,88,.08); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--nl); flex-shrink: 0; }
+    .pi-role-title { font-size: 15px; font-weight: 600; color: var(--nd); margin-bottom: 3px; }
+    .pi-role-place { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .pi-hobbies { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pi-hobby { display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #f0f7f8, #e8f4f5); border: 1px solid #c8dfe2; border-radius: 50px; padding: 9px 18px; font-size: 14px; font-weight: 600; color: var(--nd); }
+    .pi-hobby i { color: var(--acc); font-size: 14px; }
+
+    /* ─── ABOUT ──────────────────────────────────────────── */
+    .about-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 40px 44px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .about-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, var(--acc), var(--leaf)); }
+    .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px; }
+    .hl-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px 22px; text-align: center; box-shadow: 0 6px 20px rgba(13,74,88,.06); transition: transform .2s, box-shadow .2s; }
+    .hl-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .hl-icon { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--nd), var(--nm)); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 22px; color: var(--acc); box-shadow: 0 4px 14px rgba(13,74,88,.2); }
+    .hl-card h4 { font-size: 15px; font-weight: 600; color: var(--nd); margin-bottom: 8px; }
+    .hl-card p  { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ─── TEAM SECTION ───────────────────────────────────── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px; margin-top: 10px;
+    }
+    .team-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 36px 40px;
-      box-shadow: var(--shadow);
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(13,74,88,.07);
+      transition: transform .22s, box-shadow .22s;
+      text-align: center;
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .team-photo-wrap {
+      height: 190px;
+      background: linear-gradient(155deg, var(--nd) 0%, var(--nm) 100%);
+      display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
-    .about-card::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 4px;
-      background: linear-gradient(to bottom, var(--acc), var(--leaf));
+    .team-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(255,255,255,.12); border: 2px solid rgba(201,160,32,.4);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; color: var(--accl); font-weight: 700;
     }
-
-    /* ─── PI TABS ──────────────────────────────────────────── */
-    .pi-tabs {
-      display: flex; gap: 6px; flex-wrap: wrap;
-      margin-top: 24px; border-bottom: 2px solid var(--border);
-      padding-bottom: 0;
+    .team-role-strip {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(13,74,88,.82); padding: 5px 8px;
+      font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
+      color: var(--accl); font-weight: 600;
     }
-    .pi-tab {
-      padding: 8px 18px; font-size: 13px; font-weight: 600;
-      border: none; background: none; cursor: pointer;
-      color: var(--muted); border-radius: 4px 4px 0 0;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -2px;
-      transition: color .18s, border-color .18s;
-      font-family: 'Source Sans 3', sans-serif;
-    }
-    .pi-tab:hover { color: var(--nd); }
-    .pi-tab.active { color: var(--nd); border-bottom: 3px solid var(--acc); background: rgba(13,74,88,.05); }
-
-    .pi-tab-content { display: none; padding-top: 18px; }
-    .pi-tab-content.active { display: block; }
-
-    .pi-tab-text { font-size: 14px; color: #3e5258; line-height: 1.85; }
-
-    /* Research Expertise grid */
-    .pi-expertise-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
-    }
-    .pi-expertise-item {
-      display: flex; align-items: center; gap: 10px;
+    .team-info { padding: 16px 14px 20px; }
+    .team-name { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--nd); font-weight: 700; margin-bottom: 5px; }
+    .team-topic { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .team-year {
+      display: inline-block; margin-top: 9px;
       background: linear-gradient(135deg, #f0f7f8, #e8f4f5);
       border: 1px solid #c8dfe2;
-      border-left: 3px solid var(--acc);
-      border-radius: 6px; padding: 10px 14px;
-      font-size: 13px; font-weight: 600; color: var(--nd);
+      border-radius: 50px; padding: 3px 12px;
+      font-size: 12px; font-weight: 600; color: var(--nl);
     }
-    .pi-expertise-item i { color: var(--nl); font-size: 14px; flex-shrink: 0; }
+    .team-section-bg {
+      background: linear-gradient(180deg, #edf2f1 0%, #f4f7f5 100%);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
 
-    /* Education */
-    .pi-edu-row {
-      display: flex; gap: 14px; align-items: flex-start;
-      background: #f2f7f8; border: 1px solid #c8dfe2;
-      border-left: 4px solid var(--acc);
-      border-radius: 6px; padding: 16px;
+    /* ─── GALLERY SECTION ────────────────────────────────── */
+    .gallery-section-bg {
+      background: var(--nd);
+      padding: 64px 0;
+      position: relative; overflow: hidden;
     }
-    .pi-edu-icon {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: var(--nd); color: var(--accl);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px; flex-shrink: 0;
+    .gallery-section-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 40px,
+        rgba(201,160,32,.03) 40px, rgba(201,160,32,.03) 41px);
     }
-    .pi-edu-deg { font-size: 14px; font-weight: 600; color: var(--nd); margin-bottom: 4px; }
-    .pi-edu-inst { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .gallery-inner { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    .gallery-sec-label { font-size: 12px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--acc); font-weight: 600; margin-bottom: 8px; }
+    .gallery-sec-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 36px); color: #e8f4f6; margin-bottom: 34px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 14px;
+    }
+    .gallery-item {
+      border-radius: 8px; overflow: hidden;
+      position: relative; cursor: pointer;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      transition: transform .22s, box-shadow .22s;
+    }
+    .gallery-item:hover { transform: scale(1.025); box-shadow: 0 16px 40px rgba(0,0,0,.35); z-index: 2; }
+    .gallery-item.large { grid-column: span 2; grid-row: span 2; }
+    .gallery-photo {
+      width: 100%; height: 100%; min-height: 160px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; background: rgba(255,255,255,.05);
+      padding: 20px;
+    }
+    .gallery-photo img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+    .gallery-photo-icon { font-size: 28px; color: rgba(201,160,32,.5); }
+    .gallery-photo-label { font-size: 13px; color: rgba(255,255,255,.45); text-align: center; line-height: 1.5; }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(13,74,88,.92), transparent);
+      padding: 22px 14px 12px;
+      font-size: 13px; color: rgba(255,255,255,.85); line-height: 1.4;
+      transform: translateY(100%); transition: transform .22s;
+    }
+    .gallery-item:hover .gallery-caption { transform: translateY(0); }
+    .gallery-placeholder-img {
+      width: 100%; height: 100%; min-height: 160px;
+      object-fit: cover; display: block;
+      background: rgba(255,255,255,.04);
+    }
+    .gallery-item.large { min-height: 340px; }
+    .gallery-item:not(.large) { min-height: 160px; }
 
-    /* Roles */
-    .pi-role-item {
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 14px 0; border-bottom: 1px solid var(--border);
+    /* ─── JOIN OUR LAB ───────────────────────────────────── */
+    .join-section {
+      background: linear-gradient(135deg, #082e38 0%, #0d4a58 60%, #114f5e 100%);
+      position: relative; overflow: hidden;
     }
-    .pi-role-item:last-child { border-bottom: none; }
-    .pi-role-item > i {
-      width: 36px; height: 36px; border-radius: 6px;
-      background: rgba(13,74,88,.08);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px; color: var(--nl); flex-shrink: 0;
+    .join-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(-45deg, transparent, transparent 32px,
+        rgba(201,160,32,.025) 32px, rgba(201,160,32,.025) 33px);
     }
-    .pi-role-title { font-size: 14px; font-weight: 600; color: var(--nd); margin-bottom: 3px; }
-    .pi-role-place { font-size: 13px; color: var(--muted); line-height: 1.5; }
-
-    /* Hobbies */
-    .pi-hobbies { display: flex; flex-wrap: wrap; gap: 10px; }
-    .pi-hobby {
-      display: flex; align-items: center; gap: 8px;
-      background: linear-gradient(135deg, #f0f7f8, #e8f4f5);
-      border: 1px solid #c8dfe2;
-      border-radius: 50px; padding: 8px 16px;
-      font-size: 13px; font-weight: 600; color: var(--nd);
+    .join-section::after {
+      content: ''; position: absolute; right: -100px; bottom: -100px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(42,132,40,.08) 0%, transparent 60%);
+      pointer-events: none;
     }
-    .pi-hobby i { color: var(--acc); font-size: 13px; }
-    .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 36px; }
-    .hl-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 6px 20px rgba(13,74,88,.06);
-      transition: transform .2s, box-shadow .2s;
+    .join-inner { max-width: 1240px; margin: 0 auto; padding: 72px 32px; position: relative; z-index: 1; }
+    .join-header { text-align: center; margin-bottom: 52px; }
+    .join-label { font-size: 12px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--acc); font-weight: 600; margin-bottom: 10px; }
+    .join-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 42px); color: #e8f4f6; margin-bottom: 16px; }
+    .join-sub { font-size: 17px; color: #7ab2bc; max-width: 600px; margin: 0 auto; line-height: 1.85; }
+    .join-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; margin-bottom: 50px; }
+    .join-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-top: 3px solid var(--acc);
+      border-radius: 10px; padding: 28px 24px;
+      transition: background .2s, border-color .2s;
     }
-    .hl-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .hl-icon {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--nd), var(--nm));
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 14px;
-      font-size: 20px; color: var(--acc);
-      box-shadow: 0 4px 14px rgba(13,74,88,.2);
+    .join-card:hover { background: rgba(255,255,255,.1); border-top-color: var(--accl); }
+    .join-card-icon { width: 50px; height: 50px; border-radius: 8px; background: rgba(201,160,32,.15); border: 1px solid rgba(201,160,32,.3); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--acc); margin-bottom: 16px; }
+    .join-card h4 { font-size: 16px; font-weight: 600; color: #e8f4f6; margin-bottom: 10px; }
+    .join-card p { font-size: 14px; color: #7ab2bc; line-height: 1.75; }
+    .join-card ul { list-style: none; padding: 0; margin-top: 12px; }
+    .join-card ul li { font-size: 13.5px; color: #7ab2bc; padding: 5px 0; display: flex; align-items: center; gap: 9px; }
+    .join-card ul li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--acc); flex-shrink: 0; }
+    .join-cta { text-align: center; }
+    .join-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--acc); color: var(--nd);
+      font-size: 15px; font-weight: 700; padding: 15px 40px;
+      border-radius: 4px; text-decoration: none;
+      transition: background .18s, transform .18s;
+      letter-spacing: .5px;
     }
-    .hl-card h4 { font-size: 14px; font-weight: 600; color: var(--nd); margin-bottom: 6px; }
-    .hl-card p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .join-btn:hover { background: var(--accl); transform: translateY(-2px); }
+    .join-btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--accl);
+      font-size: 15px; font-weight: 600; padding: 14px 32px;
+      border-radius: 4px; text-decoration: none; cursor: pointer;
+      border: 1px solid rgba(201,160,32,.5);
+      margin-left: 14px; font-family: 'Source Sans 3', sans-serif;
+      transition: background .18s, border-color .18s;
+    }
+    .join-btn-outline:hover { background: rgba(201,160,32,.1); border-color: var(--acc); }
 
     /* ─── FOOTER ─────────────────────────────────────────── */
-    footer {
-      background: #082e38;
-      padding: 34px 44px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 14px;
-      border-top: 1px solid rgba(201,160,32,.2);
-    }
-    .footer-brand { font-family: 'Playfair Display', serif; color: var(--acc); font-size: 14px; }
+    footer { background: #082e38; padding: 34px 44px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid rgba(201,160,32,.2); }
+    .footer-brand { font-family: 'Playfair Display', serif; color: var(--acc); font-size: 15px; }
     .footer-links { display: flex; gap: 18px; }
-    .footer-links a { color: #5a8892; font-size: 12px; text-decoration: none; }
+    .footer-links a { color: #5a8892; font-size: 13px; text-decoration: none; }
     .footer-links a:hover { color: var(--accl); }
-    .footer-copy { color: #5a8892; font-size: 12px; }
+    .footer-copy { color: #5a8892; font-size: 13px; }
 
-    /* ─── ANIMATIONS ─────────────────────────────────────── */
+    /* ─── SCROLL REVEAL ──────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -401,25 +428,85 @@
       .pi-photo-col { flex-direction: row; padding: 24px; justify-content: flex-start; }
       .pi-photo { width: 100px; height: 120px; }
       .pi-details { grid-template-columns: 1fr; }
+      .citation-section { padding: 20px 18px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.large { grid-column: span 2; }
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 780px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      #navbar { height: 66px; padding: 0 20px; border-bottom-width: 2px; }
+      #navbar { height: 66px; padding: 0 20px; }
       main { padding-top: 66px; }
-      .mobile-menu { top: 66px; border-top-width: 2px; }
+      .mobile-menu { top: 66px; }
       .hero { padding: 64px 22px 54px; }
       .hero h1 { font-size: 30px; }
-      .hero p  { font-size: 15px; }
-      .container { padding: 40px 20px; }
-      .about-card { padding: 24px 22px; }
+      .hero p  { font-size: 16px; }
+      .container { padding: 44px 20px; }
+      .about-card { padding: 26px 22px; }
       footer { padding: 26px 20px; }
+      .join-inner { padding: 48px 20px; }
+      .gallery-inner { padding: 0 20px; }
+      .join-btn-outline { margin-left: 0; margin-top: 12px; }
+      .join-cta { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 520px) {
       .pi-photo-col { flex-direction: column; align-items: center; text-align: center; }
       .stat-bar { gap: 8px; }
       .highlights { grid-template-columns: 1fr 1fr; }
+      .chart-wrap { gap: 6px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.large { grid-column: span 1; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    /* ─── MAP MODAL ─────────────────────────────────────── */
+    .map-modal {
+      display: none; position: fixed; inset: 0; z-index: 3000;
+      background: rgba(8,46,56,.88); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .map-modal.open { display: flex; }
+    .map-modal-inner {
+      width: 100%; max-width: 860px; height: 540px;
+      background: var(--white); border-radius: 14px;
+      overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.4);
+      display: flex; flex-direction: column;
+      animation: fadeUp .3s ease;
+    }
+    .map-modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 22px;
+      background: linear-gradient(135deg, var(--nd), var(--nm));
+      flex-shrink: 0;
+    }
+    .map-modal-title {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; color: #e8f4f6;
+    }
+    .map-modal-title i { color: var(--acc); font-size: 16px; }
+    .map-modal-close {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.2);
+      color: #e8f4f6; cursor: pointer; font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .18s;
+    }
+    .map-modal-close:hover { background: rgba(255,255,255,.28); }
+    .map-modal-inner iframe { flex: 1; }
+    .map-modal-footer {
+      padding: 10px 22px; background: #f7f8f5;
+      font-size: 13px; color: var(--muted);
+      border-top: 1px solid var(--border); flex-shrink: 0;
+    }
+    .map-modal-footer a { color: var(--nl); text-decoration: none; }
+    .map-modal-footer a:hover { color: var(--acc); }
+    @media (max-width: 600px) {
+      .map-modal-inner { height: 420px; }
+      .map-modal-title { font-size: 13px; }
+    }
+
   </style>
 </head>
 <body>
@@ -427,7 +514,9 @@
   <!-- ════ NAVBAR ════ -->
   <nav id="navbar">
     <a class="nav-brand" href="index.html">
-      <img class="nav-logo-img" src="images/logo.png" alt="ICT Lab Logo" />
+      <img class="nav-logo-img" src="images/logo.png" alt="ICT Lab Logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="nav-logo" style="display:none;">ICT</div>
       <div class="nav-title">Integrated Cancer Theranostic Laboratory</div>
     </a>
     <div class="nav-links">
@@ -462,82 +551,73 @@
     <section class="hero">
       <div class="hero-deco"></div>
       <div class="hero-deco2"></div>
-      <!-- hero watermark removed -->
       <h1>Welcome to Integrated Cancer<br>Theranostic Laboratory</h1>
-      <p>Advancing cancer diagnostics and therapeutics through innovative, multidisciplinary research</p>
+     
       <div class="hero-badge">Drug Discovery &amp; Therapeutics Development</div>
     </section>
 
     <!-- ════ PRINCIPAL INVESTIGATOR ════ -->
     <section class="container">
-      <div class="sec-label">Principal Investigator</div>
-
       <div class="pi-card">
-
-        <!-- Left: photo column -->
         <div class="pi-photo-col">
           <div class="pi-photo">
             <img src="images/sir.jpg" alt="Dr. Rituraj Konwar"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="pi-fallback" style="display:none;">
-              <i class="fa-solid fa-user-tie"></i>
-            </div>
+            <div class="pi-fallback" style="display:none;"><i class="fa-solid fa-user-tie"></i></div>
           </div>
           <div class="pi-socials">
-            <a href="#" title="Google Scholar"><i class="fa-brands fa-google"></i></a>
+            <a href="https://scholar.google.com/citations?user=RYrcGacAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-brands fa-google"></i></a>
             <a href="#" title="ResearchGate"><i class="fa-brands fa-researchgate"></i></a>
-            <a href="mailto:rituraj.konwar@csir.res.in" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&to=riturajkonwar.neist@csir.res.in" target="_blank" rel="noopener" title="Email"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
-
-        <!-- Right: info column -->
         <div class="pi-info">
           <h3>Rituraj Konwar, Ph.D.</h3>
-          <div class="pi-badge">Senior Principal Scientist</div>
-
+          <div class="pi-badge">Senior Principal Scientist &amp; Professor, AcSIR</div>
           <div class="pi-details">
-            <div class="pi-row">
-              <i class="fa-solid fa-microscope"></i>
-              <span>Drug Discovery &amp; Therapeutics Development</span>
-            </div>
-            <div class="pi-row">
-              <i class="fa-solid fa-building-columns"></i>
-              <span>CSIR-North East Institute of Science and Technology (CSIR-NEIST)</span>
-            </div>
-            <div class="pi-row">
-              <i class="fa-solid fa-phone"></i>
-              <span>+91-9451408487</span>
-            </div>
-            <div class="pi-row">
-              <i class="fa-solid fa-envelope"></i>
-              <span>rituraj.konwar@csir.res.in</span>
-            </div>
-            <div class="pi-row">
-              <i class="fa-solid fa-graduation-cap"></i>
-              <span>Ph.D. — Veterinary Biotechnology</span>
-            </div>
+            <div class="pi-row"><i class="fa-solid fa-microscope"></i><span>Drug Discovery &amp; Therapeutics Development</span></div>
+            <div class="pi-row"><i class="fa-solid fa-building-columns"></i><span>CSIR-North East Institute of Science and Technology (CSIR-NEIST)</span></div>
+            <div class="pi-row"><i class="fa-solid fa-phone"></i><span>+91-9451408487</span></div>
+            <div class="pi-row"><i class="fa-solid fa-envelope"></i><span>rituraj.konwar@csir.res.in</span></div>
+            <div class="pi-row"><i class="fa-solid fa-graduation-cap"></i><span>Ph.D. — Veterinary Biotechnology</span></div>
           </div>
 
+          <!-- ANIMATED STATS -->
           <div class="stat-bar">
-            <div class="stat">
-              <div class="stat-num">85+</div>
-              <div class="stat-lbl">Publications</div>
+            <div class="stat stat-featured">
+              <div class="stat-num" data-target="4912" data-suffix="">0</div>
+              <div class="stat-lbl">Total Citations</div>
             </div>
             <div class="stat">
-              <div class="stat-num">32</div>
+              <div class="stat-num" data-target="38" data-suffix="">0</div>
               <div class="stat-lbl">h-index</div>
             </div>
             <div class="stat">
-              <div class="stat-num">18+</div>
-              <div class="stat-lbl">Years Research</div>
+              <div class="stat-num" data-target="87" data-suffix="">0</div>
+              <div class="stat-lbl">i10-index</div>
             </div>
             <div class="stat">
-              <div class="stat-num">12</div>
-              <div class="stat-lbl">Projects</div>
+              <div class="stat-num" data-target="18" data-suffix="+">0</div>
+              <div class="stat-lbl">Years Research</div>
             </div>
           </div>
 
-          <!-- Biography / Education / Titles / Hobbies tabs -->
+          <!-- Citation Chart -->
+          <div class="citation-section">
+            <div class="citation-section-header">
+              <div class="citation-section-title">Citation Growth</div>
+              <div class="citation-meta-pills">
+                <div class="citation-pill">All Time <span>4,912</span></div>
+                <div class="citation-pill">2021–Present <span>2,128</span></div>
+                <div class="citation-pill">
+                  <a href="https://scholar.google.com/citations?user=RYrcGacAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--nl); text-decoration:none; font-size:12px;">View on Scholar <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:11px;"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="chart-wrap" id="citationChart"></div>
+          </div>
+
+          <!-- PI Tabs -->
           <div class="pi-tabs">
             <button class="pi-tab active" onclick="switchTab(this,'bio')">Biography</button>
             <button class="pi-tab" onclick="switchTab(this,'edu')">Education</button>
@@ -545,16 +625,9 @@
             <button class="pi-tab" onclick="switchTab(this,'expertise')">Research Expertise</button>
             <button class="pi-tab" onclick="switchTab(this,'hobbies')">Hobbies</button>
           </div>
-
           <div class="pi-tab-content active" id="tab-bio">
-            <p class="pi-tab-text">
-              Rituraj Konwar is a Senior Principal Scientist and a prominent researcher.
-              Prof. Konwar's research experiences include endocrinology, cancer biomarkers,
-              drug delivery, photothermal therapy, nanoparticle imaging probes, theranostic
-              nanoparticles, and immunology.
-            </p>
+            <p class="pi-tab-text">Rituraj Konwar is a Senior Principal Scientist and Professor at the Academy of Scientific and Innovative Research (AcSIR). His research spans endocrinology, cancer biomarkers, drug delivery, photothermal therapy, nanoparticle imaging probes, theranostic nanoparticles, and immunology. With over 4,900 citations and an h-index of 38, his work has made significant contributions to cancer biology, reproductive biology, endocrinology, and drug discovery.</p>
           </div>
-
           <div class="pi-tab-content" id="tab-edu">
             <div class="pi-edu-row">
               <div class="pi-edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -564,7 +637,6 @@
               </div>
             </div>
           </div>
-
           <div class="pi-tab-content" id="tab-roles">
             <div class="pi-role-item">
               <i class="fa-solid fa-microscope"></i>
@@ -581,19 +653,20 @@
               </div>
             </div>
           </div>
-
           <div class="pi-tab-content" id="tab-expertise">
             <div class="pi-expertise-grid">
+              <div class="pi-expertise-item"><i class="fa-solid fa-ribbon"></i>Cancer Biology</div>
+              <div class="pi-expertise-item"><i class="fa-solid fa-venus"></i>Reproductive Biology</div>
+              <div class="pi-expertise-item"><i class="fa-solid fa-flask"></i>Endocrinology</div>
+              <div class="pi-expertise-item"><i class="fa-solid fa-pills"></i>Drug Discovery</div>
               <div class="pi-expertise-item"><i class="fa-solid fa-dna"></i>Cancer Biomarkers</div>
               <div class="pi-expertise-item"><i class="fa-solid fa-truck-medical"></i>Drug Delivery Systems</div>
               <div class="pi-expertise-item"><i class="fa-solid fa-fire-flame-curved"></i>Photothermal Therapy</div>
               <div class="pi-expertise-item"><i class="fa-solid fa-circle-dot"></i>Nanoparticle Imaging Probes</div>
               <div class="pi-expertise-item"><i class="fa-solid fa-atom"></i>Theranostic Nanoparticles</div>
               <div class="pi-expertise-item"><i class="fa-solid fa-shield-virus"></i>Immunology</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-flask"></i>Endocrinology</div>
             </div>
           </div>
-
           <div class="pi-tab-content" id="tab-hobbies">
             <div class="pi-hobbies">
               <div class="pi-hobby"><i class="fa-solid fa-table-tennis-paddle-ball"></i>Badminton</div>
@@ -603,9 +676,7 @@
               <div class="pi-hobby"><i class="fa-solid fa-volleyball"></i>Volleyball</div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
 
@@ -615,48 +686,257 @@
     <section class="container">
       <div class="sec-label">About the Lab</div>
       <div class="sec-title">Our Vision &amp; Mission</div>
-
       <div class="about-card">
-        <p class="lead">
-          The <strong>Integrated Cancer Theranostic Laboratory</strong> is committed to bridging
-          the gap between cancer diagnostics and therapeutics. Our multidisciplinary team works
-          at the intersection of molecular biology, medicinal chemistry, nanotechnology, and
-          clinical translation — with the goal of developing next-generation tools for early
-          cancer detection and effective, targeted treatment.
-        </p>
-        <p class="lead" style="margin-top: 18px;">
-          We believe in science that matters — translating laboratory discoveries into real-world
-          impact for patients. Our lab fosters a collaborative, rigorous, and creative research
-          environment where students and scientists grow together.
-        </p>
+        <p class="lead">The <strong>Integrated Cancer Theranostic Laboratory</strong> is committed to bridging the gap between cancer diagnostics and therapeutics. Our multidisciplinary team works at the intersection of molecular biology, medicinal chemistry, nanotechnology, and clinical translation — with the goal of developing next-generation tools for early cancer detection and effective, targeted treatment.</p>
+        <p class="lead" style="margin-top: 20px;">We believe in science that matters — translating laboratory discoveries into real-world impact for patients. Our lab fosters a collaborative, rigorous, and creative research environment where students and scientists grow together.</p>
       </div>
-
-      <!-- Highlight cards -->
       <div class="highlights">
-        <div class="hl-card">
-          <div class="hl-icon"><i class="fa-solid fa-dna"></i></div>
-          <h4>Molecular Oncology</h4>
-          <p>Decoding cancer biology at the molecular level to identify novel therapeutic targets.</p>
+        <div class="hl-card reveal"><div class="hl-icon"><i class="fa-solid fa-dna"></i></div><h4>Molecular Oncology</h4><p>Decoding cancer biology at the molecular level to identify novel therapeutic targets.</p></div>
+        <div class="hl-card reveal reveal-delay-1"><div class="hl-icon"><i class="fa-solid fa-flask-vial"></i></div><h4>Drug Discovery</h4><p>Designing and screening small-molecule and natural-product-based anticancer agents.</p></div>
+        <div class="hl-card reveal reveal-delay-2"><div class="hl-icon"><i class="fa-solid fa-atom"></i></div><h4>Nanotechnology</h4><p>Engineering nanoformulations for targeted drug delivery and enhanced bioavailability.</p></div>
+        <div class="hl-card reveal reveal-delay-3"><div class="hl-icon"><i class="fa-solid fa-stethoscope"></i></div><h4>Clinical Translation</h4><p>Bridging bench-to-bedside by validating discoveries in clinically relevant models.</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ════ TEAM / RESEARCH GROUP ════ -->
+    <section class="team-section-bg">
+      <div class="container">
+        <div class="sec-title reveal">Meet the Team</div>
+        <p class="lead reveal" style="margin-bottom: 34px;">Our lab is home to a diverse group of passionate scientists — from junior research fellows to senior scientists — united by a shared mission to combat cancer through innovative research.</p>
+
+        <div class="team-grid">
+          <div class="team-card reveal">
+            <div class="team-photo-wrap">
+              <img src="images/pankajbarman.jpg" alt="Pankaj Barman"
+                   onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
+              <div class="team-avatar" style="display:none;">PB</div>
+              <div class="team-role-strip">PhD Scholar</div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Pankaj Barman</div>
+              <div class="team-topic">Investigation of anticancer activity of fermented food products</div>
+              <span class="team-year">Since 2020</span>
+            </div>
+          </div>
+
+          <div class="team-card reveal reveal-delay-1">
+            <div class="team-photo-wrap">
+              <img src="images/kallol.jpg" alt="Kallol Roy"
+                   onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
+              <div class="team-avatar" style="display:none;">KR</div>
+              <div class="team-role-strip">PhD Scholar</div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Kallol Roy</div>
+              <div class="team-topic">Quantum dots in anticancer drug delivery</div>
+              <span class="team-year">Since 2020</span>
+            </div>
+          </div>
+
+          <div class="team-card reveal reveal-delay-2">
+            <div class="team-photo-wrap">
+              <img src="images/esha.jpg" alt="Esha Roy"
+                   onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
+              <div class="team-avatar" style="display:none;">ER</div>
+              <div class="team-role-strip">PhD Scholar</div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Esha Roy</div>
+              <div class="team-topic">Multifunctional nanomaterials in cancer theranostics</div>
+              <span class="team-year">Since 2022</span>
+            </div>
+          </div>
+
+          <div class="team-card reveal reveal-delay-3">
+            <div class="team-photo-wrap">
+              <img src="images/prity.jpg" alt="Prity Chakravarty"
+                   onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
+              <div class="team-avatar" style="display:none;">PC</div>
+              <div class="team-role-strip">PhD Scholar</div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Prity Chakravarty</div>
+              <div class="team-topic">Biopolymer based hydrogel for cancer therapy</div>
+              <span class="team-year">Since 2025</span>
+            </div>
+          </div>
+
+          <div class="team-card reveal reveal-delay-1">
+            <div class="team-photo-wrap">
+              <img src="images/nibedita.jpg" alt="Nibedita Saikia"
+                   onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
+              <div class="team-avatar" style="display:none;">NS</div>
+              <div class="team-role-strip">PhD Scholar</div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Nibedita Saikia</div>
+              <div class="team-topic">Green synthesis of Nanoparticles and its biological applications</div>
+              <span class="team-year">Since 2024</span>
+            </div>
+          </div>
+
+          <div class="team-card reveal reveal-delay-2">
+            <div class="team-photo-wrap">
+              <img src="images/hiranya.jpg" alt="Hiranya"
+                   onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
+              <div class="team-avatar" style="display:none;">HJ</div>
+              <div class="team-role-strip">PhD Scholar</div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Hiranya Kumar Das</div>
+              <div class="team-topic">Nanomaterials and theranostics</div>
+              <span class="team-year">Since 2025</span>
+            </div>
+          </div>
         </div>
-        <div class="hl-card">
-          <div class="hl-icon"><i class="fa-solid fa-flask-vial"></i></div>
-          <h4>Drug Discovery</h4>
-          <p>Designing and screening small-molecule and natural-product-based anticancer agents.</p>
+
+        <div style="text-align:center; margin-top:34px;" class="reveal">
+          <a href="researchgroup.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--nd); font-weight:600; font-size:15px; text-decoration:none; border-bottom: 2px solid var(--acc); padding-bottom:3px;">
+            View Full Research Group <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
-        <div class="hl-card">
-          <div class="hl-icon"><i class="fa-solid fa-atom"></i></div>
-          <h4>Nanotechnology</h4>
-          <p>Engineering nanoformulations for targeted drug delivery and enhanced bioavailability.</p>
+      </div>
+    </section>
+
+    <!-- ════ LAB GALLERY ════ -->
+    <section class="gallery-section-bg">
+      <div class="gallery-inner">
+        <div class="gallery-sec-label reveal">Lab Life</div>
+        <div class="gallery-sec-title reveal">Gallery</div>
+        <div class="gallery-grid">
+          <div class="gallery-item large reveal">
+            <img src="images/conference.jpg" alt="Lab overview" class="gallery-placeholder-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-flask gallery-photo-icon"></i></div>
+            <div class="gallery-caption">Conference — NSARA</div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-1">
+            <img src="images/interns.jpg" alt="Team at work" class="gallery-placeholder-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-users gallery-photo-icon"></i></div>
+            <div class="gallery-caption">Welcoming new interns to the ICT Lab family</div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-2">
+            <img src="images/independence.jpg" alt="Independence Day" class="gallery-placeholder-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-chalkboard-user gallery-photo-icon"></i></div>
+            <div class="gallery-caption">Independence Day Celebration</div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-1">
+            <img src="images/news1.jpg" alt="Award ceremony" class="gallery-placeholder-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-award gallery-photo-icon"></i></div>
+            <div class="gallery-caption">Esha receiving Best Poster Presentation Award at NSARA</div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-2">
+            <img src="images/lab.jpeg" alt="Outreach" class="gallery-placeholder-img"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-hand-holding-heart gallery-photo-icon"></i></div>
+            <div class="gallery-caption">Our Our Research Workspace</div>
+          </div>
         </div>
-        <div class="hl-card">
-          <div class="hl-icon"><i class="fa-solid fa-stethoscope"></i></div>
-          <h4>Clinical Translation</h4>
-          <p>Bridging bench-to-bedside by validating discoveries in clinically relevant models.</p>
+        <div style="text-align:center; margin-top:30px;" class="reveal">
+          <a href="labactivities.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--accl); font-weight:600; font-size:15px; text-decoration:none; border-bottom: 1px solid rgba(201,160,32,.5); padding-bottom:3px;">
+            View All Lab Activities <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ JOIN OUR LAB ════ -->
+    <section class="join-section">
+      <div class="join-inner">
+        <div class="join-header">
+          <div class="join-label reveal">Opportunities</div>
+          <div class="join-title reveal">Join Our Lab</div>
+          <p class="join-sub reveal">We are always looking for motivated, curious, and driven individuals to join our team. If you are passionate about cancer research and therapeutics, we want to hear from you.</p>
+        </div>
+
+        <div class="join-cards">
+          <div class="join-card reveal">
+            <div class="join-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h4>PhD Positions</h4>
+            <p>Funded PhD fellowships for candidates with a strong background in life sciences, biochemistry, or related fields.</p>
+            <ul>
+              <li>CSIR/UGC NET qualified preferred</li>
+              <li>DST INSPIRE fellowship holders welcome</li>
+              <li>Project-funded positions available</li>
+            </ul>
+          </div>
+          <div class="join-card reveal reveal-delay-1">
+            <div class="join-card-icon"><i class="fa-solid fa-flask"></i></div>
+            <h4>Project Associates / JRF / SRF</h4>
+            <p>Openings for research associates in ongoing funded projects on drug discovery and nanomedicine.</p>
+            <ul>
+              <li>M.Sc. in Life Sciences / Biotechnology</li>
+              <li>Experience in cell culture a plus</li>
+              <li>Short-term &amp; long-term positions</li>
+            </ul>
+          </div>
+          <div class="join-card reveal reveal-delay-2">
+            <div class="join-card-icon"><i class="fa-solid fa-microscope"></i></div>
+            <h4>MSc / Internship Projects</h4>
+            <p>Short-term dissertation and internship projects for postgraduate students interested in cancer biology.</p>
+            <ul>
+              <li>6-month dissertation projects</li>
+              <li>Summer internships (2–3 months)</li>
+              <li>Certificate of completion provided</li>
+            </ul>
+          </div>
+          <div class="join-card reveal reveal-delay-3">
+            <div class="join-card-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h4>Collaborations</h4>
+            <p>We welcome collaborative research partnerships with academic institutions, hospitals, and industry.</p>
+            <ul>
+              <li>MoU-based academic collaborations</li>
+              <li>Clinical sample &amp; data sharing</li>
+              <li>Industry-academia joint projects</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="join-cta reveal">
+          <!-- Send Your Application → contact.html -->
+          <a href="contact.html" class="join-btn">
+            <i class="fa-solid fa-envelope"></i> Send Your Application
+          </a>
+          <!-- Visit Us → opens map modal -->
+          <button onclick="openMapModal()" class="join-btn-outline">
+            <i class="fa-solid fa-location-dot"></i> Visit Us
+          </button>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- ════ MAP MODAL ════ -->
+  <div class="map-modal" id="mapModal" onclick="closeMapModal(event)">
+    <div class="map-modal-inner">
+      <div class="map-modal-header">
+        <div class="map-modal-title">
+          <i class="fa-solid fa-location-dot"></i>
+          CSIR-North East Institute of Science and Technology
+        </div>
+        <button class="map-modal-close" onclick="closeMapModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <iframe
+        id="mapIframe"
+        src=""
+        data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.1791786292274!2d94.15336360937364!3d26.738657676654285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746e9fd7cb004d5%3A0x303a7036b3a0d356!2sCSIR%20%E2%80%93%20North%20East%20Institute%20Of%20Science%20And%20Technology%20(NEIST)!5e0!3m2!1sen!2sin!4v1780413134284!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        style="width:100%; height:100%; border:none; display:block;">
+      </iframe>
+      <div class="map-modal-footer">
+        Jorhat – 785006, Assam, India &nbsp;·&nbsp;
+        <a href="https://www.google.com/maps/place/CSIR+%E2%80%93+North+East+Institute+Of+Science+And+Technology+(NEIST)/@26.7386577,94.1533636,17z" target="_blank" rel="noopener">Open in Google Maps <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:11px;"></i></a>
+      </div>
+    </div>
+  </div>
 
   <!-- ════ FOOTER ════ -->
   <footer>
@@ -670,25 +950,112 @@
   </footer>
 
   <script>
-    // Hamburger toggle
+    // ── Hamburger ──
     const ham = document.getElementById('hamburger');
     const mob = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      mob.classList.toggle('open');
-    });
-    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      ham.classList.remove('open');
-      mob.classList.remove('open');
-    }));
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
 
-    // PI tab switching
+    // ── PI Tabs ──
     function switchTab(btn, id) {
       document.querySelectorAll('.pi-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.pi-tab-content').forEach(c => c.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('tab-' + id).classList.add('active');
     }
+
+    // ── Citation Bar Chart ──
+    (function buildCitationChart() {
+      const data = [
+        { year: '2019', val: 355 },
+        { year: '2020', val: 380 },
+        { year: '2021', val: 395 },
+        { year: '2022', val: 402 },
+        { year: '2023', val: 346 },
+        { year: '2024', val: 440 },
+        { year: '2025', val: 429 },
+        { year: '2026', val: 116 },
+      ];
+      const maxVal = Math.max(...data.map(d => d.val));
+      const chartH = 92;
+      const wrap = document.getElementById('citationChart');
+      data.forEach(({ year, val }) => {
+        const barH = Math.max(4, Math.round((val / maxVal) * chartH));
+        const isCurr = year === '2026';
+        const col = document.createElement('div');
+        col.className = 'chart-bar-col';
+        col.innerHTML = `
+          <div class="chart-bar${isCurr ? ' current' : ''}" style="height:${barH}px" title="${year}: ~${val} citations">
+            <span class="chart-bar-val">${val}</span>
+          </div>
+          <span class="chart-year">${year}</span>`;
+        wrap.appendChild(col);
+      });
+    })();
+
+    // ── Animated Counter ──
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // ── Scroll Reveal + Counter trigger ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const statNums  = document.querySelectorAll('.stat-num[data-target]');
+    let countersStarted = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    const statBar = document.querySelector('.stat-bar');
+    if (statBar) {
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !countersStarted) {
+            countersStarted = true;
+            statNums.forEach(el => animateCounter(el));
+            counterObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      counterObserver.observe(statBar);
+    }
+    // ── Map Modal ──
+    function openMapModal() {
+      const modal = document.getElementById('mapModal');
+      const iframe = document.getElementById('mapIframe');
+      // Load src lazily only on first open
+      if (!iframe.src || iframe.src === window.location.href) {
+        iframe.src = iframe.dataset.src;
+      }
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMapModal(e) {
+      if (!e || e.target === document.getElementById('mapModal') || e.target.closest('.map-modal-close')) {
+        document.getElementById('mapModal').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMapModal(); });
   </script>
 </body>
 </html>
