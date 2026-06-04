@@ -41,7 +41,7 @@
     }
     .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
 
-    /* ── LOGO: no border, bigger, transparent bg ── */
+    /* ── LOGO: nav-logo-wrap like index.html ── */
     .nav-logo-wrap {
       width: 84px; height: 84px;
       border-radius: 50%;
@@ -56,8 +56,12 @@
       background: transparent;
       display: block;
     }
-
-    .nav-logo { width: 46px; height: 46px; border-radius: 50%; background: var(--acc); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0; }
+    .nav-logo {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--acc);
+      display: none; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0;
+    }
     .nav-title { color: var(--nd); font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.3; max-width: 320px; font-weight: 700; }
     .nav-links { display: flex; gap: 3px; align-items: center; }
     .nav-links a {
@@ -66,8 +70,8 @@
       transition: background .18s, color .18s; white-space: nowrap;
       font-family: 'Playfair Display', serif; font-weight: 700;
     }
-    .nav-links a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
-    .nav-links a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+    .nav-links a:hover { background: rgba(13,74,88,.07); }
+    .nav-links a.active { background: var(--nd); color: var(--accl); }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -87,6 +91,7 @@
     .mobile-menu a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
 
     main { padding-top: 88px; min-height: 100vh; }
+
     /* ── HERO ── */
     .section-hero {
       background: linear-gradient(135deg, var(--nd), var(--nm));
@@ -99,10 +104,10 @@
         rgba(201,160,32,.038) 38px, rgba(201,160,32,.038) 39px);
       opacity: .55;
     }
-    .hero-deco { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
+    .hero-deco  { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
     .hero-deco2 { position: absolute; bottom: -60px; left: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(42,132,40,.04); pointer-events: none; }
     .section-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,44px); color: #e8f4f6; position: relative; animation: fadeUp .7s ease both; }
-    .section-hero p { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; }
+    .section-hero p  { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; }
     .hero-badge { display: inline-block; margin-top: 20px; border: 1px solid rgba(201,160,32,.55); background: rgba(201,160,32,.1); color: var(--accl); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 7px 22px; border-radius: 2px; position: relative; animation: fadeUp .7s .28s ease both; }
 
     /* ── CONTAINER ── */
@@ -110,33 +115,15 @@
 
     /* ── YEAR BLOCK ── */
     .year-block { margin-bottom: 60px; }
-
-    .year-label {
-      display: flex; align-items: center; gap: 16px;
-      margin-bottom: 32px;
-    }
-    .year-label h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px; color: var(--nd);
-      white-space: nowrap;
-    }
-    .year-label::after {
-      content: '';
-      display: block; flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--acc), transparent);
-      border-radius: 2px;
-    }
+    .year-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+    .year-label h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--nd); white-space: nowrap; }
+    .year-label::after { content: ''; display: block; flex: 1; height: 2px; background: linear-gradient(to right, var(--acc), transparent); border-radius: 2px; }
 
     /* ── NEWS ITEM ── */
     .news-item {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
+      display: grid; grid-template-columns: 160px 1fr; gap: 0;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
       box-shadow: 0 6px 20px rgba(13,74,88,.07);
       margin-bottom: 22px;
       transition: transform .22s, box-shadow .22s;
@@ -145,103 +132,33 @@
     .news-item.visible { animation: fadeUp .55s ease forwards; }
     .news-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 
-    /* month sidebar */
     .news-month {
       background: linear-gradient(160deg, var(--nd), var(--nm));
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 28px 16px;
-      position: relative;
-      min-width: 160px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 28px 16px; position: relative; min-width: 160px;
     }
-    .news-month::after {
-      content: '';
-      position: absolute; right: 0; top: 20%; bottom: 20%;
-      width: 1px; background: rgba(201,160,32,.3);
-    }
-    .month-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px; color: var(--accl);
-      letter-spacing: 1px; text-align: center;
-    }
-    .month-year {
-      font-size: 12px; color: rgba(255,255,255,.45);
-      margin-top: 4px; letter-spacing: 1.5px;
-    }
-    .month-icon {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: rgba(201,160,32,.15);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accl); font-size: 15px;
-      margin-bottom: 12px;
-    }
+    .news-month::after { content: ''; position: absolute; right: 0; top: 20%; bottom: 20%; width: 1px; background: rgba(201,160,32,.3); }
+    .month-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--accl); letter-spacing: 1px; text-align: center; }
+    .month-year { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 4px; letter-spacing: 1.5px; }
+    .month-icon { width: 38px; height: 38px; border-radius: 50%; background: rgba(201,160,32,.15); display: flex; align-items: center; justify-content: center; color: var(--accl); font-size: 15px; margin-bottom: 12px; }
 
-    /* right content area */
-    .news-content {
-      display: flex;
-      gap: 0;
-    }
-
-    /* photo */
-    .news-photo {
-      width: 220px; min-width: 220px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #e8eee9, #d4ddd5);
-    }
-    .news-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top;
-      display: block;
-      transition: transform .4s ease;
-    }
+    .news-content { display: flex; gap: 0; }
+    .news-photo { width: 220px; min-width: 220px; overflow: hidden; background: linear-gradient(135deg, #e8eee9, #d4ddd5); }
+    .news-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .4s ease; }
     .news-item:hover .news-photo img { transform: scale(1.05); }
 
-    /* text */
-    .news-text {
-      padding: 26px 28px;
-      display: flex; flex-direction: column; justify-content: center;
-      flex: 1;
-    }
-    .news-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(13,74,88,.07); color: var(--nd);
-      font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
-      text-transform: uppercase; padding: 4px 10px; border-radius: 3px;
-      margin-bottom: 12px; width: fit-content;
-    }
+    .news-text { padding: 26px 28px; display: flex; flex-direction: column; justify-content: center; flex: 1; }
+    .news-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(13,74,88,.07); color: var(--nd); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; width: fit-content; }
     .news-tag i { font-size: 10px; color: var(--acc); }
-    .news-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 19px; color: var(--nd);
-      line-height: 1.35; margin-bottom: 10px;
-    }
-    .news-desc {
-      font-size: 14px; color: var(--muted);
-      line-height: 1.75;
-    }
-    .news-desc a {
-      color: var(--nl); text-decoration: none;
-      border-bottom: 1px dotted var(--nl);
-      transition: color .18s, border-color .18s;
-    }
+    .news-title { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--nd); line-height: 1.35; margin-bottom: 10px; }
+    .news-desc { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .news-desc a { color: var(--nl); text-decoration: none; border-bottom: 1px dotted var(--nl); transition: color .18s, border-color .18s; }
     .news-desc a:hover { color: var(--acc); border-color: var(--acc); }
-
-    .congrats-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 14px;
-      background: linear-gradient(90deg, rgba(201,160,32,.12), rgba(201,160,32,.05));
-      border: 1px solid rgba(201,160,32,.35);
-      color: #8a6a00; font-size: 12px; font-weight: 600;
-      padding: 5px 14px; border-radius: 20px; width: fit-content;
-    }
+    .congrats-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; background: linear-gradient(90deg, rgba(201,160,32,.12), rgba(201,160,32,.05)); border: 1px solid rgba(201,160,32,.35); color: #8a6a00; font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; width: fit-content; }
     .congrats-badge i { color: var(--acc); }
 
     /* ── LIGHTBOX ── */
-    .lightbox {
-      display: none; position: fixed; inset: 0; z-index: 2000;
-      background: rgba(8,46,56,.94); backdrop-filter: blur(8px);
-      align-items: center; justify-content: center; padding: 20px;
-    }
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(8,46,56,.94); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px; }
     .lightbox.open { display: flex; }
     .lightbox-inner { max-width: 800px; width: 100%; position: relative; animation: fadeUp .3s ease; }
     .lightbox-inner img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: 8px; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
@@ -271,14 +188,20 @@
       .news-content { flex-direction: column; }
     }
     @media (max-width: 780px) {
-      .nav-links { display: none; } .hamburger { display: flex; }
-      #navbar { height: 66px; } main { padding-top: 66px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #navbar { height: 66px; padding: 0 20px; }
+      main { padding-top: 66px; }
       .mobile-menu { top: 66px; }
+      /* ── Match index.html mobile logo exactly ── */
+      .nav-logo-wrap { width: 56px; height: 56px; }
+      .nav-logo-img  { width: 56px; height: 56px; }
+      .nav-title { font-size: 14px; max-width: 200px; }
       .container { padding: 40px 20px; }
       footer { padding: 26px 20px; }
     }
     @media (max-width: 500px) {
-      .news-text { padding: 18px 18px; }
+      .news-text { padding: 18px; }
     }
   </style>
 </head>
@@ -287,9 +210,11 @@
   <!-- ══ NAVBAR ══ -->
   <nav id="navbar">
     <a class="nav-brand" href="index.html">
-      <img class="nav-logo-img" src="images/logo2.png" alt="ICT Lab Logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-      <div class="nav-logo" style="display:none;">ICT</div>
+      <div class="nav-logo-wrap">
+        <img class="nav-logo-img" src="images/logo2.png" alt="ICT Lab Logo"
+             onerror="this.parentElement.style.display='none'; document.querySelector('.nav-logo').style.display='flex';" />
+      </div>
+      <div class="nav-logo">ICT</div>
       <div class="nav-title">Integrated Cancer Theranostic Laboratory</div>
     </a>
     <div class="nav-links">
@@ -299,7 +224,7 @@
       <a href="publications.html">Publications</a>
       <a href="alumni.html">Alumni</a>
       <a href="labactivities.html">Lab Activities</a>
-      <a class="active" href="labnews.html">News & Updates</a>
+      <a class="active" href="labnews.html">News &amp; Updates</a>
       <a href="contact.html">Contact Us</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -314,7 +239,7 @@
     <a href="publications.html">Publications</a>
     <a href="alumni.html">Alumni</a>
     <a href="labactivities.html">Lab Activities</a>
-    <a class="active" href="labnews.html">News & Updates</a>
+    <a class="active" href="labnews.html">News &amp; Updates</a>
     <a href="contact.html">Contact Us</a>
   </div>
 
@@ -324,8 +249,8 @@
     <section class="section-hero">
       <div class="hero-deco"></div>
       <div class="hero-deco2"></div>
-      <h1>News & Updates</h1>
-      <p>Achievements, awards & milestones from our research family</p>
+      <h1>News &amp; Updates</h1>
+      <p>Achievements, awards &amp; milestones from our research family</p>
       <div class="hero-badge">CSIR-NEIST · Jorhat, Assam</div>
     </section>
 
@@ -333,12 +258,9 @@
 
       <!-- ══ 2023 ══ -->
       <div class="year-block">
-        <div class="year-label">
-          <h2>2023</h2>
-        </div>
+        <div class="year-label"><h2>2023</h2></div>
 
-        <!-- September — Esha Poster Award -->
-        <div class="news-item" style="animation-delay:0s;"
+        <div class="news-item"
              onclick="openLightbox('images/news1.jpg','Esha receiving Best Poster Presentation Award at NSARA')">
           <div class="news-month">
             <div class="month-icon"><i class="fa-solid fa-trophy"></i></div>
@@ -359,15 +281,12 @@
                 to the symposium reflects the high calibre of research carried out at the
                 Integrated Cancer Theranostic Laboratory.
               </div>
-              <div class="congrats-badge">
-                <i class="fa-solid fa-star"></i> Congratulations, Esha!
-              </div>
+              <div class="congrats-badge"><i class="fa-solid fa-star"></i> Congratulations, Esha!</div>
             </div>
           </div>
         </div>
 
-        <!-- August — Lydia DST-INSPIRE -->
-        <div class="news-item" style="animation-delay:.1s;"
+        <div class="news-item"
              onclick="openLightbox('images/news2.jpg','Lydia receiving her DST-INSPIRE Fellow Award Letter')">
           <div class="news-month">
             <div class="month-icon"><i class="fa-solid fa-medal"></i></div>
@@ -390,16 +309,13 @@
                 Department of Biochemistry. We are immensely proud of her achievement and
                 wish her a wonderful and fulfilling journey ahead.
               </div>
-              <div class="congrats-badge">
-                <i class="fa-solid fa-star"></i> Best wishes, Lydia!
-              </div>
+              <div class="congrats-badge"><i class="fa-solid fa-star"></i> Best wishes, Lydia!</div>
             </div>
           </div>
         </div>
 
-      </div><!-- /year-block 2023 -->
-
-    </div><!-- /container -->
+      </div>
+    </div>
   </main>
 
   <!-- ══ LIGHTBOX ══ -->
@@ -423,19 +339,16 @@
   </footer>
 
   <script>
-    // Hamburger
     const ham = document.getElementById('hamburger');
     const mob = document.getElementById('mobileMenu');
     ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
     mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
 
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.news-item').forEach(c => observer.observe(c));
 
-    // Lightbox
     function openLightbox(src, caption) {
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox-caption').textContent = caption;
