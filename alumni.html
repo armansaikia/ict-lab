@@ -41,7 +41,7 @@
     }
     .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
 
-    /* ── LOGO: no border, bigger, transparent bg ── */
+    /* ── LOGO: nav-logo-wrap matching index.html ── */
     .nav-logo-wrap {
       width: 84px; height: 84px;
       border-radius: 50%;
@@ -56,8 +56,12 @@
       background: transparent;
       display: block;
     }
-
-    .nav-logo { width: 46px; height: 46px; border-radius: 50%; background: var(--acc); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0; }
+    .nav-logo {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--acc);
+      display: none; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0;
+    }
     .nav-title { color: var(--nd); font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.3; max-width: 320px; font-weight: 700; }
     .nav-links { display: flex; gap: 3px; align-items: center; }
     .nav-links a {
@@ -66,8 +70,8 @@
       transition: background .18s, color .18s; white-space: nowrap;
       font-family: 'Playfair Display', serif; font-weight: 700;
     }
-    .nav-links a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
-    .nav-links a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+    .nav-links a:hover { background: rgba(13,74,88,.07); }
+    .nav-links a.active { background: var(--nd); color: var(--accl); }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -87,6 +91,7 @@
     .mobile-menu a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
 
     main { padding-top: 88px; min-height: 100vh; }
+
     /* ── HERO ── */
     .section-hero {
       background: linear-gradient(135deg, var(--nd), var(--nm));
@@ -98,35 +103,18 @@
       background: repeating-linear-gradient(45deg, transparent, transparent 38px, rgba(201,160,32,.038) 38px, rgba(201,160,32,.038) 39px);
       opacity: .55;
     }
-    .hero-deco { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
+    .hero-deco  { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
     .hero-deco2 { position: absolute; bottom: -60px; left: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(42,132,40,.04); pointer-events: none; }
     .section-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,44px); color: #e8f4f6; position: relative; animation: fadeUp .7s ease both; }
-    .section-hero p { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; }
+    .section-hero p  { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; }
     .hero-badge { display: inline-block; margin-top: 20px; border: 1px solid rgba(201,160,32,.55); background: rgba(201,160,32,.1); color: var(--accl); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 7px 22px; border-radius: 2px; position: relative; animation: fadeUp .7s .28s ease both; }
 
     /* ── INTRO BANNER ── */
-    .intro-banner {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-    }
-    .intro-banner-inner {
-      max-width: 1140px; margin: 0 auto; padding: 40px 32px;
-      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
-    }
-    .intro-quote {
-      flex: 1; min-width: 260px;
-      font-family: 'Playfair Display', serif;
-      font-size: 18px; font-style: italic;
-      color: var(--nd); line-height: 1.7;
-      border-left: 4px solid var(--acc);
-      padding-left: 20px;
-    }
+    .intro-banner { background: var(--white); border-bottom: 1px solid var(--border); }
+    .intro-banner-inner { max-width: 1140px; margin: 0 auto; padding: 40px 32px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .intro-quote { flex: 1; min-width: 260px; font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--nd); line-height: 1.7; border-left: 4px solid var(--acc); padding-left: 20px; }
     .intro-stats { display: flex; gap: 16px; flex-wrap: wrap; }
-    .intro-stat {
-      background: linear-gradient(135deg, #f0f7f8, #e8f4f5);
-      border: 1px solid #c8dfe2; border-top: 3px solid var(--acc);
-      border-radius: 6px; padding: 16px 22px; text-align: center; min-width: 110px;
-    }
+    .intro-stat { background: linear-gradient(135deg, #f0f7f8, #e8f4f5); border: 1px solid #c8dfe2; border-top: 3px solid var(--acc); border-radius: 6px; padding: 16px 22px; text-align: center; min-width: 110px; }
     .intro-stat-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--nd); line-height: 1; }
     .intro-stat-lbl { font-size: 10px; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; margin-top: 5px; }
 
@@ -144,71 +132,22 @@
 
     /* ── ALUMNI CARDS ── */
     .alumni-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 22px; }
-
-    .alumni-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; overflow: hidden;
-      box-shadow: 0 6px 20px rgba(13,74,88,.07);
-      transition: transform .22s, box-shadow .22s;
-      display: flex; flex-direction: column;
-    }
+    .alumni-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(13,74,88,.07); transition: transform .22s, box-shadow .22s; display: flex; flex-direction: column; }
     .alumni-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-
-    /* Photo */
-    .alumni-photo {
-      height: 340px; position: relative; overflow: hidden;
-      background: linear-gradient(135deg, var(--nd), var(--nm));
-    }
-    .alumni-photo img {
-      width: 100%; height: 100%; object-fit: cover; object-position: center;
-      display: block; transition: transform .35s;
-    }
+    .alumni-photo { height: 340px; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--nd), var(--nm)); }
+    .alumni-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .35s; }
     .alumni-card:hover .alumni-photo img { transform: scale(1.04); }
     .alumni-photo .fallback-avatar { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-    .fallback-initials {
-      width: 90px; height: 90px; border-radius: 50%;
-      background: rgba(255,255,255,.12); border: 2px solid rgba(201,160,32,.5);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--accl);
-    }
-
-    /* Role badge on photo */
-    .alumni-role-badge {
-      position: absolute; top: 14px; left: 14px;
-      background: var(--nd); color: var(--accl);
-      font-size: 9.5px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
-      padding: 4px 12px; border-radius: 2px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.25);
-    }
-
-    /* Year badge */
-    .alumni-year-badge {
-      position: absolute; bottom: 14px; right: 14px;
-      background: rgba(201,160,32,.9); color: var(--nd);
-      font-size: 11px; font-weight: 700;
-      padding: 4px 12px; border-radius: 2px;
-    }
-
-    /* Card body */
+    .fallback-initials { width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,.12); border: 2px solid rgba(201,160,32,.5); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--accl); }
+    .alumni-role-badge { position: absolute; top: 14px; left: 14px; background: var(--nd); color: var(--accl); font-size: 9.5px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+    .alumni-year-badge { position: absolute; bottom: 14px; right: 14px; background: rgba(201,160,32,.9); color: var(--nd); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 2px; }
     .alumni-body { padding: 20px 22px 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
     .alumni-name { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--nd); }
-
-    /* Affiliation box */
-    .alumni-affil {
-      display: flex; align-items: flex-start; gap: 10px;
-      background: linear-gradient(135deg, #f0f7f8, #e8f4f5);
-      border: 1px solid #c8dfe2; border-left: 4px solid var(--leaf);
-      border-radius: 6px; padding: 12px 14px;
-    }
+    .alumni-affil { display: flex; align-items: flex-start; gap: 10px; background: linear-gradient(135deg, #f0f7f8, #e8f4f5); border: 1px solid #c8dfe2; border-left: 4px solid var(--leaf); border-radius: 6px; padding: 12px 14px; }
     .alumni-affil i { color: var(--leaf); font-size: 14px; margin-top: 2px; flex-shrink: 0; }
     .alumni-affil-label { font-size: 9.5px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 3px; }
     .alumni-affil-text { font-size: 13px; color: var(--text); line-height: 1.5; }
-
-    /* no affiliation yet */
-    .alumni-no-affil {
-      font-size: 13px; color: var(--muted); font-style: italic;
-      display: flex; align-items: center; gap: 8px;
-    }
+    .alumni-no-affil { font-size: 13px; color: var(--muted); font-style: italic; display: flex; align-items: center; gap: 8px; }
     .alumni-no-affil i { color: var(--border); }
 
     /* ── FOOTER ── */
@@ -226,9 +165,15 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 780px) {
-      .nav-links { display: none; } .hamburger { display: flex; }
-      #navbar { height: 66px; } main { padding-top: 66px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #navbar { height: 66px; padding: 0 20px; }
+      main { padding-top: 66px; }
       .mobile-menu { top: 66px; }
+      /* ── Match index.html mobile logo exactly ── */
+      .nav-logo-wrap { width: 56px; height: 56px; }
+      .nav-logo-img  { width: 56px; height: 56px; }
+      .nav-title { font-size: 14px; max-width: 200px; }
       .container { padding: 40px 20px; }
       .intro-banner-inner { flex-direction: column; }
       .alumni-grid { grid-template-columns: 1fr 1fr; }
@@ -244,9 +189,11 @@
   <!-- ══ NAVBAR ══ -->
   <nav id="navbar">
     <a class="nav-brand" href="index.html">
-      <img class="nav-logo-img" src="images/logo2.png" alt="ICT Lab Logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-      <div class="nav-logo" style="display:none;">ICT</div>
+      <div class="nav-logo-wrap">
+        <img class="nav-logo-img" src="images/logo2.png" alt="ICT Lab Logo"
+             onerror="this.parentElement.style.display='none'; document.querySelector('.nav-logo').style.display='flex';" />
+      </div>
+      <div class="nav-logo">ICT</div>
       <div class="nav-title">Integrated Cancer Theranostic Laboratory</div>
     </a>
     <div class="nav-links">
@@ -256,7 +203,7 @@
       <a href="publications.html">Publications</a>
       <a class="active" href="alumni.html">Alumni</a>
       <a href="labactivities.html">Lab Activities</a>
-      <a href="labnews.html">News & Updates</a>
+      <a href="labnews.html">News &amp; Updates</a>
       <a href="contact.html">Contact Us</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -271,7 +218,7 @@
     <a href="publications.html">Publications</a>
     <a class="active" href="alumni.html">Alumni</a>
     <a href="labactivities.html">Lab Activities</a>
-    <a href="labnews.html">News & Updates</a>
+    <a href="labnews.html">News &amp; Updates</a>
     <a href="contact.html">Contact Us</a>
   </div>
 
@@ -282,7 +229,6 @@
       <div class="hero-deco"></div>
       <div class="hero-deco2"></div>
       <h1>Alumni</h1>
-      
       <div class="hero-badge">CSIR-NEIST · Jorhat, Assam</div>
     </section>
 
@@ -323,8 +269,6 @@
         </div>
 
         <div class="alumni-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 360px));">
-
-          <!-- Lydia -->
           <div class="alumni-card">
             <div class="alumni-photo">
               <img src="images/lydia.jpg" alt="Ms. Lydia Islery"
@@ -344,7 +288,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -362,8 +305,6 @@
         </div>
 
         <div class="alumni-grid">
-
-          <!-- Salini -->
           <div class="alumni-card">
             <div class="alumni-photo">
               <img src="images/salini.png" alt="Ms. Salini Phukon"
@@ -381,7 +322,6 @@
             </div>
           </div>
 
-          <!-- Mayur -->
           <div class="alumni-card">
             <div class="alumni-photo">
               <img src="images/mayur.png" alt="Mr. Mayur Bora"
@@ -398,11 +338,10 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-    </div><!-- /container -->
+    </div>
   </main>
 
   <!-- ══ FOOTER ══ -->
@@ -411,7 +350,7 @@
     <div class="footer-links">
       <a href="contact.html">Contact</a>
       <a href="publications.html">Publications</a>
-      <a href="labnews.html">News & Updates</a>
+      <a href="labnews.html">News &amp; Updates</a>
     </div>
     <div class="footer-copy">&copy; 2025 Rituraj Konwar Lab · All rights reserved</div>
   </footer>
