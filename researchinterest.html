@@ -9,8 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-
-    /* ══ PALETTE (logo-matched) ══════════════════════════════ */
     :root {
       --nd:    #0d4a58;
       --nm:    #165e6e;
@@ -26,7 +24,6 @@
       --border:#d6ddd8;
       --shadow: 0 14px 34px rgba(13,74,88,.11);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -35,7 +32,7 @@
       color: var(--text); min-height: 100vh; font-size: 16px; line-height: 1.6;
     }
 
-   /* ─── NAVBAR ─────────────────────────────────────────── */
+    /* ─── NAVBAR ─────────────────────────────────────────── */
     #navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       background: rgba(255,255,255,.97);
@@ -46,24 +43,20 @@
       border-bottom: 2px solid var(--acc);
     }
     .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-
-    /* ── LOGO: no border, bigger, transparent bg ── */
     .nav-logo-wrap {
-      width: 84px; height: 84px;
-      border-radius: 50%;
+      width: 84px; height: 84px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-      background: transparent;
-      flex-shrink: 0;
+      overflow: hidden; background: transparent; flex-shrink: 0;
     }
     .nav-logo-img {
-      width: 84px; height: 84px;
-      object-fit: contain;
-      background: transparent;
-      display: block;
+      width: 84px; height: 84px; object-fit: contain;
+      background: transparent; display: block;
     }
-
-    .nav-logo { width: 46px; height: 46px; border-radius: 50%; background: var(--acc); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0; }
+    .nav-logo {
+      width: 46px; height: 46px; border-radius: 50%; background: var(--acc);
+      display: none; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0;
+    }
     .nav-title { color: var(--nd); font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.3; max-width: 320px; font-weight: 700; }
     .nav-links { display: flex; gap: 3px; align-items: center; }
     .nav-links a {
@@ -72,8 +65,8 @@
       transition: background .18s, color .18s; white-space: nowrap;
       font-family: 'Playfair Display', serif; font-weight: 700;
     }
-    .nav-links a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
-    .nav-links a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+    .nav-links a:hover { background: rgba(13,74,88,.07); }
+    .nav-links a.active { background: var(--nd); color: var(--accl); }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -94,8 +87,7 @@
 
     main { padding-top: 88px; min-height: 100vh; }
 
-
-    /* ══ SECTION HERO ════════════════════════════════════════ */
+    /* ── HERO ── */
     .section-hero {
       background: linear-gradient(135deg, var(--nd), var(--nm));
       text-align: center; position: relative; overflow: hidden;
@@ -107,319 +99,118 @@
         rgba(201,160,32,.038) 38px, rgba(201,160,32,.038) 39px);
       opacity: .55;
     }
-    .hero-deco {
-      position: absolute; top: -40px; right: -40px;
-      width: 260px; height: 260px; border-radius: 50%;
-      background: rgba(201,160,32,.05); pointer-events: none;
-    }
-    .hero-deco2 {
-      position: absolute; bottom: -60px; left: -30px;
-      width: 180px; height: 180px; border-radius: 50%;
-      background: rgba(42,132,40,.04); pointer-events: none;
-    }
-    .section-hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 4vw, 44px); color: #e8f4f6;
-      position: relative; animation: fadeUp .7s ease both;
-    }
-    .section-hero p {
-      color: #8ab8c2; font-size: 16px; margin-top: 8px;
-      position: relative; animation: fadeUp .7s .15s ease both;
-    }
-    .hero-badge {
-      display: inline-block; margin-top: 20px;
-      border: 1px solid rgba(201,160,32,.55);
-      background: rgba(201,160,32,.1); color: var(--accl);
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      padding: 7px 22px; border-radius: 2px;
-      position: relative; animation: fadeUp .7s .28s ease both;
-    }
+    .hero-deco  { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
+    .hero-deco2 { position: absolute; bottom: -60px; left: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(42,132,40,.04); pointer-events: none; }
+    .section-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,44px); color: #e8f4f6; position: relative; animation: fadeUp .7s ease both; }
+    .section-hero p  { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; }
+    .hero-badge { display: inline-block; margin-top: 20px; border: 1px solid rgba(201,160,32,.55); background: rgba(201,160,32,.1); color: var(--accl); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 7px 22px; border-radius: 2px; position: relative; animation: fadeUp .7s .28s ease both; }
 
-    /* ══ LAYOUT HELPERS ══════════════════════════════════════ */
+    /* ── LAYOUT ── */
     .container { max-width: 1140px; margin: 0 auto; padding: 60px 32px; }
-    .sec-label {
-      font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase;
-      color: var(--leaf); font-weight: 600; margin-bottom: 6px;
-    }
-    .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3vw, 34px); color: var(--nd); margin-bottom: 24px;
-    }
+    .sec-label { font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 6px; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(24px,3vw,34px); color: var(--nd); margin-bottom: 24px; }
     .lead { font-size: 16px; color: #3e5258; line-height: 1.9; }
 
-    /* ══ INTRO STRIP ═════════════════════════════════════════ */
-    .intro-strip {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-    }
-    .intro-inner {
-      max-width: 1140px; margin: 0 auto;
-      padding: 52px 32px;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 48px; align-items: center;
-    }
+    /* ── INTRO STRIP ── */
+    .intro-strip { background: var(--white); border-bottom: 1px solid var(--border); }
+    .intro-inner { max-width: 1140px; margin: 0 auto; padding: 52px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
     .intro-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .intro-stat {
-      background: linear-gradient(135deg, #f0f7f8, #e8f4f5);
-      border: 1px solid #c8dfe2; border-top: 3px solid var(--acc);
-      border-radius: 6px; padding: 20px 18px; text-align: center;
-    }
-    .intro-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px; font-weight: 700; color: var(--nd); line-height: 1;
-    }
-    .intro-stat-lbl {
-      font-size: 11px; color: var(--muted);
-      letter-spacing: 1.2px; text-transform: uppercase; margin-top: 5px;
-    }
+    .intro-stat { background: linear-gradient(135deg, #f0f7f8, #e8f4f5); border: 1px solid #c8dfe2; border-top: 3px solid var(--acc); border-radius: 6px; padding: 20px 18px; text-align: center; }
+    .intro-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--nd); line-height: 1; }
+    .intro-stat-lbl { font-size: 11px; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; margin-top: 5px; }
 
-    /* ══ FOCUS SUMMARY STRIP (new) ═══════════════════════════ */
-    .focus-summary {
-      background: var(--nd);
-      border-top: 1px solid rgba(255,255,255,.06);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .focus-summary-inner {
-      max-width: 1140px; margin: 0 auto;
-      padding: 40px 32px;
-    }
-    .focus-summary-label {
-      font-size: 10px; letter-spacing: 2.8px; text-transform: uppercase;
-      color: rgba(201,160,32,.7); font-weight: 600;
-      text-align: center; margin-bottom: 28px;
-    }
-    .focus-pills {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
-    }
-    .focus-pill {
-      display: flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 50px;
-      padding: 10px 20px;
-      transition: background .2s, border-color .2s, transform .18s;
-      cursor: default;
-    }
-    .focus-pill:hover {
-      background: rgba(201,160,32,.15);
-      border-color: rgba(201,160,32,.4);
-      transform: translateY(-2px);
-    }
-    .focus-pill-icon {
-      width: 34px; height: 34px; border-radius: 50%;
-      background: rgba(255,255,255,.08);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px; color: var(--accl); flex-shrink: 0;
-    }
-    .focus-pill-label {
-      font-size: 13px; font-weight: 600; color: #d8eaec;
-      white-space: nowrap;
-    }
+    /* ── FOCUS SUMMARY PILLS ── */
+    .focus-summary { background: var(--nd); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); }
+    .focus-summary-inner { max-width: 1140px; margin: 0 auto; padding: 40px 32px; }
+    .focus-summary-label { font-size: 10px; letter-spacing: 2.8px; text-transform: uppercase; color: rgba(201,160,32,.7); font-weight: 600; text-align: center; margin-bottom: 28px; }
+    .focus-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    .focus-pill { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 50px; padding: 10px 20px; transition: background .2s, border-color .2s, transform .18s; cursor: default; }
+    .focus-pill:hover { background: rgba(201,160,32,.15); border-color: rgba(201,160,32,.4); transform: translateY(-2px); }
+    .focus-pill-icon { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--accl); flex-shrink: 0; }
+    .focus-pill-label { font-size: 13px; font-weight: 600; color: #d8eaec; white-space: nowrap; }
 
-    /* ══ FOCUS AREA CARDS ════════════════════════════════════ */
-    .focus-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
-    }
-    .focus-card {
-      background: var(--white);
-      border: 1px solid var(--border); border-radius: 10px;
-      overflow: hidden; box-shadow: 0 6px 20px rgba(13,74,88,.06);
-      transition: transform .22s, box-shadow .22s;
-      opacity: 0; transform: translateY(24px);
-    }
+    /* ── FOCUS CARDS ── */
+    .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .focus-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: 0 6px 20px rgba(13,74,88,.06); transition: transform .22s, box-shadow .22s; opacity: 0; transform: translateY(24px); }
     .focus-card.visible { animation: fadeUp .55s ease forwards; }
     .focus-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(13,74,88,.13); }
-    .focus-card-top {
-      padding: 28px 24px 22px; position: relative; overflow: hidden;
-      background-size: cover; background-position: center;
-      min-height: 160px;
-    }
-    /* semi-transparent overlay — image visible but text still readable */
-    .focus-card-top::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg,
-        rgba(13,74,88,.52) 0%,
-        rgba(22,94,110,.45) 100%);
-      z-index: 0;
-    }
-    .focus-card-top::after {
-      content: ''; position: absolute; bottom: -20px; right: -20px;
-      width: 80px; height: 80px; border-radius: 50%;
-      background: rgba(201,160,32,.14); pointer-events: none; z-index: 1;
-    }
-    /* keep children above overlay */
+    .focus-card-top { padding: 28px 24px 22px; position: relative; overflow: hidden; background-size: cover; background-position: center; min-height: 160px; }
+    .focus-card-top::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(13,74,88,.52) 0%, rgba(22,94,110,.45) 100%); z-index: 0; }
+    .focus-card-top::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; border-radius: 50%; background: rgba(201,160,32,.14); pointer-events: none; z-index: 1; }
     .focus-num, .focus-icon { position: relative; z-index: 2; }
-    .focus-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 11px; letter-spacing: 3px; color: rgba(255,220,100,.9);
-      text-transform: uppercase; margin-bottom: 14px; position: relative; z-index: 2;
-    }
-    .focus-icon {
-      width: 52px; height: 52px; border-radius: 10px;
-      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; color: var(--accl); position: relative;
-    }
+    .focus-num { font-family: 'Playfair Display', serif; font-size: 11px; letter-spacing: 3px; color: rgba(255,220,100,.9); text-transform: uppercase; margin-bottom: 14px; position: relative; z-index: 2; }
+    .focus-icon { width: 52px; height: 52px; border-radius: 10px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--accl); position: relative; }
     .focus-card-body { padding: 22px 24px 26px; }
-    .focus-card-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; color: var(--nd); margin-bottom: 10px; line-height: 1.3;
-    }
+    .focus-card-body h3 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--nd); margin-bottom: 10px; line-height: 1.3; }
     .focus-card-body p { font-size: 14px; color: var(--muted); line-height: 1.75; }
     .focus-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .focus-tag {
-      font-size: 10px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase;
-      padding: 3px 10px; border-radius: 2px;
-      background: rgba(13,74,88,.07); color: var(--nm);
-      border: 1px solid rgba(13,74,88,.12);
-    }
+    .focus-tag { font-size: 10px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; background: rgba(13,74,88,.07); color: var(--nm); border: 1px solid rgba(13,74,88,.12); }
 
-    /* ══ WORKFLOW SECTION (updated) ══════════════════════════ */
-    .workflow-section {
-      background: var(--nd); position: relative; overflow: hidden;
-    }
-    .workflow-section::before {
-      content: ''; position: absolute; inset: 0;
-      background: repeating-linear-gradient(45deg, transparent, transparent 38px,
-        rgba(201,160,32,.03) 38px, rgba(201,160,32,.03) 39px);
-    }
-    .workflow-inner {
-      max-width: 1140px; margin: 0 auto;
-      padding: 64px 32px; position: relative;
-    }
+    /* ── WORKFLOW ── */
+    .workflow-section { background: var(--nd); position: relative; overflow: hidden; }
+    .workflow-section::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 38px, rgba(201,160,32,.03) 38px, rgba(201,160,32,.03) 39px); }
+    .workflow-inner { max-width: 1140px; margin: 0 auto; padding: 64px 32px; position: relative; }
     .workflow-inner .sec-label { color: var(--accl); }
     .workflow-inner .sec-title { color: #e8f4f6; margin-bottom: 14px; }
-    .workflow-subtitle {
-      color: #8ab8c2; font-size: 15px; margin-bottom: 44px; max-width: 680px;
-    }
-
-    /* Step cards with connector line */
-    .workflow-steps {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0; position: relative;
-    }
-    /* connector line removed */
+    .workflow-subtitle { color: #8ab8c2; font-size: 15px; margin-bottom: 44px; max-width: 680px; }
+    .workflow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
     .workflow-steps::before { display: none; }
-    .workflow-step {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 10px; padding: 0 20px 28px;
-      text-align: center;
-      transition: background .2s, transform .2s;
-      position: relative; z-index: 1;
-      margin: 0 8px;
-    }
-    .workflow-step:hover {
-      background: rgba(255,255,255,.09);
-      transform: translateY(-4px);
-    }
-
-    /* Step number badge — sits ON the connector line */
-    .step-badge {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--nd);
-      border: 2px solid var(--acc);
-      display: flex; align-items: center; justify-content: center;
-      margin: -24px auto 18px;
-      font-family: 'Playfair Display', serif;
-      font-size: 15px; font-weight: 700; color: var(--acc);
-      position: relative; z-index: 2;
-      box-shadow: 0 0 0 4px var(--nd);
-    }
-    .step-keyword {
-      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(201,160,32,.65); font-weight: 600;
-      margin-bottom: 10px;
-    }
-    .step-icon-wrap {
-      width: 48px; height: 48px; border-radius: 10px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.14);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; color: var(--accl);
-      margin: 0 auto 14px;
-    }
-    .step-title {
-      font-size: 15px; font-weight: 600; color: #e8f4f6;
-      margin-bottom: 6px;
-    }
-    .step-subtitle {
-      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--accl); margin-bottom: 10px; opacity: .8;
-    }
+    .workflow-step { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 0 20px 28px; text-align: center; transition: background .2s, transform .2s; position: relative; z-index: 1; margin: 0 8px; }
+    .workflow-step:hover { background: rgba(255,255,255,.09); transform: translateY(-4px); }
+    .step-badge { width: 48px; height: 48px; border-radius: 50%; background: var(--nd); border: 2px solid var(--acc); display: flex; align-items: center; justify-content: center; margin: -24px auto 18px; font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--acc); position: relative; z-index: 2; box-shadow: 0 0 0 4px var(--nd); }
+    .step-keyword { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,160,32,.65); font-weight: 600; margin-bottom: 10px; }
+    .step-icon-wrap { width: 48px; height: 48px; border-radius: 10px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--accl); margin: 0 auto 14px; }
+    .step-title { font-size: 15px; font-weight: 600; color: #e8f4f6; margin-bottom: 6px; }
+    .step-subtitle { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accl); margin-bottom: 10px; opacity: .8; }
     .step-desc { font-size: 13px; color: #8ab8c2; line-height: 1.7; }
 
-    /* ══ COLLABORATION BANNER ════════════════════════════════ */
-    .collab-banner {
-      background: linear-gradient(135deg, #f0f7f8, #e8f4f5);
-      border: 1px solid #c8dfe2; border-radius: 10px;
-      padding: 40px 44px;
-      display: flex; align-items: center;
-      justify-content: space-between;
-      gap: 28px; flex-wrap: wrap;
-    }
-    .collab-text h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; color: var(--nd); margin-bottom: 8px;
-    }
-    .collab-text p {
-      font-size: 15px; color: var(--muted);
-      max-width: 560px; line-height: 1.7;
-    }
-    .btn-collab {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 28px; border-radius: 4px;
-      background: var(--nd); color: var(--accl);
-      font-size: 14px; font-weight: 600;
-      text-decoration: none; white-space: nowrap;
-      transition: background .18s, transform .15s; flex-shrink: 0;
-    }
+    /* ── COLLAB BANNER ── */
+    .collab-banner { background: linear-gradient(135deg, #f0f7f8, #e8f4f5); border: 1px solid #c8dfe2; border-radius: 10px; padding: 40px 44px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+    .collab-text h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--nd); margin-bottom: 8px; }
+    .collab-text p { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.7; }
+    .btn-collab { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; background: var(--nd); color: var(--accl); font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .18s, transform .15s; flex-shrink: 0; }
     .btn-collab:hover { background: var(--nm); transform: translateY(-2px); }
 
-    /* ══ FOOTER ══════════════════════════════════════════════ */
-    footer {
-      background: #082e38; padding: 34px 44px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 14px;
-      border-top: 1px solid rgba(201,160,32,.2);
-    }
+    /* ── FOOTER ── */
+    footer { background: #082e38; padding: 34px 44px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid rgba(201,160,32,.2); }
     .footer-brand { font-family: 'Playfair Display', serif; color: var(--acc); font-size: 14px; }
     .footer-links { display: flex; gap: 18px; }
     .footer-links a { color: #5a8892; font-size: 12px; text-decoration: none; }
     .footer-links a:hover { color: var(--accl); }
     .footer-copy { color: #5a8892; font-size: 12px; }
 
-    /* ══ ANIMATION ═══════════════════════════════════════════ */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ══ RESPONSIVE ══════════════════════════════════════════ */
+    /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .focus-grid { grid-template-columns: 1fr 1fr; }
       .workflow-steps { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .workflow-steps::before { display: none; }
       .step-badge { margin-top: 20px; }
     }
-    @media (max-width: 720px) {
+    @media (max-width: 780px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #navbar { height: 66px; padding: 0 20px; }
+      main { padding-top: 66px; }
+      .mobile-menu { top: 66px; }
+      /* Match index.html mobile logo exactly */
+      .nav-logo-wrap { width: 56px; height: 56px; }
+      .nav-logo-img  { width: 56px; height: 56px; }
+      .nav-title { font-size: 14px; max-width: 200px; }
+      .container { padding: 40px 20px; }
       .intro-inner { grid-template-columns: 1fr; gap: 32px; }
       .focus-grid { grid-template-columns: 1fr; }
       .workflow-steps { grid-template-columns: 1fr 1fr; }
       .collab-banner { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
       .focus-pills { gap: 10px; }
+      footer { padding: 26px 20px; }
     }
     @media (max-width: 480px) {
       .workflow-steps { grid-template-columns: 1fr; }
       .intro-stats { grid-template-columns: 1fr 1fr; }
-      #navbar { height: 66px; padding: 0 18px; }
-      main { padding-top: 66px; }
-      .mobile-menu { top: 66px; }
-      footer { padding: 26px 20px; }
-    }
-    @media (max-width: 780px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
     }
   </style>
 </head>
@@ -428,9 +219,11 @@
   <!-- ════ NAVBAR ════ -->
   <nav id="navbar">
     <a class="nav-brand" href="index.html">
-      <img class="nav-logo-img" src="images/logo2.png" alt="ICT Lab Logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-      <div class="nav-logo" style="display:none;">ICT</div>
+      <div class="nav-logo-wrap">
+        <img class="nav-logo-img" src="images/logo2.png" alt="ICT Lab Logo"
+             onerror="this.parentElement.style.display='none'; document.querySelector('.nav-logo').style.display='flex';" />
+      </div>
+      <div class="nav-logo">ICT</div>
       <div class="nav-title">Integrated Cancer Theranostic Laboratory</div>
     </a>
     <div class="nav-links">
@@ -440,9 +233,7 @@
       <a href="publications.html">Publications</a>
       <a href="alumni.html">Alumni</a>
       <a href="labactivities.html">Lab Activities</a>
-      <a href="labnews.html">News & Updates
-
-      </a>
+      <a href="labnews.html">News &amp; Updates</a>
       <a href="contact.html">Contact Us</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -457,271 +248,166 @@
     <a href="publications.html">Publications</a>
     <a href="alumni.html">Alumni</a>
     <a href="labactivities.html">Lab Activities</a>
-    <a href="labnews.html">News & Updates</a>
+    <a href="labnews.html">News &amp; Updates</a>
     <a href="contact.html">Contact Us</a>
   </div>
 
   <main>
 
-    <!-- ════ SECTION HERO ════ -->
     <section class="section-hero">
       <div class="hero-deco"></div>
       <div class="hero-deco2"></div>
       <h1>Research Interest</h1>
-      
       <div class="hero-badge">CSIR-NEIST · Jorhat, Assam</div>
     </section>
 
-    <!-- ════ INTRO STRIP ════ -->
     <div class="intro-strip">
       <div class="intro-inner">
         <div class="intro-text">
           <div class="sec-label">Overview</div>
           <div class="sec-title">Our Research Focus</div>
-          <p class="lead">
-            Prof. Konwar's laboratory focuses on the development of novel cancer
-            nanotechnologies, therapeutics, and imaging methods. The lab is also
-            actively involved in the discovery of potential therapeutic molecules
-            from the rich bioresources of North-East India.
-          </p>
-          <p class="lead" style="margin-top: 14px;">
-            The major goal is to address key challenges in oncology — early cancer
-            detection, targeted drug delivery, and non-invasive assessment of
-            therapeutic response.
-          </p>
+          <p class="lead">Prof. Konwar's laboratory focuses on the development of novel cancer nanotechnologies, therapeutics, and imaging methods. The lab is also actively involved in the discovery of potential therapeutic molecules from the rich bioresources of North-East India.</p>
+          <p class="lead" style="margin-top:14px;">The major goal is to address key challenges in oncology — early cancer detection, targeted drug delivery, and non-invasive assessment of therapeutic response.</p>
         </div>
         <div class="intro-stats">
-          <div class="intro-stat">
-            <div class="intro-stat-num">6+</div>
-            <div class="intro-stat-lbl">Research Areas</div>
-          </div>
-          <div class="intro-stat">
-            <div class="intro-stat-num">130+</div>
-            <div class="intro-stat-lbl">Publications</div>
-          </div>
-          <div class="intro-stat">
-            <div class="intro-stat-num">12</div>
-            <div class="intro-stat-lbl">Active Projects</div>
-          </div>
-          <div class="intro-stat">
-            <div class="intro-stat-num">18+</div>
-            <div class="intro-stat-lbl">Years Research</div>
-          </div>
+          <div class="intro-stat"><div class="intro-stat-num">6+</div><div class="intro-stat-lbl">Research Areas</div></div>
+          <div class="intro-stat"><div class="intro-stat-num">130+</div><div class="intro-stat-lbl">Publications</div></div>
+          <div class="intro-stat"><div class="intro-stat-num">12</div><div class="intro-stat-lbl">Active Projects</div></div>
+          <div class="intro-stat"><div class="intro-stat-num">18+</div><div class="intro-stat-lbl">Years Research</div></div>
         </div>
       </div>
     </div>
 
-    <!-- ════ FOCUS SUMMARY PILLS (new) ════ -->
     <div class="focus-summary">
       <div class="focus-summary-inner">
         <div class="focus-summary-label">Research Focus Areas</div>
         <div class="focus-pills">
-          <div class="focus-pill">
-            <div class="focus-pill-icon"><i class="fa-solid fa-dna"></i></div>
-            <span class="focus-pill-label">Cancer Biomarkers</span>
-          </div>
-          <div class="focus-pill">
-            <div class="focus-pill-icon"><i class="fa-solid fa-truck-medical"></i></div>
-            <span class="focus-pill-label">Drug Delivery</span>
-          </div>
-          <div class="focus-pill">
-            <div class="focus-pill-icon"><i class="fa-solid fa-atom"></i></div>
-            <span class="focus-pill-label">Nanotechnology</span>
-          </div>
-          <div class="focus-pill">
-            <div class="focus-pill-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-            <span class="focus-pill-label">Imaging</span>
-          </div>
-          <div class="focus-pill">
-            <div class="focus-pill-icon"><i class="fa-solid fa-leaf"></i></div>
-            <span class="focus-pill-label">Natural Products</span>
-          </div>
-          <div class="focus-pill">
-            <div class="focus-pill-icon"><i class="fa-solid fa-crosshairs"></i></div>
-            <span class="focus-pill-label">Precision Therapeutics</span>
-          </div>
+          <div class="focus-pill"><div class="focus-pill-icon"><i class="fa-solid fa-dna"></i></div><span class="focus-pill-label">Cancer Biomarkers</span></div>
+          <div class="focus-pill"><div class="focus-pill-icon"><i class="fa-solid fa-truck-medical"></i></div><span class="focus-pill-label">Drug Delivery</span></div>
+          <div class="focus-pill"><div class="focus-pill-icon"><i class="fa-solid fa-atom"></i></div><span class="focus-pill-label">Nanotechnology</span></div>
+          <div class="focus-pill"><div class="focus-pill-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><span class="focus-pill-label">Imaging</span></div>
+          <div class="focus-pill"><div class="focus-pill-icon"><i class="fa-solid fa-leaf"></i></div><span class="focus-pill-label">Natural Products</span></div>
+          <div class="focus-pill"><div class="focus-pill-icon"><i class="fa-solid fa-crosshairs"></i></div><span class="focus-pill-label">Precision Therapeutics</span></div>
         </div>
       </div>
     </div>
 
-    <!-- ════ FOCUS AREA CARDS ════ -->
     <section class="container">
       <div class="sec-label">Focus Areas</div>
       <div class="sec-title">Core Research Themes</div>
-
       <div class="focus-grid">
 
         <article class="focus-card" style="animation-delay:0s;">
-          <div class="focus-card-top" style="background-image:url('images/cn.jpeg');">
-          </div>
+          <div class="focus-card-top" style="background-image:url('images/cn.jpeg');"></div>
           <div class="focus-card-body">
             <h3>Cancer Nanotechnology</h3>
             <p>Development of novel nanotechnology-based approaches for cancer diagnosis, therapy, and biomedical applications including nanoparticle synthesis and surface functionalisation.</p>
-            <div class="focus-tags">
-              <span class="focus-tag">Nanoparticles</span>
-              <span class="focus-tag">Theranostics</span>
-              <span class="focus-tag">Bioconjugation</span>
-            </div>
+            <div class="focus-tags"><span class="focus-tag">Nanoparticles</span><span class="focus-tag">Theranostics</span><span class="focus-tag">Bioconjugation</span></div>
           </div>
         </article>
 
         <article class="focus-card" style="animation-delay:.08s;">
-          <div class="focus-card-top" style="background-image:url('images/td.jpeg');">
-          </div>
+          <div class="focus-card-top" style="background-image:url('images/td.jpeg');"></div>
           <div class="focus-card-body">
             <h3>Therapeutic Development</h3>
             <p>Design and evaluation of novel therapeutic strategies — including small molecules, biologics, and combination approaches — to improve cancer treatment outcomes.</p>
-            <div class="focus-tags">
-              <span class="focus-tag">Small Molecules</span>
-              <span class="focus-tag">Combination Therapy</span>
-              <span class="focus-tag">In Vivo Models</span>
-            </div>
+            <div class="focus-tags"><span class="focus-tag">Small Molecules</span><span class="focus-tag">Combination Therapy</span><span class="focus-tag">In Vivo Models</span></div>
           </div>
         </article>
 
         <article class="focus-card" style="animation-delay:.16s;">
-          <div class="focus-card-top" style="background-image:url('images/cd.jpg');">
-          </div>
+          <div class="focus-card-top" style="background-image:url('images/cd.jpg');"></div>
           <div class="focus-card-body">
             <h3>Cancer Imaging &amp; Diagnostics</h3>
             <p>Development and application of advanced imaging methods for early cancer detection and non-invasive monitoring of therapeutic response in preclinical models.</p>
-            <div class="focus-tags">
-              <span class="focus-tag">Fluorescence</span>
-              <span class="focus-tag">MRI Contrast</span>
-              <span class="focus-tag">Non-invasive</span>
-              <span class="focus-tag">Therapeutic Monitoring</span>
-            </div>
+            <div class="focus-tags"><span class="focus-tag">Fluorescence</span><span class="focus-tag">MRI Contrast</span><span class="focus-tag">Non-invasive</span><span class="focus-tag">Therapeutic Monitoring</span></div>
           </div>
         </article>
 
         <article class="focus-card" style="animation-delay:.24s;">
-          <div class="focus-card-top" style="background-image:url('images/bd.jpeg');">
-          </div>
+          <div class="focus-card-top" style="background-image:url('images/bd.jpeg');"></div>
           <div class="focus-card-body">
             <h3>North-East India Bioresources</h3>
             <p>Discovery and evaluation of bioactive natural products and anticancer molecules from the rich biodiversity of North-East India.</p>
-            <div class="focus-tags">
-              <span class="focus-tag">Natural Products</span>
-              <span class="focus-tag">Ethnopharmacology</span>
-              <span class="focus-tag">Bioactivity</span>
-            </div>
+            <div class="focus-tags"><span class="focus-tag">Natural Products</span><span class="focus-tag">Ethnopharmacology</span><span class="focus-tag">Bioactivity</span></div>
           </div>
         </article>
 
         <article class="focus-card" style="animation-delay:.32s;">
-          <div class="focus-card-top" style="background-image:url('images/cancer.jpeg');">
-          </div>
+          <div class="focus-card-top" style="background-image:url('images/cancer.jpeg');"></div>
           <div class="focus-card-body">
             <h3>Early Cancer Detection</h3>
             <p>Research into biomarker discovery and diagnostic platform development aimed at enabling early, accurate, and accessible cancer diagnosis in clinical settings.</p>
-            <div class="focus-tags">
-              <span class="focus-tag">Biomarkers</span>
-              <span class="focus-tag">Diagnostics</span>
-              <span class="focus-tag">Point-of-Care</span>
-            </div>
+            <div class="focus-tags"><span class="focus-tag">Biomarkers</span><span class="focus-tag">Diagnostics</span><span class="focus-tag">Point-of-Care</span></div>
           </div>
         </article>
 
         <article class="focus-card" style="animation-delay:.4s;">
-          <div class="focus-card-top" style="background-image:url('images/drug.jpeg');">
-          </div>
+          <div class="focus-card-top" style="background-image:url('images/drug.jpeg');"></div>
           <div class="focus-card-body">
             <h3>Drug Delivery Systems</h3>
             <p>Engineering of smart, targeted drug delivery platforms that improve bioavailability, reduce systemic toxicity, and enhance therapeutic efficacy against cancer cells.</p>
-            <div class="focus-tags">
-              <span class="focus-tag">Targeted Delivery</span>
-              <span class="focus-tag">Nanocarriers</span>
-              <span class="focus-tag">Controlled Release</span>
-            </div>
+            <div class="focus-tags"><span class="focus-tag">Targeted Delivery</span><span class="focus-tag">Nanocarriers</span><span class="focus-tag">Controlled Release</span></div>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- ════ WORKFLOW SECTION (updated) ════ -->
     <section class="workflow-section">
       <div class="workflow-inner">
         <div class="sec-label">Suggested Workflow</div>
         <div class="sec-title">Integrated Cancer Theranostic Pipeline</div>
-        <p class="workflow-subtitle">
-          From bioresource discovery to clinical translation — a four-stage pipeline that defines how research moves from concept to impact.
-        </p>
-
+        <p class="workflow-subtitle">From bioresource discovery to clinical translation — a four-stage pipeline that defines how research moves from concept to impact.</p>
         <div class="workflow-steps">
-
-          <!-- Step 01 -->
           <div class="workflow-step">
             <div class="step-badge">01</div>
             <div class="step-keyword">Discovery</div>
             <div class="step-icon-wrap"><i class="fa-solid fa-microscope"></i></div>
             <div class="step-title">Biomarkers &amp; Natural Products</div>
             <div class="step-subtitle">Identification</div>
-            <div class="step-desc">
-              Identification of cancer biomarkers and bioactive molecules from North-East Indian bioresources through molecular screening and ethnopharmacological leads.
-            </div>
+            <div class="step-desc">Identification of cancer biomarkers and bioactive molecules from North-East Indian bioresources through molecular screening and ethnopharmacological leads.</div>
           </div>
-
-          <!-- Step 02 -->
           <div class="workflow-step">
             <div class="step-badge">02</div>
             <div class="step-keyword">Design</div>
             <div class="step-icon-wrap"><i class="fa-solid fa-atom"></i></div>
             <div class="step-title">Theranostics &amp; Nanotechnology</div>
             <div class="step-subtitle">Development</div>
-            <div class="step-desc">
-              Development of nanoparticles, imaging probes, and targeted therapeutic systems — engineered for specificity, bioavailability, and multimodal function.
-            </div>
+            <div class="step-desc">Development of nanoparticles, imaging probes, and targeted therapeutic systems — engineered for specificity, bioavailability, and multimodal function.</div>
           </div>
-
-          <!-- Step 03 -->
           <div class="workflow-step">
             <div class="step-badge">03</div>
             <div class="step-keyword">Evaluation</div>
             <div class="step-icon-wrap"><i class="fa-solid fa-flask-vial"></i></div>
             <div class="step-title">Preclinical Validation</div>
             <div class="step-subtitle">In Vitro &amp; In Vivo</div>
-            <div class="step-desc">
-              Rigorous in vitro and in vivo evaluation of efficacy, safety, and mechanistic understanding using clinically relevant cancer models.
-            </div>
+            <div class="step-desc">Rigorous in vitro and in vivo evaluation of efficacy, safety, and mechanistic understanding using clinically relevant cancer models.</div>
           </div>
-
-          <!-- Step 04 -->
           <div class="workflow-step">
             <div class="step-badge">04</div>
             <div class="step-keyword">Translation</div>
             <div class="step-icon-wrap"><i class="fa-solid fa-stethoscope"></i></div>
             <div class="step-title">Clinical Relevance</div>
             <div class="step-subtitle">Bench to Bedside</div>
-            <div class="step-desc">
-              Advancing validated technologies toward diagnostic and therapeutic applications with real-world patient impact through clinical translation.
-            </div>
+            <div class="step-desc">Advancing validated technologies toward diagnostic and therapeutic applications with real-world patient impact through clinical translation.</div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ════ COLLABORATION BANNER ════ -->
     <section class="container">
       <div class="collab-banner">
         <div class="collab-text">
           <h3>Interested in Collaborating?</h3>
-          <p>
-            We welcome collaborations with researchers, institutions, and industry partners
-            working in oncology, nanomedicine, and related fields. Reach out to explore
-            joint projects, student exchanges, or research partnerships.
-          </p>
+          <p>We welcome collaborations with researchers, institutions, and industry partners working in oncology, nanomedicine, and related fields. Reach out to explore joint projects, student exchanges, or research partnerships.</p>
         </div>
-        <a href="contact.html" class="btn-collab">
-          <i class="fa-solid fa-envelope"></i> Get in Touch
-        </a>
+        <a href="contact.html" class="btn-collab"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ════ FOOTER ════ -->
   <footer>
     <div class="footer-brand">Integrated Cancer Theranostic Laboratory</div>
     <div class="footer-links">
@@ -735,22 +421,12 @@
   <script>
     const ham = document.getElementById('hamburger');
     const mob = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      mob.classList.toggle('open');
-    });
-    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      ham.classList.remove('open');
-      mob.classList.remove('open');
-    }));
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
 
-    // Scroll-reveal for focus cards
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.focus-card').forEach(card => observer.observe(card));

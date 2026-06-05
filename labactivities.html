@@ -41,24 +41,20 @@
       border-bottom: 2px solid var(--acc);
     }
     .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-
-    /* ── LOGO: no border, bigger, transparent bg ── */
     .nav-logo-wrap {
-      width: 84px; height: 84px;
-      border-radius: 50%;
+      width: 84px; height: 84px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-      background: transparent;
-      flex-shrink: 0;
+      overflow: hidden; background: transparent; flex-shrink: 0;
     }
     .nav-logo-img {
-      width: 84px; height: 84px;
-      object-fit: contain;
-      background: transparent;
-      display: block;
+      width: 84px; height: 84px; object-fit: contain;
+      background: transparent; display: block;
     }
-
-    .nav-logo { width: 46px; height: 46px; border-radius: 50%; background: var(--acc); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0; }
+    .nav-logo {
+      width: 46px; height: 46px; border-radius: 50%; background: var(--acc);
+      display: none; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0;
+    }
     .nav-title { color: var(--nd); font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.3; max-width: 320px; font-weight: 700; }
     .nav-links { display: flex; gap: 3px; align-items: center; }
     .nav-links a {
@@ -67,8 +63,8 @@
       transition: background .18s, color .18s; white-space: nowrap;
       font-family: 'Playfair Display', serif; font-weight: 700;
     }
-    .nav-links a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
-    .nav-links a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
+    .nav-links a:hover { background: rgba(13,74,88,.07); }
+    .nav-links a.active { background: var(--nd); color: var(--accl); }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -88,6 +84,7 @@
     .mobile-menu a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
 
     main { padding-top: 88px; min-height: 100vh; }
+
     /* ── HERO ── */
     .section-hero {
       background: linear-gradient(135deg, var(--nd), var(--nm));
@@ -100,111 +97,45 @@
         rgba(201,160,32,.038) 38px, rgba(201,160,32,.038) 39px);
       opacity: .55;
     }
-    .hero-deco { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
+    .hero-deco  { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
     .hero-deco2 { position: absolute; bottom: -60px; left: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(42,132,40,.04); pointer-events: none; }
     .section-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,44px); color: #e8f4f6; position: relative; animation: fadeUp .7s ease both; }
-    .section-hero p { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; }
+    .section-hero p  { color: #8ab8c2; font-size: 16px; margin-top: 8px; position: relative; animation: fadeUp .7s .15s ease both; }
     .hero-badge { display: inline-block; margin-top: 20px; border: 1px solid rgba(201,160,32,.55); background: rgba(201,160,32,.1); color: var(--accl); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 7px 22px; border-radius: 2px; position: relative; animation: fadeUp .7s .28s ease both; }
 
     /* ── LAYOUT ── */
     .container { max-width: 1200px; margin: 0 auto; padding: 60px 32px; }
 
     /* ── GALLERY GRID ── */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
     .activity-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--white); border: 1px solid var(--border);
       border-radius: 12px; overflow: hidden;
       box-shadow: 0 6px 20px rgba(13,74,88,.07);
       transition: transform .22s, box-shadow .22s;
-      cursor: pointer;
-      opacity: 0; transform: translateY(20px);
+      cursor: pointer; opacity: 0; transform: translateY(20px);
     }
     .activity-card.visible { animation: fadeUp .55s ease forwards; }
     .activity-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-
-    /* ── PHOTO — increased height to 340px ── */
-    .activity-photo {
-      position: relative; overflow: hidden;
-      background: linear-gradient(135deg, var(--nd), var(--nm));
-      height: 340px;  /* ← was 240px */
-    }
-
-    .activity-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform .4s ease;
-    }
+    .activity-photo { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--nd), var(--nm)); height: 340px; }
+    .activity-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .4s ease; }
     .activity-card:hover .activity-photo img { transform: scale(1.06); }
-
-    /* overlay on hover */
-    .activity-photo::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,74,88,.55) 0%, transparent 50%);
-      opacity: 0; transition: opacity .3s;
-    }
+    .activity-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,74,88,.55) 0%, transparent 50%); opacity: 0; transition: opacity .3s; }
     .activity-card:hover .activity-photo::after { opacity: 1; }
-
-    /* zoom icon on hover */
-    .activity-zoom {
-      position: absolute; bottom: 16px; right: 16px;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(255,255,255,.9); color: var(--nd);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-      opacity: 0; transform: scale(.7);
-      transition: opacity .25s, transform .25s;
-      z-index: 2;
-    }
+    .activity-zoom { position: absolute; bottom: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--nd); display: flex; align-items: center; justify-content: center; font-size: 14px; opacity: 0; transform: scale(.7); transition: opacity .25s, transform .25s; z-index: 2; }
     .activity-card:hover .activity-zoom { opacity: 1; transform: scale(1); }
-
-    /* Card body */
     .activity-body { padding: 18px 20px 22px; }
-    .activity-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px; color: var(--nd); margin-bottom: 6px; line-height: 1.3;
-    }
+    .activity-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--nd); margin-bottom: 6px; line-height: 1.3; }
     .activity-card.featured .activity-title { font-size: 22px; }
     .activity-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
 
     /* ── LIGHTBOX ── */
-    .lightbox {
-      display: none; position: fixed; inset: 0; z-index: 2000;
-      background: rgba(8,46,56,.94); backdrop-filter: blur(8px);
-      align-items: center; justify-content: center; padding: 20px;
-    }
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(8,46,56,.94); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px; }
     .lightbox.open { display: flex; }
-    .lightbox-inner {
-      max-width: 900px; width: 100%; position: relative;
-      animation: fadeUp .3s ease;
-    }
-    .lightbox-inner img {
-      width: 100%; max-height: 80vh;
-      object-fit: contain; border-radius: 8px;
-      box-shadow: 0 24px 60px rgba(0,0,0,.5);
-    }
-    .lightbox-caption {
-      text-align: center; margin-top: 16px;
-      font-family: 'Playfair Display', serif;
-      font-size: 18px; color: #e8f4f6;
-    }
-    .lightbox-close {
-      position: absolute; top: -16px; right: -16px;
-      width: 38px; height: 38px; border-radius: 50%;
-      background: var(--acc); color: var(--nd);
-      border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-    }
+    .lightbox-inner { max-width: 900px; width: 100%; position: relative; animation: fadeUp .3s ease; }
+    .lightbox-inner img { width: 100%; max-height: 80vh; object-fit: contain; border-radius: 8px; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+    .lightbox-caption { text-align: center; margin-top: 16px; font-family: 'Playfair Display', serif; font-size: 18px; color: #e8f4f6; }
+    .lightbox-close { position: absolute; top: -16px; right: -16px; width: 38px; height: 38px; border-radius: 50%; background: var(--acc); color: var(--nd); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; }
 
     /* ── FOOTER ── */
     footer { background: #082e38; padding: 34px 44px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid rgba(201,160,32,.2); }
@@ -225,16 +156,22 @@
       .activity-card.featured { grid-column: span 2; }
     }
     @media (max-width: 780px) {
-      .nav-links { display: none; } .hamburger { display: flex; }
-      #navbar { height: 66px; } main { padding-top: 66px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #navbar { height: 66px; padding: 0 20px; }
+      main { padding-top: 66px; }
       .mobile-menu { top: 66px; }
+      /* Match index.html mobile logo exactly */
+      .nav-logo-wrap { width: 56px; height: 56px; }
+      .nav-logo-img  { width: 56px; height: 56px; }
+      .nav-title { font-size: 14px; max-width: 200px; }
       .container { padding: 40px 20px; }
       footer { padding: 26px 20px; }
     }
     @media (max-width: 560px) {
       .gallery-grid { grid-template-columns: 1fr; }
       .activity-card.featured { grid-column: span 1; }
-      .activity-card.featured .activity-photo { height: 340px; } /* ← was 260px */
+      .activity-card.featured .activity-photo { height: 340px; }
     }
   </style>
 </head>
@@ -243,9 +180,11 @@
   <!-- ══ NAVBAR ══ -->
   <nav id="navbar">
     <a class="nav-brand" href="index.html">
-      <img class="nav-logo-img" src="images/logo2.png" alt="ICT Lab Logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-      <div class="nav-logo" style="display:none;">ICT</div>
+      <div class="nav-logo-wrap">
+        <img class="nav-logo-img" src="images/logo2.png" alt="ICT Lab Logo"
+             onerror="this.parentElement.style.display='none'; document.querySelector('.nav-logo').style.display='flex';" />
+      </div>
+      <div class="nav-logo">ICT</div>
       <div class="nav-title">Integrated Cancer Theranostic Laboratory</div>
     </a>
     <div class="nav-links">
@@ -255,7 +194,7 @@
       <a href="publications.html">Publications</a>
       <a href="alumni.html">Alumni</a>
       <a class="active" href="labactivities.html">Lab Activities</a>
-      <a href="labnews.html">News & Updates</a>
+      <a href="labnews.html">News &amp; Updates</a>
       <a href="contact.html">Contact Us</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -270,41 +209,34 @@
     <a href="publications.html">Publications</a>
     <a href="alumni.html">Alumni</a>
     <a class="active" href="labactivities.html">Lab Activities</a>
-    <a href="labnews.html">News & Updates</a>
+    <a href="labnews.html">News &amp; Updates</a>
     <a href="contact.html">Contact Us</a>
   </div>
 
   <main>
 
-    <!-- ══ HERO ══ -->
     <section class="section-hero">
       <div class="hero-deco"></div>
       <div class="hero-deco2"></div>
-      <h1>Lab Life & Events</h1>
-      
+      <h1>Lab Life &amp; Events</h1>
       <div class="hero-badge">CSIR-NEIST · Jorhat, Assam</div>
     </section>
 
     <div class="container">
-
-      <!-- ══ GALLERY GRID ══ -->
       <div class="gallery-grid" id="gallery">
 
-        <!-- 1. Music / Guitar — FEATURED (object-position: top to show face) -->
         <div class="activity-card featured" data-cat="personal" style="animation-delay:0s;"
              onclick="openLightbox('images/music.jpg','Prof. Konwar — Guitar & Music')">
           <div class="activity-photo">
-            <img src="images/music.jpg" alt="Prof. Konwar playing guitar"
-                 style="object-position: top;" />  <!-- ← FIXED: shows face -->
+            <img src="images/music.jpg" alt="Prof. Konwar playing guitar" style="object-position: top;" />
             <div class="activity-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
           </div>
           <div class="activity-body">
-            <div class="activity-title">Prof. Konwar — Guitar & Music</div>
+            <div class="activity-title">Prof. Konwar — Guitar &amp; Music</div>
             <div class="activity-desc">A glimpse into the musical side of our PI — Prof. Rituraj Konwar unwinding with his guitar, reminding us that great scientists have great passions beyond the lab.</div>
           </div>
         </div>
 
-        <!-- 2. Independence Day -->
         <div class="activity-card" data-cat="national" style="animation-delay:.07s;"
              onclick="openLightbox('images/independence.jpg','Independence Day Celebration')">
           <div class="activity-photo">
@@ -317,7 +249,6 @@
           </div>
         </div>
 
-        <!-- 3. Conference NSARA -->
         <div class="activity-card" data-cat="conference" style="animation-delay:.14s;"
              onclick="openLightbox('images/conference.jpg','Conference — NSARA')">
           <div class="activity-photo">
@@ -330,7 +261,6 @@
           </div>
         </div>
 
-        <!-- 4. Lab Trip -->
         <div class="activity-card" data-cat="social" style="animation-delay:.21s;"
              onclick="openLightbox('images/trip.jpg','Lab Trip')">
           <div class="activity-photo">
@@ -343,7 +273,6 @@
           </div>
         </div>
 
-        <!-- 5. Birthday Celebration -->
         <div class="activity-card" data-cat="celebration" style="animation-delay:.28s;"
              onclick="openLightbox('images/birthday.jpg','Birthday Celebration')">
           <div class="activity-photo">
@@ -356,7 +285,6 @@
           </div>
         </div>
 
-        <!-- 6. OUR LAB -->
         <div class="activity-card" data-cat="celebration" style="animation-delay:.28s;"
              onclick="openLightbox('images/lab.jpeg','Our Research Workspace')">
           <div class="activity-photo">
@@ -369,7 +297,6 @@
           </div>
         </div>
 
-        <!-- 7. Introductory Session with Interns -->
         <div class="activity-card" data-cat="academic" style="animation-delay:.35s;"
              onclick="openLightbox('images/interns.jpg','Introductory Session with Interns')">
           <div class="activity-photo">
@@ -382,8 +309,8 @@
           </div>
         </div>
 
-      </div><!-- /gallery-grid -->
-    </div><!-- /container -->
+      </div>
+    </div>
   </main>
 
   <!-- ══ LIGHTBOX ══ -->
@@ -401,25 +328,22 @@
     <div class="footer-links">
       <a href="contact.html">Contact</a>
       <a href="publications.html">Publications</a>
-      <a href="labnews.html">News & Updates</a>
+      <a href="labnews.html">News &amp; Updates</a>
     </div>
     <div class="footer-copy">&copy; 2025 Rituraj Konwar Lab · All rights reserved</div>
   </footer>
 
   <script>
-    // Hamburger
     const ham = document.getElementById('hamburger');
     const mob = document.getElementById('mobileMenu');
     ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
     mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
 
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.activity-card').forEach(c => observer.observe(c));
 
-    // Lightbox
     function openLightbox(src, caption) {
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox-caption').textContent = caption;
