@@ -38,7 +38,7 @@
     .nav-links a { color: var(--nd); text-decoration: none; font-size: 14px; padding: 8px 11px; border-radius: 4px; transition: background .18s, color .18s; white-space: nowrap; font-family: 'Playfair Display', serif; font-weight: 700; }
     .nav-links a:hover { background: rgba(13,74,88,.07); }
     .nav-links a.active { background: var(--nd); color: var(--accl); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -144,116 +144,20 @@
     .hl-card h4 { font-size: 15px; font-weight: 600; color: var(--nd); margin-bottom: 8px; }
     .hl-card p  { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
-    /* ─── TEAM SECTION ─────────────────────────────────── */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
-    margin-top: 10px;
-}
-
-.team-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(13,74,88,.07);
-    transition: transform .22s, box-shadow .22s;
-    text-align: center;
-}
-
-.team-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
-}
-
-.team-photo-wrap {
-    height: 190px;
-    background: linear-gradient(155deg, var(--nd) 0%, var(--nm) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.team-photo-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform .3s ease;
-}
-
-.team-photo-wrap:hover img {
-    transform: scale(1.06);
-}
-
-.team-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.12);
-    border: 2px solid rgba(201,160,32,.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--accl);
-    font-weight: 700;
-}
-
-.team-role-strip {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(13,74,88,.82);
-    padding: 5px 8px;
-    font-size: 11px;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    color: var(--accl);
-    font-weight: 600;
-}
-
-.team-info {
-    padding: 16px 14px 20px;
-}
-
-.team-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: var(--nd);
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.team-topic {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.55;
-}
-
-.team-year {
-    display: inline-block;
-    margin-top: 9px;
-    background: linear-gradient(135deg, #f0f7f8, #e8f4f5);
-    border: 1px solid #c8dfe2;
-    border-radius: 50px;
-    padding: 3px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--nl);
-}
-
-.team-section-bg {
-    background: linear-gradient(180deg, #edf2f1 0%, #f4f7f5 100%);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
+    /* ─── TEAM ─────────────────────────────────────────── */
+    .team-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; margin-top: 10px; }
+    .team-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: 0 6px 20px rgba(13,74,88,.07); transition: transform .22s, box-shadow .22s; text-align: center; }
+    .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .team-photo-wrap { height: 190px; background: linear-gradient(155deg, var(--nd) 0%, var(--nm) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; }
+    .team-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
+    .team-photo-wrap:hover img { transform: scale(1.06); }
+    .team-avatar { width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,.12); border: 2px solid rgba(201,160,32,.4); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 28px; color: var(--accl); font-weight: 700; }
+    .team-role-strip { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(13,74,88,.82); padding: 5px 8px; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--accl); font-weight: 600; }
+    .team-info { padding: 16px 14px 20px; }
+    .team-name { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--nd); font-weight: 700; margin-bottom: 5px; }
+    .team-topic { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .team-year { display: inline-block; margin-top: 9px; background: linear-gradient(135deg, #f0f7f8, #e8f4f5); border: 1px solid #c8dfe2; border-radius: 50px; padding: 3px 12px; font-size: 12px; font-weight: 600; color: var(--nl); }
+    .team-section-bg { background: linear-gradient(180deg, #edf2f1 0%, #f4f7f5 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
     /* ─── GALLERY ─────────────────────────────────────── */
     .gallery-section-bg { background: var(--nd); padding: 64px 0; position: relative; overflow: hidden; }
@@ -272,7 +176,6 @@
     .gallery-placeholder-img { width: 100%; height: 100%; min-height: 160px; object-fit: cover; display: block; background: rgba(255,255,255,.04); }
     .gallery-item.large { min-height: 340px; }
     .gallery-item:not(.large) { min-height: 160px; }
-    
 
     /* ─── JOIN ──────────────────────────────────────────── */
     .join-section { background: linear-gradient(135deg, #082e38 0%, #0d4a58 60%, #114f5e 100%); position: relative; overflow: hidden; }
@@ -317,48 +220,14 @@
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ─── LIGHTBOX ───────────────────────────────────────── */
-    .lightbox {
-      display: none; position: fixed; inset: 0; z-index: 4000;
-      background: rgba(5,22,28,.94); backdrop-filter: blur(10px);
-      align-items: center; justify-content: center;
-      padding: 24px;
-      animation: fadeUp .2s ease;
-    }
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 4000; background: rgba(5,22,28,.94); backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 24px; animation: fadeUp .2s ease; }
     .lightbox.open { display: flex; }
-    .lightbox-inner {
-      position: relative; max-width: 900px; width: 100%;
-      display: flex; flex-direction: column; align-items: center; gap: 16px;
-    }
-    .lightbox-img {
-      max-width: 100%; max-height: 78vh;
-      border-radius: 10px;
-      box-shadow: 0 30px 80px rgba(0,0,0,.6);
-      object-fit: contain;
-      display: block;
-    }
-    .lightbox-caption {
-      font-family: 'Playfair Display', serif;
-      font-size: 16px; color: rgba(255,255,255,.85);
-      text-align: center; max-width: 600px;
-    }
-    .lightbox-close {
-      position: fixed; top: 20px; right: 24px;
-      width: 44px; height: 44px; border-radius: 50%;
-      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
-      color: #fff; font-size: 18px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background .18s;
-    }
+    .lightbox-inner { position: relative; max-width: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .lightbox-img { max-width: 100%; max-height: 78vh; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.6); object-fit: contain; display: block; }
+    .lightbox-caption { font-family: 'Playfair Display', serif; font-size: 16px; color: rgba(255,255,255,.85); text-align: center; max-width: 600px; }
+    .lightbox-close { position: fixed; top: 20px; right: 24px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .18s; }
     .lightbox-close:hover { background: rgba(255,255,255,.25); }
-    /* prev / next arrows */
-    .lightbox-prev, .lightbox-next {
-      position: fixed; top: 50%; transform: translateY(-50%);
-      width: 48px; height: 48px; border-radius: 50%;
-      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-      color: #fff; font-size: 18px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background .18s;
-    }
+    .lightbox-prev, .lightbox-next { position: fixed; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .18s; }
     .lightbox-prev { left: 16px; }
     .lightbox-next { right: 16px; }
     .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,.22); }
@@ -391,10 +260,16 @@
     }
     @media (max-width: 780px) {
       .nav-links { display: none; }
-      .hamburger { display: flex; }
-      #navbar { height: 66px; padding: 0 20px; }
+      .hamburger { display: flex; flex-shrink: 0; }
+      #navbar { height: 66px; padding: 0 16px; }
       main { padding-top: 66px; }
       .mobile-menu { top: 66px; }
+      /* ── Logo shrinks to fit 66px navbar ── */
+      .nav-logo-wrap { width: 50px; height: 50px; }
+      .nav-logo-img  { width: 50px; height: 50px; }
+      /* ── Brand takes remaining space, title constrained so hamburger always fits ── */
+      .nav-brand { gap: 8px; min-width: 0; flex: 1; overflow: hidden; }
+      .nav-title { font-size: 12px; max-width: 175px; line-height: 1.3; }
       .hero { padding: 64px 22px 54px; }
       .hero h1 { font-size: 30px; }
       .hero p  { font-size: 16px; }
@@ -406,8 +281,6 @@
       .join-btn-outline { margin-left: 0; margin-top: 12px; }
       .join-cta { display: flex; flex-direction: column; align-items: center; gap: 10px; }
       .team-grid { grid-template-columns: repeat(2, 1fr); }
-      .nav-logo-wrap { width: 56px; height: 56px; }
-      .nav-logo-img { width: 56px; height: 56px; }
       .lightbox-prev { left: 6px; }
       .lightbox-next { right: 6px; }
     }
@@ -472,13 +345,11 @@
       <div class="hero-badge">Drug Discovery &amp; Therapeutics Development</div>
     </section>
 
-    <!-- ════ PI ════ -->
     <section class="container">
       <div class="pi-card">
         <div class="pi-photo-col">
           <div class="pi-photo">
-            <img src="images/sir.jpg" alt="Dr. Rituraj Konwar"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <img src="images/sir.jpg" alt="Dr. Rituraj Konwar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="pi-fallback" style="display:none;"><i class="fa-solid fa-user-tie"></i></div>
           </div>
           <div class="pi-socials">
@@ -521,49 +392,20 @@
             <button class="pi-tab" onclick="switchTab(this,'expertise')">Research Expertise</button>
             <button class="pi-tab" onclick="switchTab(this,'hobbies')">Hobbies</button>
           </div>
-          <div class="pi-tab-content active" id="tab-bio">
-            <p class="pi-tab-text">Rituraj Konwar is a Senior Principal Scientist and Professor at the Academy of Scientific and Innovative Research (AcSIR). His research spans endocrinology, cancer biomarkers, drug delivery, photothermal therapy, nanoparticle imaging probes, theranostic nanoparticles, and immunology. With over 4,900 citations and an h-index of 38, his work has made significant contributions to cancer biology, reproductive biology, endocrinology, and drug discovery.</p>
-          </div>
-          <div class="pi-tab-content" id="tab-edu">
-            <div class="pi-edu-row">
-              <div class="pi-edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-              <div><div class="pi-edu-deg">Ph.D. — Veterinary Biotechnology</div><div class="pi-edu-inst">Indian Veterinary Research Institute (IVRI), Izatnagar, Bareilly, Uttar Pradesh</div></div>
-            </div>
-          </div>
+          <div class="pi-tab-content active" id="tab-bio"><p class="pi-tab-text">Rituraj Konwar is a Senior Principal Scientist and Professor at the Academy of Scientific and Innovative Research (AcSIR). His research spans endocrinology, cancer biomarkers, drug delivery, photothermal therapy, nanoparticle imaging probes, theranostic nanoparticles, and immunology. With over 4,900 citations and an h-index of 38, his work has made significant contributions to cancer biology, reproductive biology, endocrinology, and drug discovery.</p></div>
+          <div class="pi-tab-content" id="tab-edu"><div class="pi-edu-row"><div class="pi-edu-icon"><i class="fa-solid fa-graduation-cap"></i></div><div><div class="pi-edu-deg">Ph.D. — Veterinary Biotechnology</div><div class="pi-edu-inst">Indian Veterinary Research Institute (IVRI), Izatnagar, Bareilly, Uttar Pradesh</div></div></div></div>
           <div class="pi-tab-content" id="tab-roles">
             <div class="pi-role-item"><i class="fa-solid fa-microscope"></i><div><div class="pi-role-title">Senior Principal Scientist &amp; Activity In-charge</div><div class="pi-role-place">Centre for Preclinical Studies, CSIR-North East Institute of Science and Technology, Jorhat, Assam, India</div></div></div>
             <div class="pi-role-item"><i class="fa-solid fa-chalkboard-user"></i><div><div class="pi-role-title">Professor</div><div class="pi-role-place">Academy of Scientific and Innovative Research (AcSIR)</div></div></div>
           </div>
-          <div class="pi-tab-content" id="tab-expertise">
-            <div class="pi-expertise-grid">
-              <div class="pi-expertise-item"><i class="fa-solid fa-ribbon"></i>Cancer Biology</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-venus"></i>Reproductive Biology</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-flask"></i>Endocrinology</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-pills"></i>Drug Discovery</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-dna"></i>Cancer Biomarkers</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-truck-medical"></i>Drug Delivery Systems</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-fire-flame-curved"></i>Photothermal Therapy</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-circle-dot"></i>Nanoparticle Imaging Probes</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-atom"></i>Theranostic Nanoparticles</div>
-              <div class="pi-expertise-item"><i class="fa-solid fa-shield-virus"></i>Immunology</div>
-            </div>
-          </div>
-          <div class="pi-tab-content" id="tab-hobbies">
-            <div class="pi-hobbies">
-              <div class="pi-hobby"><i class="fa-solid fa-table-tennis-paddle-ball"></i>Badminton</div>
-              <div class="pi-hobby"><i class="fa-solid fa-music"></i>Music</div>
-              <div class="pi-hobby"><i class="fa-solid fa-guitar"></i>Guitar</div>
-              <div class="pi-hobby"><i class="fa-solid fa-book-open"></i>Reading</div>
-              <div class="pi-hobby"><i class="fa-solid fa-volleyball"></i>Volleyball</div>
-            </div>
-          </div>
+          <div class="pi-tab-content" id="tab-expertise"><div class="pi-expertise-grid"><div class="pi-expertise-item"><i class="fa-solid fa-ribbon"></i>Cancer Biology</div><div class="pi-expertise-item"><i class="fa-solid fa-venus"></i>Reproductive Biology</div><div class="pi-expertise-item"><i class="fa-solid fa-flask"></i>Endocrinology</div><div class="pi-expertise-item"><i class="fa-solid fa-pills"></i>Drug Discovery</div><div class="pi-expertise-item"><i class="fa-solid fa-dna"></i>Cancer Biomarkers</div><div class="pi-expertise-item"><i class="fa-solid fa-truck-medical"></i>Drug Delivery Systems</div><div class="pi-expertise-item"><i class="fa-solid fa-fire-flame-curved"></i>Photothermal Therapy</div><div class="pi-expertise-item"><i class="fa-solid fa-circle-dot"></i>Nanoparticle Imaging Probes</div><div class="pi-expertise-item"><i class="fa-solid fa-atom"></i>Theranostic Nanoparticles</div><div class="pi-expertise-item"><i class="fa-solid fa-shield-virus"></i>Immunology</div></div></div>
+          <div class="pi-tab-content" id="tab-hobbies"><div class="pi-hobbies"><div class="pi-hobby"><i class="fa-solid fa-table-tennis-paddle-ball"></i>Badminton</div><div class="pi-hobby"><i class="fa-solid fa-music"></i>Music</div><div class="pi-hobby"><i class="fa-solid fa-guitar"></i>Guitar</div><div class="pi-hobby"><i class="fa-solid fa-book-open"></i>Reading</div><div class="pi-hobby"><i class="fa-solid fa-volleyball"></i>Volleyball</div></div></div>
         </div>
       </div>
     </section>
 
     <hr class="divider">
 
-    <!-- ════ ABOUT ════ -->
     <section class="container">
       <div class="sec-label">About the Lab</div>
       <div class="sec-title">Our Vision &amp; Mission</div>
@@ -581,123 +423,41 @@
 
     <hr class="divider">
 
-    <!-- ════ TEAM ════ -->
     <section class="team-section-bg">
       <div class="container">
         <div class="sec-title reveal">Meet the Team</div>
         <p class="lead reveal" style="margin-bottom: 34px;">Our lab is home to a diverse group of passionate scientists — from junior research fellows to senior scientists — united by a shared mission to combat cancer through innovative research.</p>
         <div class="team-grid">
-
-          <div class="team-card reveal">
-            <div class="team-photo-wrap" onclick="openLightbox('team', 0)">
-              <img src="images/pankajbarman.jpg" alt="Pankaj Barman" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
-              <div class="team-avatar" style="display:none;">PB</div>
-              <div class="team-role-strip">PhD Scholar</div>
-            </div>
-            <div class="team-info"><div class="team-name">Pankaj Barman</div><div class="team-topic">Investigation of anticancer activity of fermented food products</div><span class="team-year">Since 2020</span></div>
-          </div>
-
-          <div class="team-card reveal reveal-delay-1">
-            <div class="team-photo-wrap" onclick="openLightbox('team', 1)">
-              <img src="images/kallol.jpg" alt="Kallol Roy" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
-              <div class="team-avatar" style="display:none;">KR</div>
-              <div class="team-role-strip">PhD Scholar</div>
-            </div>
-            <div class="team-info"><div class="team-name">Kallol Roy</div><div class="team-topic">Quantum dots in anticancer drug delivery</div><span class="team-year">Since 2020</span></div>
-          </div>
-
-          <div class="team-card reveal reveal-delay-2">
-            <div class="team-photo-wrap" onclick="openLightbox('team', 2)">
-              <img src="images/esha.jpg" alt="Esha Roy" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
-              <div class="team-avatar" style="display:none;">ER</div>
-              <div class="team-role-strip">PhD Scholar</div>
-            </div>
-            <div class="team-info"><div class="team-name">Esha Roy</div><div class="team-topic">Multifunctional nanomaterials in cancer theranostics</div><span class="team-year">Since 2022</span></div>
-          </div>
-
-          <div class="team-card reveal reveal-delay-3">
-            <div class="team-photo-wrap" onclick="openLightbox('team', 3)">
-              <img src="images/prity.jpg" alt="Prity Chakravarty" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
-              <div class="team-avatar" style="display:none;">PC</div>
-              <div class="team-role-strip">PhD Scholar</div>
-            </div>
-            <div class="team-info"><div class="team-name">Prity Chakravarty</div><div class="team-topic">Biopolymer based hydrogel for cancer therapy</div><span class="team-year">Since 2025</span></div>
-          </div>
-
-          <div class="team-card reveal reveal-delay-1">
-            <div class="team-photo-wrap" onclick="openLightbox('team', 4)">
-              <img src="images/nibedita.jpg" alt="Nibedita Saikia" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
-              <div class="team-avatar" style="display:none;">NS</div>
-              <div class="team-role-strip">PhD Scholar</div>
-            </div>
-            <div class="team-info"><div class="team-name">Nibedita Saikia</div><div class="team-topic">Green synthesis of Nanoparticles and its biological applications</div><span class="team-year">Since 2024</span></div>
-          </div>
-
-          <div class="team-card reveal reveal-delay-2">
-            <div class="team-photo-wrap" onclick="openLightbox('team', 5)">
-              <img src="images/hiranya.jpg" alt="Hiranya" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';">
-              <div class="team-avatar" style="display:none;">HJ</div>
-              <div class="team-role-strip">PhD Scholar</div>
-            </div>
-            <div class="team-info"><div class="team-name">Hiranya Kumar Das</div><div class="team-topic">Nanomaterials and theranostics</div><span class="team-year">Since 2025</span></div>
-          </div>
-
+          <div class="team-card reveal"><div class="team-photo-wrap" onclick="openLightbox('team', 0)"><img src="images/pankajbarman.jpg" alt="Pankaj Barman" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';"><div class="team-avatar" style="display:none;">PB</div><div class="team-role-strip">PhD Scholar</div></div><div class="team-info"><div class="team-name">Pankaj Barman</div><div class="team-topic">Investigation of anticancer activity of fermented food products</div><span class="team-year">Since 2020</span></div></div>
+          <div class="team-card reveal reveal-delay-1"><div class="team-photo-wrap" onclick="openLightbox('team', 1)"><img src="images/kallol.jpg" alt="Kallol Roy" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';"><div class="team-avatar" style="display:none;">KR</div><div class="team-role-strip">PhD Scholar</div></div><div class="team-info"><div class="team-name">Kallol Roy</div><div class="team-topic">Quantum dots in anticancer drug delivery</div><span class="team-year">Since 2020</span></div></div>
+          <div class="team-card reveal reveal-delay-2"><div class="team-photo-wrap" onclick="openLightbox('team', 2)"><img src="images/esha.jpg" alt="Esha Roy" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';"><div class="team-avatar" style="display:none;">ER</div><div class="team-role-strip">PhD Scholar</div></div><div class="team-info"><div class="team-name">Esha Roy</div><div class="team-topic">Multifunctional nanomaterials in cancer theranostics</div><span class="team-year">Since 2022</span></div></div>
+          <div class="team-card reveal reveal-delay-3"><div class="team-photo-wrap" onclick="openLightbox('team', 3)"><img src="images/prity.jpg" alt="Prity Chakravarty" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';"><div class="team-avatar" style="display:none;">PC</div><div class="team-role-strip">PhD Scholar</div></div><div class="team-info"><div class="team-name">Prity Chakravarty</div><div class="team-topic">Biopolymer based hydrogel for cancer therapy</div><span class="team-year">Since 2025</span></div></div>
+          <div class="team-card reveal reveal-delay-1"><div class="team-photo-wrap" onclick="openLightbox('team', 4)"><img src="images/nibedita.jpg" alt="Nibedita Saikia" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';"><div class="team-avatar" style="display:none;">NS</div><div class="team-role-strip">PhD Scholar</div></div><div class="team-info"><div class="team-name">Nibedita Saikia</div><div class="team-topic">Green synthesis of Nanoparticles and its biological applications</div><span class="team-year">Since 2024</span></div></div>
+          <div class="team-card reveal reveal-delay-2"><div class="team-photo-wrap" onclick="openLightbox('team', 5)"><img src="images/hiranya.jpg" alt="Hiranya" onerror="this.style.display='none'; this.parentElement.querySelector('.team-avatar').style.display='flex';"><div class="team-avatar" style="display:none;">HJ</div><div class="team-role-strip">PhD Scholar</div></div><div class="team-info"><div class="team-name">Hiranya Kumar Das</div><div class="team-topic">Nanomaterials and theranostics</div><span class="team-year">Since 2025</span></div></div>
         </div>
         <div style="text-align:center; margin-top:34px;" class="reveal">
-          <a href="researchgroup.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--nd); font-weight:600; font-size:15px; text-decoration:none; border-bottom: 2px solid var(--acc); padding-bottom:3px;">
-            View Full Research Group <i class="fa-solid fa-arrow-right"></i>
-          </a>
+          <a href="researchgroup.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--nd); font-weight:600; font-size:15px; text-decoration:none; border-bottom: 2px solid var(--acc); padding-bottom:3px;">View Full Research Group <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
 
-    <!-- ════ GALLERY ════ -->
     <section class="gallery-section-bg">
       <div class="gallery-inner">
         <div class="gallery-sec-label reveal">Lab Life</div>
         <div class="gallery-sec-title reveal">Gallery</div>
         <div class="gallery-grid">
-
-          <div class="gallery-item large reveal" onclick="openLightbox('gallery', 0)">
-            <img src="images/conference.jpg" alt="Conference" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-flask gallery-photo-icon"></i></div>
-            <div class="gallery-caption">Conference — NSARA</div>
-          </div>
-
-          <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox('gallery', 1)">
-            <img src="images/interns.jpg" alt="Interns" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-users gallery-photo-icon"></i></div>
-            <div class="gallery-caption">Welcoming new interns to the ICT Lab family</div>
-          </div>
-
-          <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox('gallery', 2)">
-            <img src="images/independence.jpg" alt="Independence Day" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-chalkboard-user gallery-photo-icon"></i></div>
-            <div class="gallery-caption">Independence Day Celebration</div>
-          </div>
-
-          <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox('gallery', 3)">
-            <img src="images/news1.jpg" alt="Award" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-award gallery-photo-icon"></i></div>
-            <div class="gallery-caption">Esha receiving Best Poster Presentation Award at NSARA</div>
-          </div>
-
-          <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox('gallery', 4)">
-            <img src="images/lab.jpeg" alt="Lab" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="gallery-photo" style="display:none;"><i class="fa-solid fa-hand-holding-heart gallery-photo-icon"></i></div>
-            <div class="gallery-caption">Our Research Workspace</div>
-          </div>
-
+          <div class="gallery-item large reveal" onclick="openLightbox('gallery', 0)"><img src="images/conference.jpg" alt="Conference" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="gallery-photo" style="display:none;"><i class="fa-solid fa-flask gallery-photo-icon"></i></div><div class="gallery-caption">Conference — NSARA</div></div>
+          <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox('gallery', 1)"><img src="images/interns.jpg" alt="Interns" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="gallery-photo" style="display:none;"><i class="fa-solid fa-users gallery-photo-icon"></i></div><div class="gallery-caption">Welcoming new interns to the ICT Lab family</div></div>
+          <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox('gallery', 2)"><img src="images/independence.jpg" alt="Independence Day" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="gallery-photo" style="display:none;"><i class="fa-solid fa-chalkboard-user gallery-photo-icon"></i></div><div class="gallery-caption">Independence Day Celebration</div></div>
+          <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox('gallery', 3)"><img src="images/news1.jpg" alt="Award" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="gallery-photo" style="display:none;"><i class="fa-solid fa-award gallery-photo-icon"></i></div><div class="gallery-caption">Esha receiving Best Poster Presentation Award at NSARA</div></div>
+          <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox('gallery', 4)"><img src="images/lab.jpeg" alt="Lab" class="gallery-placeholder-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="gallery-photo" style="display:none;"><i class="fa-solid fa-hand-holding-heart gallery-photo-icon"></i></div><div class="gallery-caption">Our Research Workspace</div></div>
         </div>
         <div style="text-align:center; margin-top:30px;" class="reveal">
-          <a href="labactivities.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--accl); font-weight:600; font-size:15px; text-decoration:none; border-bottom: 1px solid rgba(201,160,32,.5); padding-bottom:3px;">
-            View All Lab Activities <i class="fa-solid fa-arrow-right"></i>
-          </a>
+          <a href="labactivities.html" style="display:inline-flex; align-items:center; gap:8px; color:var(--accl); font-weight:600; font-size:15px; text-decoration:none; border-bottom: 1px solid rgba(201,160,32,.5); padding-bottom:3px;">View All Lab Activities <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
 
-    <!-- ════ JOIN ════ -->
     <section class="join-section">
       <div class="join-inner">
         <div class="join-header">
@@ -756,13 +516,11 @@
   </footer>
 
   <script>
-    // ── Hamburger ──
     const ham = document.getElementById('hamburger');
     const mob = document.getElementById('mobileMenu');
     ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
     mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
 
-    // ── PI Tabs ──
     function switchTab(btn, id) {
       document.querySelectorAll('.pi-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.pi-tab-content').forEach(c => c.classList.remove('active'));
@@ -770,7 +528,6 @@
       document.getElementById('tab-' + id).classList.add('active');
     }
 
-    // ── Citation Chart ──
     (function buildCitationChart() {
       const data = [
         { year: '2019', val: 355 }, { year: '2020', val: 380 },
@@ -789,7 +546,6 @@
       });
     })();
 
-    // ── Animated Counter ──
     function animateCounter(el) {
       const target = parseInt(el.dataset.target, 10);
       const suffix = el.dataset.suffix || '';
@@ -803,7 +559,6 @@
       requestAnimationFrame(tick);
     }
 
-    // ── Scroll Reveal + Counter ──
     const revealEls = document.querySelectorAll('.reveal');
     let countersStarted = false;
     const observer = new IntersectionObserver(entries => {
@@ -818,7 +573,6 @@
       co.observe(statBar);
     }
 
-    // ── LIGHTBOX ──
     const galleries = {
       team: [
         { src: 'images/pankajbarman.jpg', caption: 'Pankaj Barman — PhD Scholar' },
@@ -829,11 +583,11 @@
         { src: 'images/hiranya.jpg',      caption: 'Hiranya Kumar Das — PhD Scholar' },
       ],
       gallery: [
-        { src: 'images/conference.jpg',  caption: 'Conference — NSARA' },
-        { src: 'images/interns.jpg',     caption: 'Welcoming new interns to the ICT Lab family' },
-        { src: 'images/independence.jpg',caption: 'Independence Day Celebration' },
-        { src: 'images/news1.jpg',       caption: 'Esha receiving Best Poster Presentation Award at NSARA' },
-        { src: 'images/lab.jpeg',        caption: 'Our Research Workspace' },
+        { src: 'images/conference.jpg',   caption: 'Conference — NSARA' },
+        { src: 'images/interns.jpg',      caption: 'Welcoming new interns to the ICT Lab family' },
+        { src: 'images/independence.jpg', caption: 'Independence Day Celebration' },
+        { src: 'images/news1.jpg',        caption: 'Esha receiving Best Poster Presentation Award at NSARA' },
+        { src: 'images/lab.jpeg',         caption: 'Our Research Workspace' },
       ]
     };
 
@@ -841,50 +595,39 @@
     let currentIndex   = 0;
 
     function openLightbox(type, index) {
-      currentGallery = type;
-      currentIndex   = index;
+      currentGallery = type; currentIndex = index;
       renderLightbox();
       document.getElementById('lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
-
     function renderLightbox() {
       const items = galleries[currentGallery];
       const item  = items[currentIndex];
-      document.getElementById('lightboxImg').src     = item.src;
-      document.getElementById('lightboxImg').alt     = item.caption;
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxImg').alt = item.caption;
       document.getElementById('lightboxCaption').textContent = item.caption;
-      document.getElementById('lightboxCounter').textContent =
-        (currentIndex + 1) + ' / ' + items.length;
+      document.getElementById('lightboxCounter').textContent = (currentIndex + 1) + ' / ' + items.length;
     }
-
     function lightboxNav(dir) {
       const items = galleries[currentGallery];
       currentIndex = (currentIndex + dir + items.length) % items.length;
       renderLightbox();
     }
-
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
       document.body.style.overflow = '';
     }
-
     function closeLightboxOutside(e) {
       if (e.target === document.getElementById('lightbox')) closeLightbox();
     }
-
-    // keyboard navigation
     document.addEventListener('keydown', e => {
       if (document.getElementById('lightbox').classList.contains('open')) {
         if (e.key === 'ArrowLeft')  lightboxNav(-1);
         if (e.key === 'ArrowRight') lightboxNav(1);
         if (e.key === 'Escape')     closeLightbox();
-      } else {
-        if (e.key === 'Escape') closeMapModal();
-      }
+      } else { if (e.key === 'Escape') closeMapModal(); }
     });
 
-    // ── Map Modal ──
     function openMapModal() {
       const iframe = document.getElementById('mapIframe');
       if (!iframe.src || iframe.src === window.location.href) iframe.src = iframe.dataset.src;
