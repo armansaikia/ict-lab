@@ -41,8 +41,6 @@
       border-bottom: 2px solid var(--acc);
     }
     .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-
-    /* ── LOGO: nav-logo-wrap matching index.html ── */
     .nav-logo-wrap {
       width: 84px; height: 84px;
       border-radius: 50%;
@@ -171,7 +169,6 @@
       #navbar { height: 66px; padding: 0 20px; }
       main { padding-top: 66px; }
       .mobile-menu { top: 66px; }
-      /* ── Match index.html mobile logo exactly ── */
       .nav-logo-wrap { width: 56px; height: 56px; }
       .nav-logo-img  { width: 56px; height: 56px; }
       .nav-title { font-size: 14px; max-width: 200px; }
@@ -181,11 +178,11 @@
       footer { padding: 26px 20px; }
     }
     @media (max-width: 520px) {
-  .alumni-stats {          /* replace with your actual stats container class */
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 10px;
-  }
-}
+      .intro-stats { flex-wrap: nowrap; gap: 10px; }
+      .intro-stat { min-width: 0; flex: 1; padding: 12px 8px; }
+      .intro-stat-num { font-size: 24px; }
+      .intro-stat-lbl { font-size: 9px; letter-spacing: .8px; }
+    }
   </style>
 </head>
 <body>
