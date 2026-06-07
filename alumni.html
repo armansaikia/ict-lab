@@ -181,8 +181,11 @@
       footer { padding: 26px 20px; }
     }
     @media (max-width: 520px) {
-      .alumni-grid { grid-template-columns: 1fr; }
-    }
+  .alumni-stats {          /* replace with your actual stats container class */
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px;
+  }
+}
   </style>
 </head>
 <body>
