@@ -23,107 +23,37 @@
       --border:#d6ddd8;
       --shadow: 0 14px 34px rgba(13,74,88,.11);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      background: linear-gradient(180deg, #f9faf8 0%, #f7f8f5 50%, #edf0eb 100%);
-      color: var(--text); font-size: 16px; line-height: 1.6;
-    }
+    body { font-family: 'Source Sans 3', sans-serif; background: linear-gradient(180deg, #f9faf8 0%, #f7f8f5 50%, #edf0eb 100%); color: var(--text); font-size: 16px; line-height: 1.6; }
 
-    /* ─── NAVBAR — matches labnews.html exactly ─────────── */
-    #navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,.97);
-      backdrop-filter: blur(10px);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 36px; height: 88px;
-      box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(13,74,88,.10);
-      border-bottom: 2px solid var(--acc);
-    }
+    /* ─── NAVBAR ─────────────────────────────────────────── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,.97); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; padding: 0 36px; height: 88px; box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(13,74,88,.10); border-bottom: 2px solid var(--acc); }
     .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-
-    /* Logo — transparent, no border, 84px */
-    .nav-logo-wrap {
-      width: 84px; height: 84px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-      background: transparent;
-      flex-shrink: 0;
-    }
-    .nav-logo-img {
-      width: 84px; height: 84px;
-      object-fit: contain;
-      background: transparent;
-      display: block;
-    }
-    /* Fallback text badge if image fails */
-    .nav-logo {
-      width: 46px; height: 46px; border-radius: 50%;
-      background: var(--acc);
-      display: none; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0;
-    }
-
-    .nav-title {
-      color: var(--nd);
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; line-height: 1.3;
-      max-width: 320px; font-weight: 700;
-    }
-
-    /* Nav links — Playfair Display, --nd color, bold */
+    .nav-logo-wrap { width: 84px; height: 84px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; background: transparent; flex-shrink: 0; }
+    .nav-logo-img { width: 84px; height: 84px; object-fit: contain; background: transparent; display: block; }
+    .nav-logo { width: 46px; height: 46px; border-radius: 50%; background: var(--acc); display: none; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: var(--nd); flex-shrink: 0; }
+    .nav-title { color: var(--nd); font-family: 'Playfair Display', serif; font-size: 17px; line-height: 1.3; max-width: 320px; font-weight: 700; }
     .nav-links { display: flex; gap: 3px; align-items: center; }
-    .nav-links a {
-      color: var(--nd); text-decoration: none;
-      font-family: 'Playfair Display', serif;
-      font-size: 14px; font-weight: 700;
-      padding: 8px 11px; border-radius: 4px;
-      transition: background .18s, color .18s; white-space: nowrap;
-    }
+    .nav-links a { color: var(--nd); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; padding: 8px 11px; border-radius: 4px; transition: background .18s, color .18s; white-space: nowrap; }
     .nav-links a:hover { background: rgba(13,74,88,.07); }
     .nav-links a.active { background: var(--nd); color: var(--accl); }
-
-    /* Hamburger */
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--nd); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile menu */
-    .mobile-menu {
-      display: none; position: fixed;
-      top: 88px; left: 0; right: 0;
-      background: #fff; z-index: 999;
-      flex-direction: column; padding: 12px 20px 20px;
-      border-top: 2px solid var(--acc);
-      box-shadow: 0 8px 20px rgba(13,74,88,.15);
-    }
+    .mobile-menu { display: none; position: fixed; top: 88px; left: 0; right: 0; background: #fff; z-index: 999; flex-direction: column; padding: 12px 20px 20px; border-top: 2px solid var(--acc); box-shadow: 0 8px 20px rgba(13,74,88,.15); }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      color: var(--muted); text-decoration: none;
-      font-size: 15px; padding: 11px 12px; border-radius: 4px;
-    }
+    .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 15px; padding: 11px 12px; border-radius: 4px; }
     .mobile-menu a:hover { background: rgba(13,74,88,.07); color: var(--nd); font-weight: 600; }
     .mobile-menu a.active { background: var(--nd); color: var(--accl); font-weight: 600; }
 
     main { padding-top: 88px; min-height: 100vh; }
 
     /* ─── HERO ─────────────────────────────────────────── */
-    .section-hero {
-      background: linear-gradient(135deg, var(--nd), var(--nm));
-      text-align: center; position: relative; overflow: hidden;
-      padding: 62px 32px 58px;
-    }
-    .section-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: repeating-linear-gradient(45deg, transparent, transparent 38px,
-        rgba(201,160,32,.038) 38px, rgba(201,160,32,.038) 39px);
-      opacity: .55;
-    }
+    .section-hero { background: linear-gradient(135deg, var(--nd), var(--nm)); text-align: center; position: relative; overflow: hidden; padding: 62px 32px 58px; }
+    .section-hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 38px, rgba(201,160,32,.038) 38px, rgba(201,160,32,.038) 39px); opacity: .55; }
     .hero-deco  { position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; border-radius: 50%; background: rgba(201,160,32,.05); pointer-events: none; }
     .hero-deco2 { position: absolute; bottom: -60px; left: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(42,132,40,.04); pointer-events: none; }
     .section-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px,4vw,44px); color: #e8f4f6; position: relative; animation: fadeUp .7s ease both; }
@@ -135,11 +65,7 @@
 
     /* ── STATS STRIP ── */
     .stats-strip { background: var(--white); border-bottom: 1px solid var(--border); }
-    .stats-inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: 36px 32px;
-      display: flex; gap: 0; justify-content: center;
-    }
+    .stats-inner { max-width: 1100px; margin: 0 auto; padding: 36px 32px; display: flex; gap: 0; justify-content: center; }
     .pub-stat { flex: 1; text-align: center; padding: 16px 20px; border-right: 1px solid var(--border); }
     .pub-stat:last-child { border-right: none; }
     .pub-stat-num { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; color: var(--nd); line-height: 1; }
@@ -149,45 +75,19 @@
     /* ── FILTER BAR ── */
     .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; align-items: center; }
     .filter-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
-    .filter-btn {
-      padding: 7px 18px; border-radius: 3px;
-      border: 1px solid var(--border); background: var(--white);
-      font-size: 12.5px; font-weight: 500; color: var(--muted);
-      cursor: pointer; font-family: 'Source Sans 3', sans-serif;
-      transition: background .15s, color .15s, border-color .15s;
-    }
+    .filter-btn { padding: 7px 18px; border-radius: 3px; border: 1px solid var(--border); background: var(--white); font-size: 12.5px; font-weight: 500; color: var(--muted); cursor: pointer; font-family: 'Source Sans 3', sans-serif; transition: background .15s, color .15s, border-color .15s; }
     .filter-btn:hover { border-color: var(--nl); color: var(--nd); }
     .filter-btn.active { background: var(--nd); color: var(--accl); border-color: var(--nd); font-weight: 600; }
 
-    /* ── PUBLICATION SECTIONS ── */
+    /* ── PUB SECTIONS ── */
     .pub-section { margin-bottom: 56px; }
     .pub-section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-    .pub-section-icon {
-      width: 42px; height: 42px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--nd), var(--nm));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 17px; color: var(--accl); flex-shrink: 0;
-    }
+    .pub-section-icon { width: 42px; height: 42px; border-radius: 8px; background: linear-gradient(135deg, var(--nd), var(--nm)); display: flex; align-items: center; justify-content: center; font-size: 17px; color: var(--accl); flex-shrink: 0; }
     .pub-section-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--nd); }
-    .pub-section-count {
-      margin-left: auto; background: rgba(13,74,88,.08); color: var(--nm);
-      font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: .5px;
-    }
+    .pub-section-count { margin-left: auto; background: rgba(13,74,88,.08); color: var(--nm); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: .5px; white-space: nowrap; }
 
     /* ── PUB ITEMS ── */
-    .pub-item {
-      border-left: 4px solid var(--acc);
-      padding: 20px 24px;
-      background: var(--white);
-      border-radius: 0 6px 6px 0;
-      border-top: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 3px 12px rgba(13,74,88,.05);
-      transition: transform .18s, box-shadow .18s, border-left-color .18s;
-      margin-bottom: 14px;
-      opacity: 0; transform: translateX(-10px);
-    }
+    .pub-item { border-left: 4px solid var(--acc); padding: 20px 24px; background: var(--white); border-radius: 0 6px 6px 0; border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); box-shadow: 0 3px 12px rgba(13,74,88,.05); transition: transform .18s, box-shadow .18s, border-left-color .18s; margin-bottom: 14px; opacity: 0; transform: translateX(-10px); }
     .pub-item.visible { animation: slideIn .45s ease forwards; }
     .pub-item:hover { transform: translateX(4px); box-shadow: 0 6px 22px rgba(13,74,88,.1); border-left-color: var(--nd); }
     .pub-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 8px; }
@@ -198,22 +98,10 @@
     .pub-journal i { font-style: normal; font-size: 11px; }
 
     /* ── SCHOLAR BANNER ── */
-    .scholar-banner {
-      background: linear-gradient(135deg, var(--nd), var(--nm));
-      border-radius: 10px; padding: 36px 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 24px; flex-wrap: wrap; margin-top: 16px;
-    }
+    .scholar-banner { background: linear-gradient(135deg, var(--nd), var(--nm)); border-radius: 10px; padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
     .scholar-banner-text h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #e8f4f6; margin-bottom: 6px; }
     .scholar-banner-text p  { font-size: 14px; color: #8ab8c2; max-width: 500px; line-height: 1.65; }
-    .btn-scholar {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 26px; border-radius: 4px;
-      background: var(--acc); color: var(--nd);
-      font-size: 14px; font-weight: 700;
-      text-decoration: none; white-space: nowrap; flex-shrink: 0;
-      transition: background .18s, transform .15s;
-    }
+    .btn-scholar { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: 4px; background: var(--acc); color: var(--nd); font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background .18s, transform .15s; }
     .btn-scholar:hover { background: var(--accl); transform: translateY(-2px); }
 
     /* ── FOOTER ── */
@@ -224,18 +112,10 @@
     .footer-links a:hover { color: var(--accl); }
     .footer-copy { color: #5a8892; font-size: 12px; }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp  { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
     @keyframes slideIn { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 720px) {
-      .stats-inner { flex-wrap: wrap; }
-      .pub-stat { flex: 1 1 45%; border-right: none; border-bottom: 1px solid var(--border); }
-      .pub-stat:last-child { border-bottom: none; }
-      .pub-top { flex-direction: column; gap: 8px; }
-      .scholar-banner { padding: 24px; flex-direction: column; align-items: flex-start; }
-    }
     @media (max-width: 780px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
@@ -243,17 +123,32 @@
       main { padding-top: 66px; }
       .mobile-menu { top: 66px; }
       .container { padding: 40px 20px; }
-      /* Match index.html mobile logo exactly */
       .nav-logo-wrap { width: 56px; height: 56px; }
       .nav-logo-img  { width: 56px; height: 56px; }
       .nav-title { font-size: 14px; max-width: 200px; }
       footer { padding: 26px 20px; }
     }
+
+    /* ── MOBILE STATS: all 4 in one row ── */
+    @media (max-width: 600px) {
+      .stats-inner { flex-wrap: nowrap; padding: 16px 8px; }
+      .pub-stat { flex: 1; padding: 10px 4px; border-right: 1px solid var(--border); border-bottom: none; }
+      .pub-stat:last-child { border-right: none; }
+      .pub-stat-num { font-size: 20px; }
+      .pub-stat-lbl { font-size: 8.5px; letter-spacing: .5px; }
+      /* filter buttons scroll horizontally */
+      .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+      .filter-bar::-webkit-scrollbar { height: 3px; }
+      .filter-bar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+      .filter-btn { white-space: nowrap; flex-shrink: 0; }
+      .pub-section-count { white-space: nowrap; }
+      .pub-top { flex-direction: column; gap: 8px; }
+      .scholar-banner { padding: 20px; flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ════ NAVBAR — same structure as labnews.html ════ -->
   <nav id="navbar">
     <a class="nav-brand" href="index.html">
       <div class="nav-logo-wrap">
@@ -291,7 +186,6 @@
 
   <main>
 
-    <!-- ════ HERO ════ -->
     <section class="section-hero">
       <div class="hero-deco"></div>
       <div class="hero-deco2"></div>
@@ -300,7 +194,6 @@
       <div class="hero-badge">CSIR-NEIST · Jorhat, Assam</div>
     </section>
 
-    <!-- ════ STATS STRIP ════ -->
     <div class="stats-strip">
       <div class="stats-inner">
         <div class="pub-stat">
@@ -322,10 +215,8 @@
       </div>
     </div>
 
-    <!-- ════ PUBLICATIONS ════ -->
     <section class="container">
 
-      <!-- Filter bar -->
       <div class="filter-bar">
         <span class="filter-label">Filter:</span>
         <button class="filter-btn active" data-filter="all">All</button>
@@ -334,7 +225,7 @@
         <button class="filter-btn" data-filter="book">Book Chapters</button>
       </div>
 
-      <!-- ── RESEARCH PAPERS ── -->
+      <!-- RESEARCH PAPERS -->
       <div class="pub-section" data-section="research">
         <div class="pub-section-header">
           <div class="pub-section-icon"><i class="fa-solid fa-file-lines"></i></div>
@@ -342,110 +233,65 @@
           <div class="pub-section-count">11 Papers</div>
         </div>
         <div class="pub-list">
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Chemical composition and toxicological profiles of atmospheric particulate matter: Evidence from in vitro and in vivo preclinical models.</div>
-              <div class="pub-year">2026</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Chemical composition and toxicological profiles of atmospheric particulate matter: Evidence from in vitro and in vivo preclinical models.</div><div class="pub-year">2026</div></div>
             <div class="pub-authors">Nazrul Islam, Pankaj Barman, Kallol Roy, Madhulika Dutta, Abhishek Hazarika, Debashis Sarmah, Binud Attry et al.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Science of The Total Environment</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Beeswax-Coated Guar Gum/Gelatin Edible Films Infused with Neem (Azadirachta indica) Leaf Extract for Sustainable Food Packaging.</div>
-              <div class="pub-year">2026</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Beeswax-Coated Guar Gum/Gelatin Edible Films Infused with Neem (Azadirachta indica) Leaf Extract for Sustainable Food Packaging.</div><div class="pub-year">2026</div></div>
             <div class="pub-authors">Unnayana Gogoi, Pankaj Barman, Manash R. Das, Rituraj Konwar, and Rituparna Duarah.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> ACS Food Science &amp; Technology</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Andrographolide Selectively Inhibits the Growth of LA7 Mammary Adenocarcinoma Cells.</div>
-              <div class="pub-year">2025</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Andrographolide Selectively Inhibits the Growth of LA7 Mammary Adenocarcinoma Cells.</div><div class="pub-year">2025</div></div>
             <div class="pub-authors">Kallol Roy, Parthiv Kar, Saikat Haldar, Sarangthem Dinamani Singh, Selvaraman Nagamani, Himangsu K. Bora, Binoy K. Saikia, and Rituraj Konwar.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> ACS Omega</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Biographene-Based Nanozyme for Rapid Colorimetric Detection of Oxytetracycline via Peroxidase-Mimicking Activity.</div>
-              <div class="pub-year">2025</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Biographene-Based Nanozyme for Rapid Colorimetric Detection of Oxytetracycline via Peroxidase-Mimicking Activity.</div><div class="pub-year">2025</div></div>
             <div class="pub-authors">Chayanika Hazarika, Darpana Dutta, Esha Roy, Rituparna Duarah, Rituraj Konwar, and Manash R. Das.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Chemistry-An Asian Journal</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Phytochemical analysis of leaf extract of Piper nigrum and investigation of its biological activities.</div>
-              <div class="pub-year">2025</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Phytochemical analysis of leaf extract of Piper nigrum and investigation of its biological activities.</div><div class="pub-year">2025</div></div>
             <div class="pub-authors">Pankaj Barman, Srija Hazarika, Kallol Roy, Ravindra K. Rawal, and Rituraj Konwar.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Inflammopharmacology</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Chemical and toxicological studies on black crust formed over historical monuments as a probable health hazard.</div>
-              <div class="pub-year">2024</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Chemical and toxicological studies on black crust formed over historical monuments as a probable health hazard.</div><div class="pub-year">2024</div></div>
             <div class="pub-authors">Nazrul Islam, Kallol Roy, Pankaj Barman, Shahadev Abha, Himangsu Kousik Bora, Puja Khare, Rituraj Konwar, and Binoy K. Saikia.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Journal of Hazardous Materials</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Hydroxyl functionalized hexagonal boron nitride quantum dots as nanozyme for pesticides sensing through dual colorimetric and fluorometric platform: A combined experimental and theoretical study.</div>
-              <div class="pub-year">2024</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Hydroxyl functionalized hexagonal boron nitride quantum dots as nanozyme for pesticides sensing through dual colorimetric and fluorometric platform: A combined experimental and theoretical study.</div><div class="pub-year">2024</div></div>
             <div class="pub-authors">Chayanika Hazarika, Gayatri Neog, Esha Roy, Devipriya Gogoi, Manash R. Das, Kangkan Sarmah, Ankur K. Guha, Rituraj Konwar, Babasaheb M. Matsagar, and Kevin C-W. Wu.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Chemical Engineering Journal</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Preliminary report on therapeutic potential of coal-derived carbon quantum dots against SARS-CoV-2 virus.</div>
-              <div class="pub-year">2024</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Preliminary report on therapeutic potential of coal-derived carbon quantum dots against SARS-CoV-2 virus.</div><div class="pub-year">2024</div></div>
             <div class="pub-authors">Binoy K. Saikia, Kallol Roy, and Rituraj Konwar.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Virology 593</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Waste-derived high-yield biocompatible fluorescent carbon quantum dots for biological and nanofertiliser applications.</div>
-              <div class="pub-year">2023</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Waste-derived high-yield biocompatible fluorescent carbon quantum dots for biological and nanofertiliser applications.</div><div class="pub-year">2023</div></div>
             <div class="pub-authors">Monikankana Saikia, Abhishek Hazarika, Kallol Roy, Puja Khare, Anjum Dihingia, Rituraj Konwar, and Binoy K. Saikia.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Journal of Environmental Chemical Engineering</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Atomically Dispersed Manganese on Graphene Nanosheets as Biocompatible Nanozyme for Glutathione Detection in Liver Tissue Lysate Using Microfluidic Paper-based Analytical Devices.</div>
-              <div class="pub-year">2023</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Atomically Dispersed Manganese on Graphene Nanosheets as Biocompatible Nanozyme for Glutathione Detection in Liver Tissue Lysate Using Microfluidic Paper-based Analytical Devices.</div><div class="pub-year">2023</div></div>
             <div class="pub-authors">Diksha J. Baruah, Ashutosh Thakur, Esha Roy, Kallol Roy, Sumanjita Basak, Dipankar Neog, Himangsu K. Bora et al.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> ACS Applied Materials &amp; Interfaces</div>
           </div>
-
           <div class="pub-item" data-type="research">
-            <div class="pub-top">
-              <div class="pub-title">Tyrosine-derived novel benzoxazine active in a rat syngenic mammary tumor model of breast cancer.</div>
-              <div class="pub-year">2021</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Tyrosine-derived novel benzoxazine active in a rat syngenic mammary tumor model of breast cancer.</div><div class="pub-year">2021</div></div>
             <div class="pub-authors">Amit Kumar Jana, Jyotsana Singh, Asha Ganesher, Amit Kumar, Arpita Banerjee, Deepak Kumar, Sarvesh Kumar Verma et al.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Journal of Medicinal Chemistry</div>
           </div>
-
         </div>
       </div>
 
-      <!-- ── REVIEW PAPERS ── -->
+      <!-- REVIEW PAPERS -->
       <div class="pub-section" data-section="review">
         <div class="pub-section-header">
           <div class="pub-section-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -453,20 +299,15 @@
           <div class="pub-section-count">1 Paper</div>
         </div>
         <div class="pub-list">
-
           <div class="pub-item" data-type="review">
-            <div class="pub-top">
-              <div class="pub-title">Natural Product Databases: Discovering Nature's Riches.</div>
-              <div class="pub-year">2026</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Natural Product Databases: Discovering Nature's Riches.</div><div class="pub-year">2026</div></div>
             <div class="pub-authors">Gaurav Kumar, Pankaj Barman, Rituraj Konwar, and Ravindra K. Rawal.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Natural Products in Drug Discovery, Apple Academic Press</div>
           </div>
-
         </div>
       </div>
 
-      <!-- ── BOOK CHAPTERS ── -->
+      <!-- BOOK CHAPTERS -->
       <div class="pub-section" data-section="book">
         <div class="pub-section-header">
           <div class="pub-section-icon"><i class="fa-solid fa-book"></i></div>
@@ -474,36 +315,26 @@
           <div class="pub-section-count">2 Chapters</div>
         </div>
         <div class="pub-list">
-
           <div class="pub-item" data-type="book">
-            <div class="pub-top">
-              <div class="pub-title">Bioprospecting and Commercialization of Natural Products.</div>
-              <div class="pub-year">2026</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Bioprospecting and Commercialization of Natural Products.</div><div class="pub-year">2026</div></div>
             <div class="pub-authors">Pankaj Barman, Gaurav Kumar, Kallol Roy, Ravindra K. Rawal, and Rituraj Konwar.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Natural Products in Drug Discovery, Apple Academic Press</div>
           </div>
-
           <div class="pub-item" data-type="book">
-            <div class="pub-top">
-              <div class="pub-title">Carbon Nanotropes: Potential Nanomaterials for Drug Delivery and Biomedical Applications.</div>
-              <div class="pub-year">2023</div>
-            </div>
+            <div class="pub-top"><div class="pub-title">Carbon Nanotropes: Potential Nanomaterials for Drug Delivery and Biomedical Applications.</div><div class="pub-year">2023</div></div>
             <div class="pub-authors">Esha Roy, Prosenjit Mridha, Rinku Baishya, Himangsu Kousik Bora, Rituraj Konwar, and Manash R. Das.</div>
             <div class="pub-journal"><i class="fa-solid fa-book-open"></i> Carbon Nanostructures in Biomedical Applications, Springer International Publishing</div>
           </div>
-
         </div>
       </div>
 
-      <!-- ── SCHOLAR BANNER ── -->
+      <!-- SCHOLAR BANNER -->
       <div class="scholar-banner">
         <div class="scholar-banner-text">
           <h3>View Full Publication List</h3>
           <p>For a complete and up-to-date list of all publications, citations, and metrics, visit Prof. Konwar's Google Scholar profile.</p>
         </div>
-        <a href="https://scholar.google.com/citations?user=RYrcGacAAAAJ&hl=en"
-           target="_blank" rel="noopener noreferrer" class="btn-scholar">
+        <a href="https://scholar.google.com/citations?user=RYrcGacAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn-scholar">
           <i class="fa-brands fa-google"></i> Google Scholar
         </a>
       </div>
@@ -511,7 +342,6 @@
     </section>
   </main>
 
-  <!-- ════ FOOTER ════ -->
   <footer>
     <div class="footer-brand">Integrated Cancer Theranostic Laboratory</div>
     <div class="footer-links">
@@ -523,13 +353,11 @@
   </footer>
 
   <script>
-    // Hamburger
     const ham = document.getElementById('hamburger');
     const mob = document.getElementById('mobileMenu');
     ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
     mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
 
-    // Filter buttons
     const filterBtns = document.querySelectorAll('.filter-btn');
     const sections   = document.querySelectorAll('.pub-section');
     filterBtns.forEach(btn => {
@@ -543,7 +371,6 @@
       });
     });
 
-    // Scroll-reveal for pub items
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
